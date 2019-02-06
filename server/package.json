@@ -4,7 +4,12 @@
   "description": "Backend API for Zenips Gaming. A blog for gamers by gamers.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "client-install": "npm install --prefix ../client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix ../client"
   },
   "repository": {
     "type": "git",
@@ -33,5 +38,9 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "validator": "^10.9.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.8"
   }
 }
