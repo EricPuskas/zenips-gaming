@@ -3,16 +3,6 @@
   "description": "FrontEnd for Zenips Gaming. A blog for gamers by gamers.",
   "version": "0.1.0",
   "private": true,
-  "author": "Eric Puskas",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EricPuskas/zenips-gaming-client/issues"
-  },
-  "homepage": "https://github.com/EricPuskas/zenips-gaming-client#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/EricPuskas/zenips-gaming-client.git"
-  },
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
@@ -38,8 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install  && npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

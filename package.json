@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/EricPuskas/zenips-gaming-server.git"
+    "url": "git+ssh://git@github.com/EricPuskas/zenips-gaming.git"
   },
   "author": "Eric Puskas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EricPuskas/zenips-gaming-server/issues"
+    "url": "https://github.com/EricPuskas/zenips-gaming/issues"
   },
-  "homepage": "https://github.com/EricPuskas/zenips-gaming-server#readme",
+  "homepage": "https://github.com/EricPuskas/zenips-gaming#readme",
   "dependencies": {
     "async": "^2.6.1",
     "bcryptjs": "^2.4.3",
