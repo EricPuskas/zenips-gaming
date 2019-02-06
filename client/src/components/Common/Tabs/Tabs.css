@@ -1,0 +1,28 @@
+.tab-list {
+  text-align: center;
+  padding: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  cursor: pointer;
+  padding: 0.2rem 3rem;
+  border: solid #ccc;
+  border-width: 1px;
+}
+
+.tab-list-active {
+  background-color: #193a4e;
+  border: solid #ccc;
+  border-width: 1px;
+  cursor: default;
+}
+
+@media only screen and (max-width: 600px) {
+  .tab-list-item {
+    padding: 0.2rem 1rem;
+    font-size: 0.8rem;
+  }
+}

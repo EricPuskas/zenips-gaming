@@ -1,0 +1,39 @@
+.scroll {
+  opacity: 0.3;
+  background: -webkit-linear-gradient(left, #082335, #0b8fe2b5, #082335);
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 41px;
+  right: 5px;
+  border-radius: 10%;
+  border: 1px solid white;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.scroll:active,
+.scroll:hover {
+  opacity: 1;
+  border-radius: 50%;
+}
+
+.arrow-up {
+  color: white;
+  position: absolute;
+  top: 9%;
+  left: -1%;
+  margin-top: -5px;
+  margin-left: 6px;
+  font-size: 31px;
+}
+
+.hide-scroll-button {
+  right: -50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .scroll {
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+html,
+body {
+  height: 100%;
+}
+
+.auth-container {
+  height: 100%;
+  background-color: #06131b;
+}

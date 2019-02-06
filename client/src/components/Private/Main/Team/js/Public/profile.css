@@ -1,0 +1,91 @@
+.profile-bio-public {
+  border: 1px solid #193a4e;
+  border-radius: 5%;
+  height: 100%;
+  margin-top: 1rem;
+}
+
+.profile-bio-public p {
+  padding: 0 1rem;
+}
+
+.profile-desc-public {
+  border-left: 1px solid #193a4e;
+  height: 100%;
+  padding: 15px;
+}
+
+.profile-avatar-public {
+  height: auto;
+  max-width: 10rem;
+  margin-top: 0;
+  border-radius: 10%;
+  box-shadow: 3px 3px 10px 1px #000;
+}
+
+.user-info-public {
+  width: 100%;
+  border-bottom: 1px solid #193a4e;
+}
+
+.profile-go-back-btn {
+  position: absolute;
+  left: 0%;
+}
+
+.public-profile-smb {
+  padding-top: 1rem;
+}
+
+.profile-info-box.pib-public {
+  padding-top: 0rem;
+}
+
+.social-icon.fab.fa-twitter {
+  background: #55acee;
+}
+.social-icon.fab.fa-facebook-f {
+  background: #3b5998;
+}
+
+.social-icon.fab.fa-linkedin-in {
+  background: #007bb5;
+}
+
+.social-icon.fab.fa-instagram {
+  background: #125688;
+}
+
+.social-icon.fab:hover {
+  background-color: black;
+}
+/* MEDIA QUERIES */
+@media only screen and (max-width: 600px) {
+  .profile-desc-public {
+    border-top: 1px solid #193a4e;
+    border-left: none;
+    height: 100%;
+    padding: 15px;
+  }
+  .profile-go-back-btn {
+    left: 0%;
+  }
+  .social-icon {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media only screen and (max-width: 1536px) {
+  .profile-go-back-btn {
+    left: 0%;
+  }
+  .social-icon {
+    font-size: 0.9rem;
+    line-height: 0.8rem;
+    width: 25px;
+    height: 25px;
+  }
+}

@@ -1,0 +1,181 @@
+.team-member-avatar {
+  height: auto;
+  max-width: 10rem;
+  min-height: 10rem;
+  margin-top: 0;
+  border-radius: 10%;
+  box-shadow: 3px 3px 10px 1px #000;
+}
+
+.member-details {
+  font-size: 1.25rem;
+  font-weight: 300;
+  padding-top: 2%;
+  display: block;
+}
+
+.member-box {
+  padding: 25px;
+  border: 1px solid #193a4e;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 5%;
+}
+
+.center-div {
+  margin: 0 auto !important;
+}
+
+.member-info {
+  list-style-type: none;
+  position: relative;
+  display: block;
+  padding: 6px;
+}
+
+.member-info-box {
+  text-align: start;
+  width: 100%;
+  margin: 1rem 0 0 0;
+  padding: 0.5rem;
+  border: 1px solid #193a4d;
+}
+
+.pull-right {
+  float: right;
+}
+
+.controls-menu {
+  padding: 0 0.5rem !important;
+}
+.controls-menu .controls-btn {
+  margin: 0.5rem 0rem;
+}
+
+.member-controls {
+  opacity: 0;
+  position: absolute;
+  left: 7%;
+  right: auto;
+  top: 15%;
+  transition: all 0.3s;
+}
+
+.showControls {
+  opacity: 1;
+  top: 3%;
+}
+
+.team-box h1 {
+  font-size: 2.5rem;
+}
+
+.modal-header .modal-title-bio {
+  text-align: center;
+}
+.social-media-box {
+  min-height: 2.5rem;
+  padding-top: 0.75rem;
+}
+
+.social-icon {
+  border: 1px solid white;
+  border-radius: 50%;
+  background: #193a4d;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  margin-left: 0.75rem;
+}
+
+.member-controls a,
+.member-controls button {
+  margin: 2px;
+  font-size: 0.9rem;
+}
+
+.posts-container {
+  color: #fff;
+  padding: 0px;
+  overflow: auto;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: -17px;
+  height: 70vh;
+  -webkit-transition: all 0.3s;
+  -webkit-overflow-scrolling: touch;
+  transition: all 0.3s;
+}
+
+.profile-container {
+  -webkit-scrollbar-thumb: rgba(69, 124, 156, 0);
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 600px) {
+  .member-controls {
+    display: none;
+    top: 2%;
+    left: 5%;
+  }
+  .member-controls a,
+  .member-controls button {
+    font-size: 1rem !important;
+  }
+  .showControls {
+    display: block;
+    top: 2%;
+  }
+  .controls-menu {
+    padding: 0 2.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .btn.btn-steel.controls-btn,
+  .controls-menu .controls-btn {
+    font-size: 1rem !important;
+    margin: 0.5rem 0rem;
+    padding: 5px 10px !important;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1536px) {
+  .member-controls {
+    left: 7%;
+  }
+  .showControls {
+    top: 3%;
+  }
+  .timeline-buttons {
+    float: none;
+    margin-top: -5px;
+  }
+  .center-on-mobile {
+    text-align: center;
+  }
+  .member-controls a,
+  .member-controls button {
+    font-size: 0.8rem;
+    padding: 0;
+  }
+
+  .profile-info-box {
+    text-align: start;
+    font-size: 0.9rem;
+  }
+
+  .profile-bio p {
+    font-size: 0.85rem;
+  }
+  .member-info-box {
+    font-size: 0.8rem;
+  }
+  .member-box {
+    padding: 0.8rem;
+  }
+  .btn-user-role {
+    padding: 0.1rem 1rem !important;
+    font-size: 0.8rem;
+  }
+}

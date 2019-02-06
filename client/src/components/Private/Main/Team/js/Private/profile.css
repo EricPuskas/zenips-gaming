@@ -1,0 +1,109 @@
+.controls-menu {
+  padding: 0 0.5rem !important;
+}
+.controls-menu .controls-btn {
+  margin: 0.5rem 0rem;
+}
+
+.profile-box {
+  padding: 10px;
+  min-height: 82vh;
+}
+
+.bl-blue {
+  border-left: 1px solid #193a4e;
+}
+.profile-avatar {
+  height: auto;
+  max-width: 10rem;
+  min-height: 10rem;
+  margin-top: 0;
+  border-radius: 10%;
+  box-shadow: 3px 3px 10px 1px #000;
+}
+
+.profile-box {
+  padding: 25px;
+  border: 1px solid #193a4e;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 5%;
+}
+
+.profile-info {
+  list-style-type: none;
+  position: relative;
+  display: block;
+  padding: 6px;
+}
+
+.profile-info-box {
+  text-align: start;
+  width: 100%;
+  margin: 1rem 0 0 0;
+  padding: 0.5rem;
+  border: 1px solid #193a4d;
+}
+
+.profile-info-box {
+  text-align: start;
+}
+.profile-info-box span {
+  float: right;
+}
+.user-details-form {
+  padding-top: 1rem;
+  border-top: 1px solid #193a4d;
+}
+
+.user-description {
+  border-top: 1px solid #193a4e;
+}
+
+.profile-details {
+  font-size: 1.25rem;
+  font-weight: 300;
+  padding-top: 2%;
+  display: block;
+}
+
+.profile-bio p {
+  padding: 10px 15px;
+  font-size: 0.9rem;
+}
+
+.profile-bio-controls {
+  position: absolute;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #040d13;
+  opacity: 0.5;
+  color: #fff;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 600px) {
+  .profile-bio {
+    border: none;
+    border-top: 1px solid #193a4e;
+  }
+  .profile-form-group {
+    height: 2.5rem !important;
+  }
+}
+.sid-sm.search-item-data i {
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+@media only screen and (min-width: 1536px) and (max-width: 1536px) {
+  .profile-info-box {
+    text-align: start;
+    font-size: 0.9rem;
+  }
+
+  .profile-bio p {
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,10 @@
+.search-engine-box {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-engine-box {
+    padding-left: 2rem;
+  }
+}

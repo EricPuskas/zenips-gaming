@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700");
+body {
+  background-color: #06131b;
+  color: #fff;
+  font-family: "Roboto Condensed";
+}
+h1 {
+  color: #fff;
+}
+.form-heading {
+  color: #fff;
+  font-size: 23px;
+}
+.panel h2 {
+  color: #fff;
+  font-size: 18px;
+  margin: 0 0 8px 0;
+}
+.panel p {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+.login-form {
+  z-index: 10000;
+}
+.login-form .form-control {
+  font-family: "Roboto Condensed";
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  color: #495057;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+.main-div {
+  background: #02151ded none repeat scroll 0 0;
+  border: 1px solid #03dcff30;
+  border-radius: 5%;
+  margin: 0 auto;
+  max-width: 55%;
+  padding: 0rem 2rem;
+}
+
+.login-form .form-group {
+  margin-bottom: 10px;
+}
+.login-form {
+  text-align: center;
+  padding-top: 5vh;
+}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form .btn.btn-primary {
+  padding: 0.5rem 3rem;
+  margin: 1rem 2rem;
+  font-size: 1.1rem;
+  color: #fff;
+  border: 1px solid #009cc3;
+  background-color: #06131b !important;
+}
+
+.login-form .btn.btn-primary:hover {
+  border: 1px solid #06131b;
+  background-color: #009cc3 !important;
+}
+
+.forgot {
+  text-align: left;
+  margin-bottom: 30px;
+}
+.botto-text {
+  color: #000;
+  font-size: 14px;
+  margin: auto;
+}
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back {
+  text-align: left;
+  margin-top: 10px;
+}
+.back a {
+  color: #444444;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.logo-auth {
+  height: auto;
+  width: 350px;
+  max-width: 100%;
+}
+
+.auth-border {
+  position: fixed;
+  top: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: -1;
+  border: 1px solid #033a48;
+  max-height: 95vh;
+}
+
+.login-btn-group {
+  padding-top: 25px;
+}
+.login-title {
+  padding: 0 0 2rem 0;
+}
+
+.page-title {
+  padding-top: 2rem;
+  text-align: center;
+}
+.auth-footer {
+  padding-bottom: 2rem;
+}
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+
+.btn {
+  padding: 10px 15px;
+}
+
+.auth-forgot {
+  text-align: start;
+  color: #fff;
+}
+@media only screen and (max-width: 600px) {
+  .login-form {
+    padding: 0;
+    padding-top: 0.5rem;
+  }
+  .login-title {
+    padding: 2rem 0;
+  }
+  .auth-border {
+    display: none;
+  }
+  .login-btn-group {
+    padding: 0.5rem 0 1rem 0;
+    width: 100vw;
+  }
+  .main-div {
+    background: #001f2b none repeat scroll 0 0;
+    border-radius: 2px;
+    margin: 0px auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0rem;
+  }
+  .login-title {
+    padding: 0.25rem;
+  }
+  .login-form .form-control {
+    font-size: 1rem;
+    line-height: 3rem;
+    height: 3rem !important;
+  }
+  .auth-forgot {
+    padding: 0 1rem;
+    font-size: 1.1rem;
+  }
+  .login-form .btn.btn-primary {
+    padding: 0.5rem 2rem;
+    margin: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  .logo-auth {
+    height: auto;
+    width: 200px;
+    max-width: 100%;
+  }
+  .mb-3 {
+    padding: 0 0.5rem;
+  }
+  .auth-footer {
+    padding-top: 2vh;
+  }
+  .page-title {
+    padding: 1rem 0 0.5rem 0;
+    margin: 0;
+  }
+}

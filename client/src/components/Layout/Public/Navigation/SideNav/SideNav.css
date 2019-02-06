@@ -1,0 +1,136 @@
+.side-drawer {
+  height: 100%;
+  background: #141a1d;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  overflow: auto;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  color: black;
+  z-index: 9999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+.side-drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0.5rem 1rem;
+}
+
+.side-drawer li {
+  color: #ff8017;
+  background: #1f272b;
+  margin: 0.2rem;
+  border: 2px solid #ffffff21;
+  padding: 1rem;
+  text-align: center;
+}
+
+.side-drawer a {
+  color: inherit;
+  font-weight: 700;
+  font-family: "Aldrich", sans-serif;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.side-drawer li:hover,
+.side-drawer li:focus,
+.side-drawer li:active {
+  color: #141a1d;
+  background-color: #ff8017;
+}
+
+.side-d-search-box {
+  margin: 1.5rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-d-search-box input[type="text"]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #f7770d;
+  font-family: "Aldrich";
+  opacity: 1; /* Firefox */
+}
+
+.side-d-search-box input[type="text"]::-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #f7770d;
+  font-family: "Aldrich";
+}
+
+.side-d-search-box input[type="text"]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #f7770d;
+  font-family: "Aldrich";
+}
+
+.side-d-search-box input[type="text"]:focus,
+.side-d-search-box input[type="text"]:visited,
+.side-d-search-box input[type="text"]:hover,
+.side-d-search-box input[type="text"] {
+  outline: none;
+  width: 100%;
+  color: white;
+  text-align: start;
+  background: #051b29;
+  padding: 0.5rem;
+  border: 1px solid #f7770d;
+  font-family: "Aldrich";
+}
+
+.side-d-search-box input[type="text"]:active {
+  border: 1px solid #f7770d;
+}
+
+.side-drawer .side-d-search-box button {
+  padding: 0.29rem 1rem;
+  border: 1px solid #f7770d;
+  background: #f7770d;
+  outline: none;
+  margin: 0;
+}
+
+.side-drawer button {
+  color: inherit;
+  outline: none;
+  border: none;
+  font-size: 1.3rem;
+  background: inherit;
+  font-family: "Aldrich";
+}
+
+.side-d-scrollable {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+@media only screen and (max-width: 737px) {
+  .side-drawer li {
+    padding: 0.5rem;
+  }
+  .side-d-scrollable {
+    height: 80%;
+  }
+}
+@media (min-width: 1367px) {
+  .side-drawer {
+    display: none;
+  }
+}
+@media (min-width: 800px) and (max-width: 1366px) {
+  .side-d-scrollable {
+    height: 85%;
+  }
+}

@@ -1,0 +1,20 @@
+.tag-item {
+  padding: 10px;
+  background-color: #06131b;
+  border: 1px solid #ffffff00;
+  border-top: none;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.tag-selected {
+  background-color: #004a6d;
+  border: 1px solid #62c5ff;
+  border-bottom: none;
+  border-top: none;
+  cursor: pointer;
+}
+
+.center-div.text-center.newTag-input {
+  margin-top: 2rem !important;
+}

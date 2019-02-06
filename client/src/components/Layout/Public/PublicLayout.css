@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Ubuntu");
+html {
+  height: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  height: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.main_container {
+  color: #000;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100vh;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.main_container h1 {
+  color: #000;
+}

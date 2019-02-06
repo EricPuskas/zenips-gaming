@@ -1,0 +1,241 @@
+.navbar {
+  background: #06131b;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 40px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #040d13;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10002;
+}
+
+.navbar-btn {
+  box-shadow: none;
+  outline: none !important;
+  border: none;
+}
+
+.dropdown .dropdown-menu .dropdown-item:active {
+  background-color: #07161f;
+}
+.dropdown-menu-right:hover,
+.dropdown-menu-right:active,
+.dropdown-menu-right:focus {
+  background: #07161f !important;
+}
+
+.dropdown .dropdown-menu .dropdown-item:active {
+  background-color: #07161f !important;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #07161f;
+}
+.navbar-nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  text-align: right;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .active > .nav-link {
+  color: #fff;
+}
+
+.dropdown-item {
+  width: auto;
+}
+.btn-info {
+  color: #fff;
+  background-color: #193e54;
+  border-color: #193e54;
+}
+
+.btn-toggle {
+  background-color: rgb(16, 32, 41);
+}
+
+.btn-toggle:hover {
+  background-color: rgb(7, 22, 31);
+}
+
+.avatar-dropdown {
+  height: auto;
+  min-height: 125.39px;
+  max-width: 55%;
+  border-radius: 50%;
+  box-shadow: 1px 2px 9px 3px #000;
+}
+.topnav-dropdown-menu {
+  position: absolute;
+  right: 0;
+  left: auto;
+}
+
+.userinfo-dropdown {
+  text-align: center;
+  padding: 5px;
+}
+.profile-dropdown {
+  padding: 5px 0px;
+  color: #fff;
+}
+
+.profile-dropdown h6 {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.topnav-header {
+  padding: 5px 10px;
+}
+
+.topnav-footer {
+  padding: 5px 10px;
+}
+
+.badge-light {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+}
+
+.badge {
+  padding: 0.2em 0.4em;
+  position: fixed;
+  right: 4.5rem;
+  top: 0.9rem;
+  font-size: 11px;
+}
+
+#sidebar ul li a.disabled-menu:hover,
+#sidebar ul li a.disabled-menu:active,
+#sidebar ul li a.disabled-menu:focus,
+#sidebar ul li a.disabled-menu {
+  color: gray;
+  cursor: default;
+}
+
+.dropdown-menu-right {
+  min-width: 15rem;
+  background: #102029;
+  box-shadow: 1px 1px 10px 1px #000;
+}
+
+.dropdown-menu-right:hover,
+.dropdown-menu-right:active,
+.dropdown-menu-right:focus {
+  background: #102029;
+}
+
+.message-box:hover,
+.message-box {
+  color: #fff;
+  background: #07161f;
+}
+
+.dropdown-item:hover {
+  background: #07161f;
+}
+
+.navbar .dropdown-menu {
+  margin-top: 25px;
+}
+
+.dropdown-blue {
+  background-color: #07161f;
+}
+
+.dropdown-blue:hover {
+  background-color: #07161f;
+}
+
+.logo {
+  height: auto;
+  width: 190px;
+  max-width: 100%;
+}
+.logo-container {
+  text-align: center;
+}
+
+.navbar .dropdown-menu a {
+  color: #fff;
+  background-color: #07161f;
+}
+
+.navbar .dropdown-menu a:hover {
+  background-color: #102029;
+}
+
+.table td,
+.table th {
+  border-top: none;
+}
+
+.msgMobile {
+  display: none;
+}
+
+.navbar .dropdown-menu .message-item {
+  color: #fff;
+  background-color: #07161f;
+}
+.navbar .dropdown-menu .message-item:hover {
+  color: #fff;
+  background-color: #102029;
+}
+
+.message-box-container,
+.message-box-container:hover {
+  background-color: #07161f;
+}
+
+.dropdown-menu::before {
+  left: auto;
+  right: 14px;
+  top: -25px;
+}
+
+.dropdown-menu::before {
+  border: 15px solid transparent;
+  border-bottom-color: rgb(7, 22, 31);
+}
+.dropdown-menu::after,
+.dropdown-menu::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 600px) {
+  #sidebarCollapse {
+    margin-left: calc(100vw - 315px);
+  }
+  .navbar {
+    z-index: 10001;
+  }
+  .badge {
+    padding: 0.2em 0.4em;
+    position: fixed;
+    left: 14rem;
+    right: auto;
+    top: 1rem;
+    font-size: 11px;
+  }
+  .msgMobile {
+    display: inline-block;
+    padding-top: 8px;
+  }
+}

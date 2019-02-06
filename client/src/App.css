@@ -1,0 +1,45 @@
+button:focus {
+  outline: none;
+}
+
+.yt-player {
+  width: 100%;
+  display: block;
+  position: relative;
+  cursor: pointer;
+  max-height: 360px;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  margin: 0 auto;
+}
+
+.yt-player img {
+  bottom: -100%;
+  display: block;
+  left: 0;
+  margin: auto;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  top: -100%;
+}
+
+.yt-player-control {
+  height: 100px;
+  width: 100px;
+  left: 50%;
+  top: 50%;
+  margin-left: 0px;
+  margin-top: -35px;
+  position: absolute;
+  background: url("http://i.imgur.com/TxzC70f.png") no-repeat;
+}
+
+@media only screen and (max-width: 600px) {
+  .yt-player-control {
+    margin-left: -35px;
+  }
+}
