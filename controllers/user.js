@@ -189,9 +189,7 @@ exports.sendResetPassword = function(req, res) {
           text:
             "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
             "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-            "https://" +
-            req.headers.host +
-            "/dashboard/team/reset/" +
+            "https://zenipsgaming.herokuapp.com/dashboard/team/reset/" +
             token +
             "\n\n" +
             "If you did not request this, please ignore this email and your password will remain unchanged.\n"
@@ -283,9 +281,7 @@ exports.sendForgotPassword = function(req, res) {
           text:
             "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
             "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-            "https://" +
-            req.headers.host +
-            "/auth/reset/" +
+            "https://zenipsgaming.herokuapp.com/auth/reset/" +
             token +
             "\n\n" +
             "If you did not request this, please ignore this email and your password will remain unchanged.\n"

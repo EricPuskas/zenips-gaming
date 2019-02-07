@@ -30,12 +30,10 @@ export const getInitMessages = (per, page, search) => dispatch => {
   axios
     .get(`/api/messages?per=${per}&page=1&search=${search}`)
     .then(res =>
-      setTimeout(() => {
-        dispatch({
-          type: GET_INIT_MESSAGES,
-          payload: res.data.messages
-        });
-      }, 300)
+      dispatch({
+        type: GET_INIT_MESSAGES,
+        payload: res.data.messages
+      })
     )
     .catch(err =>
       dispatch({
@@ -73,19 +71,19 @@ export const deleteSelected = (data, location) => dispatch => {
         dispatch({
           type: DELETE_MESSAGE
         });
-      }, 1000)
+      }, 500)
     )
     .then(() =>
       setTimeout(() => {
         dispatch({
           type: HIDE_MODAL
         });
-      }, 1000)
+      }, 500)
     )
     .then(() =>
       setTimeout(() => {
         dispatch(getInitMessages(20, 1, location));
-      }, 1000)
+      }, 500)
     )
     .catch(err =>
       setTimeout(() => {
@@ -93,7 +91,7 @@ export const deleteSelected = (data, location) => dispatch => {
           type: GET_ERRORS,
           payload: err.response.data
         });
-      }, 1000)
+      }, 500)
     );
 };
 
@@ -104,12 +102,10 @@ export const getMoreMessages = (per, page, search) => dispatch => {
   axios
     .get(`/api/messages?per=${per}&page=${page}&search=${search}`)
     .then(res =>
-      setTimeout(() => {
-        dispatch({
-          type: GET_MORE_MESSAGES,
-          payload: res.data.messages
-        });
-      }, 300)
+      dispatch({
+        type: GET_MORE_MESSAGES,
+        payload: res.data.messages
+      })
     )
     .catch(() =>
       dispatch({
@@ -133,12 +129,12 @@ export const moveMessages = (data, location) => dispatch => {
         dispatch({
           type: MOVE_MESSAGE
         });
-      }, 600)
+      }, 500)
     )
     .then(() =>
       setTimeout(() => {
         dispatch(getInitMessages(20, 1, current_location));
-      }, 600)
+      }, 500)
     )
     .catch(err =>
       dispatch({
