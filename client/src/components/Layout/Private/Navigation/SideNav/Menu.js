@@ -3,12 +3,24 @@ import SearchBox from "./SearchBox";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadModal } from "../../../../../actions/modalActions";
+import { SlideDown } from "react-slidedown";
+import "react-slidedown/lib/slidedown.css";
 const MODAL_PROPS = {
   width: "50%",
   left: "30%",
   header: "Toolbox"
 };
 class Menu extends Component {
+  constructor() {
+    super();
+    this.state = {
+      dropdown: false
+    };
+  }
+  FirstChild = props => {
+    const childrenArray = React.Children.toArray(props.children);
+    return childrenArray[0] || null;
+  };
   componentDidMount() {
     window.addEventListener("keydown", this.listenKeyboard.bind(this), true);
   }
@@ -19,8 +31,36 @@ class Menu extends Component {
     }
   };
 
+  toggleDropdown = () => {
+    this.setState(prevState => {
+      return { dropdown: !prevState.dropdown };
+    });
+  };
+
   render() {
     const { inbox, archive, toggleSidenavMobile } = this.props;
+    let dropDownMenu;
+    this.state.dropdown
+      ? (dropDownMenu = (
+          <ul className="list-unstyled sidenav-submenu menu-show">
+            <li>
+              <Link to="/dashboard/articles" onClick={toggleSidenavMobile}>
+                <i className="fas fa-search" /> <span> Browse </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard/articles/new" onClick={toggleSidenavMobile}>
+                <i className="fas fa-plus" /> <span> New Article </span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard/tags" onClick={toggleSidenavMobile}>
+                <i className="fas fa-tags" /> <span> Tags </span>
+              </Link>
+            </li>
+          </ul>
+        ))
+      : (dropDownMenu = null);
     return (
       <ul className="list-unstyled components">
         <div style={{ textAlign: "center" }}>
@@ -74,36 +114,15 @@ class Menu extends Component {
           </li>
           <li>
             <a
-              href="#articlesSubmenu"
-              data-toggle="collapse"
-              aria-expanded="false"
+              href="#!"
+              onClick={() => this.toggleDropdown()}
               className="dropdown-toggle sidenav-dropdown-toggle"
             >
               <i className="fas fa-edit" /> <span>Articles</span>
             </a>
-            <ul
-              className="collapse list-unstyled sidenav-submenu"
-              id="articlesSubmenu"
-            >
-              <li>
-                <Link to="/dashboard/articles" onClick={toggleSidenavMobile}>
-                  <i className="fas fa-search" /> <span> Browse </span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/dashboard/articles/new"
-                  onClick={toggleSidenavMobile}
-                >
-                  <i className="fas fa-plus" /> <span> New Article </span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/dashboard/tags" onClick={toggleSidenavMobile}>
-                  <i className="fas fa-tags" /> <span> Tags </span>
-                </Link>
-              </li>
-            </ul>
+            <SlideDown className={"my-dropdown-slidedown"}>
+              {dropDownMenu}
+            </SlideDown>
           </li>
           <li>
             <div

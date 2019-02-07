@@ -66,6 +66,11 @@ a[data-toggle="collapse"] {
   position: relative;
 }
 
+.react-slidedown.my-dropdown-slidedown {
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
 .search-box-custom {
   padding-right: 0px;
   padding-left: 15px;
