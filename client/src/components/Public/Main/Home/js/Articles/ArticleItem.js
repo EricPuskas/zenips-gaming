@@ -25,8 +25,8 @@ class ArticleItem extends PureComponent {
 
   render() {
     const { article } = this.props;
-    let preview = article.preview.substring(0, 225);
-    if (article.preview.length > 225) preview += "...";
+    let preview = article.preview.substring(0, 200);
+    if (article.preview.length > 200) preview += "...";
     return (
       <div className="article-box-item row">
         <div className="col-12 col-xl-5 reset-padding article-thumbnail-main">
@@ -44,7 +44,7 @@ class ArticleItem extends PureComponent {
                 <img
                   src={article.author.avatar}
                   alt="Author Avatar"
-                  className="img-responsive search-item-avatar"
+                  className="img-responsive author-avatar-small"
                 />
                 <span>{article.author.name} </span>
               </div>

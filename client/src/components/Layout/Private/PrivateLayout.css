@@ -304,6 +304,8 @@ hr {
   scrollbar-base-color: #02b9ff;
 }
 
+.posts-container::-webkit-scrollbar-thumb,
+.messages-content::-webkit-scrollbar-thumb,
 .main-container::-webkit-scrollbar-thumb {
   background: rgba(69, 124, 156, 0.7);
   border-radius: 0px;

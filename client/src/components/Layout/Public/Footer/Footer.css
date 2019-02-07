@@ -36,12 +36,12 @@
 }
 .base-footer i {
   font-size: 1.3rem;
-  padding-left: 1rem;
   cursor: pointer;
 }
 
 .footer span {
   color: #fff;
+  padding-right: 1rem;
 }
 
 .footer span::-moz-selection {

@@ -7,7 +7,7 @@ import {
   getMoreArticles
 } from "../../../../actions/articleActions";
 import ArticlesFeed from "./js/Articles/ArticlesFeed";
-import LoaderLarge from "../../../Common/Loader/LoaderLarge";
+import LoaderRolling from "../../../Common/Loader/LoaderRolling";
 import LoaderSmall from "../../../Common/Loader/LoaderSmall";
 import ScrollToTop from "../../../Common/ScrollToTop/ScrollToTop";
 import Navigation from "../../../Layout/Public/Navigation/Navigation";
@@ -18,6 +18,7 @@ class Home extends PureComponent {
   constructor() {
     super();
     this.state = {
+      mobile: false,
       hideScrollTopButton: true,
       expandContent: false,
       hideFooter: false,
@@ -27,7 +28,11 @@ class Home extends PureComponent {
   }
   componentDidMount() {
     document.title = "Zenips Gaming | Home";
-    // window.addEventListener("wheel", this.handleWheel, false);
+    if (window.innerWidth <= 813) {
+      this.setState(prevState => {
+        return { mobile: !prevState.mobile };
+      });
+    }
     const { per, page } = this.props.articles;
     this.props.getInitArticles(per, page, this.state.search);
   }
@@ -93,148 +98,197 @@ class Home extends PureComponent {
       loading,
       init_loading
     } = this.props.articles;
-    let endLoad,
-      loader_icon = "";
+    let endLoad, loader_icon, side;
     let main = <ArticlesFeed articles={articles} />;
-
+    this.state.mobile
+      ? (side = "")
+      : (side = (
+          <div className="ads-container">
+            <div className="advertisement">
+              <span>Advertisement</span>
+              <img
+                className="img-responsive"
+                src="https://s3.envato.com/files/224287130/300x600.jpg"
+                alt="Advertisement"
+              />
+            </div>
+            <div className="advertisement">
+              <span>Advertisement</span>
+              <img
+                className="img-responsive"
+                src="http://visarity-ad-pakfiles.s3.amazonaws.com/web/images/v3ad-a078-89f3-824b-61897_regular.jpg"
+                alt="Advertisement"
+              />
+            </div>
+          </div>
+        ));
     if (articles.length > 0 && totalPages === page && page > 1 && !loading) {
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
+    if (totalPages === page && page > 1 && !loading) {
+      side = (
+        <div className="ads-container">
+          <div className="advertisement">
+            <span>Advertisement</span>
+            <img
+              className="img-responsive"
+              src="https://s3.envato.com/files/224287130/300x600.jpg"
+              alt="Advertisement"
+            />
+          </div>
+          <div className="advertisement">
+            <span>Advertisement</span>
+            <img
+              className="img-responsive"
+              src="http://visarity-ad-pakfiles.s3.amazonaws.com/web/images/v3ad-a078-89f3-824b-61897_regular.jpg"
+              alt="Advertisement"
+            />
+          </div>
+        </div>
+      );
 
+      endLoad = <div className="fadeInEnd">You've reached the end.</div>;
+    }
     loading ? (loader_icon = <LoaderSmall />) : (loader_icon = "");
 
     if (articles === null || init_loading) {
-      main = <LoaderLarge msg={"Loading data. Please wait."} margin="0 auto" />;
+      main = (
+        <LoaderRolling msg={"Loading data. Please wait."} margin="50px auto" />
+      );
     }
 
     let contentContainer = classNames({
       "content-container": true,
       expand: this.state.expandContent
     });
-    return (
-      <div>
-        <Navigation hideTopNav={this.state.hideTopNav} />
-        <div className="wrapper_main">
-          <div
-            id="container"
-            onScroll={e =>
-              this.handleScroll(e, scrolling, totalPages, page, per)
-            }
-            className={contentContainer}
-          >
-            <div id="offset">
-              <div className="row bottom-bar">
-                <div className="col-12 col-lg-7 col-xl-7">
-                  <div className="latest-post-container text-center">
-                    <h1>Latest Video</h1>
-                    <div className="embed-responsive embed-responsive-16by9">
-                      <div
-                        className="yt-player"
-                        data-id="i3GmVHYoJNY"
-                        data-related="0"
-                        data-control="1"
-                        data-info="1"
-                        data-fullscreen="1"
-                      >
-                        <img
-                          src="https://i.ytimg.com/vi/GNPITZj8pOI/maxresdefault.jpg"
-                          alt="youtube video"
-                        />
-                        <div className="yt-player-control">&nbsp;</div>
+
+    let bigContainer;
+    if (articles === null || init_loading) {
+      bigContainer = (
+        <LoaderRolling msg={"Loading... Please wait."} margin="50px auto" />
+      );
+    } else {
+      bigContainer = (
+        <div>
+          <Navigation hideTopNav={this.state.hideTopNav} />
+          <div className="wrapper_main">
+            <div
+              id="container"
+              onScroll={e =>
+                this.handleScroll(e, scrolling, totalPages, page, per)
+              }
+              className={contentContainer}
+            >
+              <div id="offset">
+                <div className="row bottom-bar">
+                  <div className="col-12 col-lg-7 col-xl-7">
+                    <div className="latest-post-container text-center">
+                      <h1>Latest Video</h1>
+                      <div className="embed-responsive embed-responsive-16by9">
+                        <div
+                          className="yt-player"
+                          data-id="i3GmVHYoJNY"
+                          data-related="0"
+                          data-control="1"
+                          data-info="1"
+                          data-fullscreen="1"
+                        >
+                          <img
+                            src="https://res.cloudinary.com/zenipsstudio/image/upload/v1548671129/bfnze8ehqeuwimc8lqzr.jpg"
+                            alt="youtube video"
+                          />
+                          <div className="yt-player-control">&nbsp;</div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-12 col-lg-5 col-xl-5 side-bar">
-                  <div className="top-article-container text-center">
-                    <h1>Article of the week!</h1>
-                    <img
-                      src="https://attackofthefanboy.com/wp-content/uploads/2018/09/ac-odyssey.jpg"
-                      alt="Thumbnail"
-                      className="img-responsive article-thumbnail"
-                    />
-                    <h1 className="latest-post-title">
-                      Assassin’s Creed Odyssey - The series latest step in a
-                      different direction
-                    </h1>
-                    <p>
-                      {" "}
-                      Assassin’s Creed Odyssey is juggling a lot. It flirts with
-                      comedy and tragedy, serves up the stealth that the series
-                      is known for, and overhauls and improves straightforward
-                      melee combat. Edited by Eric.
-                    </p>
+                  <div className="col-12 col-lg-5 col-xl-5 side-bar">
+                    <div className="top-article-container text-center">
+                      <h1>Article of the week!</h1>
+                      <h1 className="latest-post-title text-center">
+                        Witcher 3 - Halloween stuff
+                      </h1>
+                      <div className="article-info-div text-center">
+                        <div className="article-info-itm">
+                          <img
+                            src="https://res.cloudinary.com/zenipsstudio/image/upload/v1548105509/a1xet3uflgxvrz5gurdy.png"
+                            alt="Author Avatar"
+                            className="img-responsive author-avatar-small"
+                          />
+                          <span>Eric Puskas</span>
+                        </div>
+                        <div className="article-info-itm text-center">
+                          <i className="far fa-clock" />
+                          <span>Feb 04 - 2:13 AM</span>
+                        </div>
+                        <div className="article-info-itm text-center">
+                          <i className="fas fa-tag" />
+                          <span>Event</span>
+                        </div>
+                      </div>
+                      <img
+                        src="https://res.cloudinary.com/zenipsstudio/image/upload/v1548950113/fkk9rgdpq8qbf92mlmk4.png"
+                        alt="Thumbnail"
+                        className="img-responsive article-thumbnail"
+                      />
+                      <p>
+                        Assassin’s Creed Odyssey is juggling a lot. It flirts
+                        with comedy and tragedy, serves up the stealth that the
+                        series is known for, and overhauls and improves
+                        straightforward melee combat. Assassin’s C...
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-12 col-lg-3 col-xl-2">
-                  <div className="ads-container">
-                    <div className="advertisement">
-                      <span>Advertisement</span>
-                      <img
-                        className="img-responsive"
-                        src="https://www.patriotsandpaws.org/wp-content/uploads/2018/06/OCCF-EV-Stand-and-Salute-2018-Web-Ads-300x600-01.png"
-                        alt="Advertisement"
-                      />
+                <div className="row">
+                  <div className="col-12 col-lg-2 col-xl-2">
+                    <div className="ads-container">
+                      <div className="advertisement">
+                        <span>Advertisement</span>
+                        <img
+                          className="img-responsive"
+                          src="https://www.patriotsandpaws.org/wp-content/uploads/2018/06/OCCF-EV-Stand-and-Salute-2018-Web-Ads-300x600-01.png"
+                          alt="Advertisement"
+                        />
+                      </div>
+                      <div className="advertisement">
+                        <span>Advertisement</span>
+                        <img
+                          className="img-responsive"
+                          src="https://456e6419cd3deedfcb01-f77d790b25275a0acf47e2933ac91fce.ssl.cf2.rackcdn.com/da73b65a0d79fb2a062552c1eee4134b.jpeg"
+                          alt="Advertisement"
+                        />
+                      </div>
                     </div>
-                    <div className="spacer" />
-                    <div className="advertisement">
-                      <span>Advertisement</span>
-                      <img
-                        className="img-responsive"
-                        src="https://456e6419cd3deedfcb01-f77d790b25275a0acf47e2933ac91fce.ssl.cf2.rackcdn.com/da73b65a0d79fb2a062552c1eee4134b.jpeg"
-                        alt="Advertisement"
-                      />
-                    </div>
-                    <div className="spacer" />
                   </div>
-                </div>
-                <div className="col-12 col-lg-8 col-xl-8">
-                  <h1 className="text-center">Recent Articles</h1>
-                  <div className="main-holder">
-                    {main}
-                    {loader_icon}
-                  </div>
-                </div>
-                <div className="col-12 col-lg-3 col-xl-2">
-                  <div className="ads-container">
-                    <div className="advertisement">
-                      <span>Advertisement</span>
-                      <img
-                        className="img-responsive"
-                        src="https://s3.envato.com/files/224287130/300x600.jpg"
-                        alt="Advertisement"
-                      />
+                  <div className="col-12 col-lg-8 col-xl-8">
+                    <h1 className="text-center">Recent Articles</h1>
+                    <div className="main-holder">
+                      {main}
+                      {loader_icon}
                     </div>
-                    <div className="spacer" />
-                    <div className="advertisement">
-                      <span>Advertisement</span>
-                      <img
-                        className="img-responsive"
-                        src="http://visarity-ad-pakfiles.s3.amazonaws.com/web/images/v3ad-a078-89f3-824b-61897_regular.jpg"
-                        alt="Advertisement"
-                      />
-                    </div>
-                    <div className="spacer" />
                   </div>
+                  <div className="col-12 col-lg-2 col-xl-2">{side}</div>
                 </div>
-              </div>
-              {endLoad}
-              <div id="target">
-                <ScrollToTop
-                  hideScrollTopButton={this.state.hideScrollTopButton}
-                  container={container}
-                  scrollStepInPx="20"
-                  delayInMs="1"
-                />
+                {endLoad}
+                <div id="target">
+                  <ScrollToTop
+                    customScroll={true}
+                    hideScrollTopButton={this.state.hideScrollTopButton}
+                    container={container}
+                    scrollStepInPx="20"
+                    delayInMs="1"
+                  />
+                </div>
               </div>
             </div>
           </div>
+          <Footer hideFooter={this.state.hideFooter} />
         </div>
-        <Footer hideFooter={this.state.hideFooter} />
-      </div>
-    );
+      );
+    }
+
+    return bigContainer;
   }
 }
 

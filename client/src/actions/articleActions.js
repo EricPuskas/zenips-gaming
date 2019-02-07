@@ -8,11 +8,9 @@ import {
   GET_INIT_ARTICLES,
   INIT_ARTICLES_LOADING,
   UPDATE_PAGE_ART,
-  GET_TOTAL_PAGES_ART,
   ARTICLES_LOADING,
   GET_ARTICLE,
   GET_SEARCH_ARTICLES,
-  COUNT_ARTICLES,
   UPDATE_ARTICLE,
   UPDATE_ARTICLE_LOADING,
   DELETE_ARTICLE,
@@ -45,11 +43,9 @@ export const getInitArticles = (per, page, search) => dispatch => {
   let url;
   dispatch(InitArticlesLoading());
   if (search !== "") {
-    dispatch(getTotalPagesArticles(per, page, search));
     dispatch(pageUpdateArticles(1));
     url = `/api/articles?per=${per}&page=1&search=${search}`;
   } else {
-    dispatch(getTotalPagesArticles(per, page, ""));
     dispatch(pageUpdateArticles(1));
     url = `/api/articles?per=${per}&page=1`;
   }
@@ -59,7 +55,7 @@ export const getInitArticles = (per, page, search) => dispatch => {
       setTimeout(() => {
         dispatch({
           type: GET_INIT_ARTICLES,
-          payload: res.data.articles
+          payload: res.data
         });
       }, 250)
     )
@@ -112,15 +108,13 @@ export const deleteArticle = (id, history) => dispatch => {
 export const getSearchArticles = (per, page, search) => dispatch => {
   dispatch(InitArticlesLoading());
   dispatch(pageUpdateArticles(1));
-  dispatch(getTotalPagesArticles(per, 1, search));
-  dispatch(countArticles(per, 1, search));
   axios
     .get(`/api/articles?per=${per}&page=1&search=${search}`)
     .then(res =>
       setTimeout(() => {
         dispatch({
           type: GET_SEARCH_ARTICLES,
-          payload: res.data.articles
+          payload: res.data
         });
       }, 500)
     )
@@ -239,42 +233,6 @@ export const addTag = data => dispatch => {
   axios
     .post("/api/tags/new", data)
     .then(() => dispatch(getTags()))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPagesArticles = (per, page, search) => dispatch => {
-  axios
-    .get(`/api/articles?per=${per}&page=${page}&search=${search}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES_ART,
-        payload: res.data.pages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const countArticles = (per, page, search) => dispatch => {
-  axios
-    .get(`/api/articles?per=${per}&page=${page}&search=${search}`)
-    .then(res =>
-      dispatch({
-        type: COUNT_ARTICLES,
-        payload: res.data.count
-      })
-    )
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

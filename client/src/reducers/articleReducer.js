@@ -2,13 +2,11 @@ import {
   CREATE_ARTICLE,
   GET_INIT_ARTICLES,
   INIT_ARTICLES_LOADING,
-  GET_TOTAL_PAGES_ART,
   UPDATE_PAGE_ART,
   ARTICLES_LOADING,
   GET_MORE_ARTICLES,
   GET_ARTICLE,
   GET_SEARCH_ARTICLES,
-  COUNT_ARTICLES,
   UPDATE_ARTICLE,
   UPDATE_ARTICLE_LOADING,
   DELETE_ARTICLE,
@@ -70,7 +68,8 @@ export default function(state = initialState, action) {
     case GET_INIT_ARTICLES:
       return {
         ...state,
-        articles: action.payload,
+        articles: action.payload.articles,
+        totalPages: action.payload.pages,
         init_loading: false,
         update_loading: false,
         loading: false,
@@ -79,7 +78,9 @@ export default function(state = initialState, action) {
     case GET_SEARCH_ARTICLES:
       return {
         ...state,
-        articles: action.payload,
+        articles: action.payload.articles,
+        totalPages: action.payload.pages,
+        count: action.payload.count,
         init_loading: false,
         update_loading: false,
         loading: false,
@@ -118,16 +119,6 @@ export default function(state = initialState, action) {
         ...state,
         page: action.payload,
         scrolling: true
-      };
-    case GET_TOTAL_PAGES_ART:
-      return {
-        ...state,
-        totalPages: action.payload
-      };
-    case COUNT_ARTICLES:
-      return {
-        ...state,
-        count: action.payload
       };
     default:
       return state;

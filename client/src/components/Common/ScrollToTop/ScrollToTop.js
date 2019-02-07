@@ -31,7 +31,8 @@ class ScrollToTop extends Component {
 
   render() {
     let scroll = classNames({
-      scroll: true,
+      scroll: !this.props.customScroll,
+      "custom-scroll": this.props.customScroll,
       "hide-scroll-button": this.props.hideScrollTopButton
     });
     return (

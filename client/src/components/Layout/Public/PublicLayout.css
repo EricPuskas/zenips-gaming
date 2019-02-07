@@ -8,6 +8,8 @@ body {
   height: 100%;
   overflow: hidden;
   scroll-behavior: smooth;
+  background-color: #fff;
+  color: #222;
 }
 
 .main_container {
