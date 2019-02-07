@@ -126,27 +126,7 @@ class Home extends PureComponent {
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
     if (totalPages === page && page > 1 && !loading) {
-      side = (
-        <div className="ads-container">
-          <div className="advertisement">
-            <span>Advertisement</span>
-            <img
-              className="img-responsive"
-              src="https://s3.envato.com/files/224287130/300x600.jpg"
-              alt="Advertisement"
-            />
-          </div>
-          <div className="advertisement">
-            <span>Advertisement</span>
-            <img
-              className="img-responsive"
-              src="http://visarity-ad-pakfiles.s3.amazonaws.com/web/images/v3ad-a078-89f3-824b-61897_regular.jpg"
-              alt="Advertisement"
-            />
-          </div>
-        </div>
-      );
-
+      side = null;
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
     loading ? (loader_icon = <LoaderSmall />) : (loader_icon = "");
@@ -242,7 +222,7 @@ class Home extends PureComponent {
                 </div>
                 <div className="row">
                   <div className="col-12 col-lg-2 col-xl-2">
-                    <div className="ads-container">
+                    {/* <div className="ads-container">
                       <div className="advertisement">
                         <span>Advertisement</span>
                         <img
@@ -259,7 +239,7 @@ class Home extends PureComponent {
                           alt="Advertisement"
                         />
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="col-12 col-lg-8 col-xl-8">
                     <h1 className="text-center">Recent Articles</h1>
