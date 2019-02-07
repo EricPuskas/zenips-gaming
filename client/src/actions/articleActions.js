@@ -61,7 +61,7 @@ export const getInitArticles = (per, page, search) => dispatch => {
           type: GET_INIT_ARTICLES,
           payload: res.data.articles
         });
-      }, 500)
+      }, 250)
     )
     .catch(err =>
       dispatch({
@@ -81,19 +81,19 @@ export const deleteArticle = (id, history) => dispatch => {
         dispatch({
           type: DELETE_ARTICLE
         });
-      }, 1000)
+      }, 500)
     )
     .then(() =>
       setTimeout(() => {
         dispatch({
           type: HIDE_MODAL
         });
-      }, 1000)
+      }, 500)
     )
     .then(() =>
       setTimeout(() => {
         history.push("/dashboard/articles");
-      }, 1000)
+      }, 500)
     )
     .catch(err => {
       dispatch(errorLoading());
@@ -105,7 +105,7 @@ export const deleteArticle = (id, history) => dispatch => {
           type: GET_ERRORS,
           payload: err.response.data
         });
-      }, 1000)
+      }, 500)
     );
 };
 
@@ -122,7 +122,7 @@ export const getSearchArticles = (per, page, search) => dispatch => {
           type: GET_SEARCH_ARTICLES,
           payload: res.data.articles
         });
-      }, 900)
+      }, 500)
     )
     .catch(err =>
       dispatch({

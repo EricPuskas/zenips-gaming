@@ -43,7 +43,7 @@ import {
   COUNT_USER_POSTS,
   COUNT_USER_PATCH_NOTES
 } from "./types";
-const load_time = 1000;
+const load_time = 500;
 
 // Get Initial Posts
 export const getUserInitPosts = (username, per, page) => dispatch => {

@@ -189,8 +189,8 @@ exports.sendResetPassword = function(req, res) {
           text:
             "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
             "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-            "http://" +
-            "localhost:3000" +
+            "https://" +
+            req.headers.host +
             "/dashboard/team/reset/" +
             token +
             "\n\n" +
@@ -283,8 +283,8 @@ exports.sendForgotPassword = function(req, res) {
           text:
             "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
             "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-            "http://" +
-            "localhost:3000" +
+            "https://" +
+            req.headers.host +
             "/auth/reset/" +
             token +
             "\n\n" +
