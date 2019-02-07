@@ -100,28 +100,6 @@ class Home extends PureComponent {
     } = this.props.articles;
     let endLoad, loader_icon, side;
     let main = <ArticlesFeed articles={articles} />;
-    this.state.mobile
-      ? (side = "")
-      : (side = (
-          <div className="ads-container">
-            <div className="advertisement">
-              <span>Advertisement</span>
-              <img
-                className="img-responsive"
-                src="https://s3.envato.com/files/224287130/300x600.jpg"
-                alt="Advertisement"
-              />
-            </div>
-            <div className="advertisement">
-              <span>Advertisement</span>
-              <img
-                className="img-responsive"
-                src="http://visarity-ad-pakfiles.s3.amazonaws.com/web/images/v3ad-a078-89f3-824b-61897_regular.jpg"
-                alt="Advertisement"
-              />
-            </div>
-          </div>
-        ));
     if (articles.length > 0 && totalPages === page && page > 1 && !loading) {
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
