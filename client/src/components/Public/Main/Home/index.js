@@ -30,11 +30,18 @@ class Home extends PureComponent {
       expandContent: false,
       hideFooter: false,
       hideTopNav: false,
-      search: ""
+      search: "",
+      display_update: false
     };
   }
   componentDidMount() {
     document.title = "Zenips Gaming | Home";
+    // Handle global event.
+    window.addEventListener("newContentAvailable", () => {
+      this.setState({
+        display_update: true
+      });
+    });
     window.innerWidth <= 813 &&
       this.setState(prevState => {
         return { mobile: !prevState.mobile };
@@ -49,6 +56,11 @@ class Home extends PureComponent {
     this.props.getTopArticle(1, 1);
     this.props.getInitArticles(3, 1, this.state.search);
   }
+
+  onClick = () => {
+    // Reload when modal click.
+    window.location.reload(window.location.href);
+  };
 
   handleScroll = (e, scrolling, totalPages, page, per) => {
     e.stopPropagation();
@@ -112,13 +124,21 @@ class Home extends PureComponent {
       topArticle
     } = this.props.articles;
 
-    let endLoad, loader_icon, content;
+    let endLoad, loader_icon, content, update_available;
     let contentClass = classNames({
       "content-container": true,
       expand: this.state.expandContent
     });
 
     loading ? (loader_icon = <LoaderSmall />) : (loader_icon = "");
+    this.state.display_update
+      ? (update_available = (
+          <span className="update-available">
+            {" "}
+            New Content Available! Please reload{" "}
+          </span>
+        ))
+      : (update_available = null);
 
     if (articles.length > 0 && totalPages === page && page > 1 && !loading) {
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
@@ -154,6 +174,7 @@ class Home extends PureComponent {
                   <div className="row">
                     <div className="col-12 col-lg-2 col-xl-2" />
                     <div className="col-12 col-lg-8 col-xl-8">
+                      {update_available}
                       <ArticlesFeed articles={articles} />
                       {loader_icon}
                     </div>

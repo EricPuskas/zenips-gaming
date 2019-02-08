@@ -98,6 +98,15 @@
   margin-bottom: 1rem;
 }
 
+.update-available {
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
 .main-holder .spinner-loader h2 {
   font-size: 1.7rem;
 }

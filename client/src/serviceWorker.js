@@ -10,7 +10,6 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read http://bit.ly/CRA-PWA
 
-export let updateAvailable;
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
     // [::1] is the IPv6 localhost address.
@@ -74,8 +73,9 @@ function registerValidSW(swUrl, config) {
                 "New content is available and will be used when all " +
                   "tabs for this page are closed. See http://bit.ly/CRA-PWA."
               );
-              updateAvailable =
-                "New content is available and will be used when all tabs for this page are closed.";
+              // Append dispatch event
+              const event = new Event("newContentAvailable");
+              window.dispatchEvent(event);
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
