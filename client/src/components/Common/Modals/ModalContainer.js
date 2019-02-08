@@ -16,6 +16,7 @@ import ArticleDeleteModal from "./ArticleDeleteModal/ArticleDeleteModal";
 import MessagesDeleteModal from "./MessagesDeleteModal/MessagesDeleteModal";
 import Toolbox from "./Toolbox/Toolbox";
 import Message from "./Message/Message";
+import UpdateModal from "./UpdateModal/UpdateModal";
 
 const MODAL_COMPONENTS = {
   BIO_MODAL: BioModal,
@@ -30,7 +31,8 @@ const MODAL_COMPONENTS = {
   ARTICLE_DEL_MODAL: ArticleDeleteModal,
   MSG_DEL_MODAL: MessagesDeleteModal,
   TOOLBOX: Toolbox,
-  MESSAGE: Message
+  MESSAGE: Message,
+  UPDATE_MODAL: UpdateModal
 };
 
 const ModalContainer = props => {

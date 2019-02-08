@@ -1,6 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "../../Public/Main/Home";
+// Modals
+import ModalContainer from "../../Common/Modals/ModalContainer";
 import "./PublicLayout.css";
 
 class PublicLayout extends React.Component {
@@ -33,6 +35,7 @@ class PublicLayout extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
         </Switch>
+        <ModalContainer />
       </div>
     );
   }

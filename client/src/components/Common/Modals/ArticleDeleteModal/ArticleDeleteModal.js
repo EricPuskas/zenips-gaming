@@ -157,7 +157,10 @@ class ArticleDeleteModal extends React.Component {
               )}
             </Body>
             <Footer>
-              <button className="btn btn-green-c" onClick={() => this.reload()}>
+              <button
+                className="btn btn-green-c"
+                onClick={() => window.location.reload()}
+              >
                 <i className="fas fa-check-circle" /> Reload
               </button>
               <button

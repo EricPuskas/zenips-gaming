@@ -8,6 +8,7 @@ import {
   getMoreArticles,
   getTopArticle
 } from "../../../../actions/articleActions";
+import { loadModal } from "../../../../actions/modalActions";
 // Components
 import ArticlesFeed from "./js/ArticlesFeed";
 import LoaderRolling from "../../../Common/Loader/LoaderRolling";
@@ -123,7 +124,11 @@ class Home extends PureComponent {
       init_loading,
       topArticle
     } = this.props.articles;
-
+    const MODAL_PROPS = {
+      width: "50%",
+      left: "30%",
+      header: "Notification"
+    };
     let endLoad, loader_icon, content, update_available;
     let contentClass = classNames({
       "content-container": true,
@@ -131,14 +136,8 @@ class Home extends PureComponent {
     });
 
     loading ? (loader_icon = <LoaderSmall />) : (loader_icon = "");
-    this.state.display_update
-      ? (update_available = (
-          <span className="update-available">
-            {" "}
-            New Content Available! Please reload{" "}
-          </span>
-        ))
-      : (update_available = null);
+    this.state.display_update &&
+      this.props.loadModal("UPDATE_MODAL", MODAL_PROPS);
 
     if (articles.length > 0 && totalPages === page && page > 1 && !loading) {
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
@@ -175,6 +174,15 @@ class Home extends PureComponent {
                     <div className="col-12 col-lg-2 col-xl-2" />
                     <div className="col-12 col-lg-8 col-xl-8">
                       {update_available}
+                      <button
+                        onClick={() =>
+                          this.props.loadModal("UPDATE_MODAL", MODAL_PROPS)
+                        }
+                        className="btn btn-primary btn-lg"
+                        type="button"
+                      >
+                        Test
+                      </button>
                       <ArticlesFeed articles={articles} />
                       {loader_icon}
                     </div>
@@ -203,6 +211,7 @@ class Home extends PureComponent {
 Home.propTypes = {
   articles: PropTypes.object.isRequired,
   getInitArticles: PropTypes.func.isRequired,
+  loadModal: PropTypes.func.isRequired,
   getMoreArticles: PropTypes.func.isRequired,
   getTopArticle: PropTypes.func.isRequired
 };
@@ -213,5 +222,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getInitArticles, getMoreArticles, getTopArticle }
+  { getInitArticles, getMoreArticles, getTopArticle, loadModal }
 )(Home);
