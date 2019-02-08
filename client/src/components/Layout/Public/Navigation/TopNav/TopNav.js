@@ -102,6 +102,7 @@ class TopNav extends React.Component {
                   ref={input => input && showSearch && input.focus()}
                   className={searchClass}
                   placeholder="Search"
+                  aria-label="Search"
                 />
               </li>
             </ul>
