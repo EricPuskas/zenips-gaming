@@ -112,7 +112,7 @@ class Home extends PureComponent {
       topArticle
     } = this.props.articles;
 
-    let endLoad, loader_icon, content, main;
+    let endLoad, loader_icon, content;
     let contentClass = classNames({
       "content-container": true,
       expand: this.state.expandContent
@@ -125,55 +125,56 @@ class Home extends PureComponent {
     }
 
     init_loading
-      ? (main = (
+      ? (content = (
           <LoaderRolling msg={"Loading... Please wait."} margin="50px auto" />
         ))
-      : (main = <ArticlesFeed articles={articles} />);
-    content = (
-      <div>
-        <Navigation hideTopNav={this.state.hideTopNav} />
-        <div className="wrapper_main">
-          <div
-            id="container"
-            onScroll={e => this.handleScroll(e, scrolling, totalPages, page, 3)}
-            className={contentClass}
-          >
-            <div id="offset">
-              <div className="row bottom-bar">
-                <div className="col-12 col-lg-7 col-xl-7">
-                  <LatestVideo id="3eJguVaiOBc" />
+      : (content = (
+          <div>
+            <Navigation hideTopNav={this.state.hideTopNav} />
+            <div className="wrapper_main">
+              <div
+                id="container"
+                onScroll={e =>
+                  this.handleScroll(e, scrolling, totalPages, page, 3)
+                }
+                className={contentClass}
+              >
+                <div id="offset">
+                  <div className="row bottom-bar">
+                    <div className="col-12 col-lg-7 col-xl-7">
+                      <LatestVideo id="3eJguVaiOBc" />
+                    </div>
+                    <div className="col-12 col-lg-5 col-xl-5 side-bar">
+                      <TopArticle
+                        topArticle={topArticle}
+                        large_screen={this.state.large_screen}
+                      />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-12 col-lg-2 col-xl-2" />
+                    <div className="col-12 col-lg-8 col-xl-8">
+                      <ArticlesFeed articles={articles} />
+                      {loader_icon}
+                    </div>
+                    <div className="col-12 col-lg-2 col-xl-2" />
+                  </div>
+                  {endLoad}
+                  <div id="target">
+                    <ScrollToTop
+                      customScroll={true}
+                      hideScrollTopButton={this.state.hideScrollTopButton}
+                      container={container}
+                      scrollStepInPx="20"
+                      delayInMs="1"
+                    />
+                  </div>
                 </div>
-                <div className="col-12 col-lg-5 col-xl-5 side-bar">
-                  <TopArticle
-                    topArticle={topArticle}
-                    large_screen={this.state.large_screen}
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-12 col-lg-2 col-xl-2" />
-                <div className="col-12 col-lg-8 col-xl-8">
-                  {main}
-                  {loader_icon}
-                </div>
-                <div className="col-12 col-lg-2 col-xl-2" />
-              </div>
-              {endLoad}
-              <div id="target">
-                <ScrollToTop
-                  customScroll={true}
-                  hideScrollTopButton={this.state.hideScrollTopButton}
-                  container={container}
-                  scrollStepInPx="20"
-                  delayInMs="1"
-                />
               </div>
             </div>
+            <Footer hideFooter={this.state.hideFooter} />
           </div>
-        </div>
-        <Footer hideFooter={this.state.hideFooter} />
-      </div>
-    );
+        ));
     return content;
   }
 }
