@@ -16,7 +16,8 @@ import {
   DELETE_ARTICLE,
   DELETE_ARTICLE_LOADING,
   HIDE_MODAL,
-  GET_TAGS
+  GET_TAGS,
+  GET_TOP_ARTICLE
 } from "./types";
 
 // Create an Article
@@ -58,6 +59,24 @@ export const getInitArticles = (per, page, search) => dispatch => {
           payload: res.data
         });
       }, 250)
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const getTopArticle = (per, page) => dispatch => {
+  let url = `/api/articles?per=${per}&${page}=1&search=Most Popular`;
+  axios
+    .get(url)
+    .then(res =>
+      dispatch({
+        type: GET_TOP_ARTICLE,
+        payload: res.data
+      })
     )
     .catch(err =>
       dispatch({

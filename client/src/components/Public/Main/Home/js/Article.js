@@ -1,28 +1,9 @@
 // Dependencies
 import React, { PureComponent } from "react";
-import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import Moment from "react-moment";
 
-class ArticleItem extends PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      errors: {}
-    };
-  }
-
-  static getDerivedStateFromProps(nextProps) {
-    if (nextProps.errors) {
-      return { errors: nextProps.errors };
-    } else return null;
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.errors !== this.props.errors) {
-      this.setState(() => ({ errors: this.props.errors }));
-    }
-  }
-
+class Article extends PureComponent {
   render() {
     const { article } = this.props;
     let preview = article.preview.substring(0, 200);
@@ -69,11 +50,8 @@ class ArticleItem extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  errors: state.errors
-});
+Article.propTypes = {
+  article: PropTypes.object.isRequired
+};
 
-export default connect(
-  mapStateToProps,
-  {}
-)(ArticleItem);
+export default Article;

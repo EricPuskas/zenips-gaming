@@ -11,12 +11,14 @@ import {
   UPDATE_ARTICLE_LOADING,
   DELETE_ARTICLE,
   DELETE_ARTICLE_LOADING,
-  GET_TAGS
+  GET_TAGS,
+  GET_TOP_ARTICLE
 } from "../actions/types";
 
 const initialState = {
   articles: [],
   article: {},
+  topArticle: {},
   tags: [],
   count: 0,
   per: 8,
@@ -119,6 +121,11 @@ export default function(state = initialState, action) {
         ...state,
         page: action.payload,
         scrolling: true
+      };
+    case GET_TOP_ARTICLE:
+      return {
+        ...state,
+        topArticle: action.payload.articles
       };
     default:
       return state;
