@@ -20,6 +20,7 @@ const helmet = require("helmet");
 
 // Middleware
 app.use(helmet());
+app.use(helmet.noCache());
 app.use(compression());
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
