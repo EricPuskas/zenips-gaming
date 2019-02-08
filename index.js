@@ -45,7 +45,7 @@ if (NODE_ENV === "production") {
   app.use(express.static("client/build", { maxAge: time }));
   app.get("/robots.txt", function(req, res) {
     res.type("text/plain");
-    res.send("User-agent: *\nDisallow: /");
+    res.send("User-agent: *\nDisallow: //");
   });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));

@@ -6,7 +6,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
-    "cra-append-sw": "^2.6.1",
     "html-react-parser": "^0.6.1",
     "jwt-decode": "^2.2.0",
     "mdbreact": "^4.8.6",
