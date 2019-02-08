@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from "react";
 import classNames from "classnames";
+import { updateAvailable } from "../../../../serviceWorker";
+import isEmpty from "../../../../utils/isEmpty";
 import "./Footer.css";
 
 class Footer extends React.Component {
@@ -64,6 +66,18 @@ class Footer extends React.Component {
       "fas fa-minus": this.state.expanded
     });
 
+    let footerContent;
+
+    if (isEmpty(updateAvailable)) {
+      console.log(updateAvailable);
+      footerContent = (
+        <span>&copy; {new Date().getFullYear()} Copyright. Zenips Studios</span>
+      );
+    } else {
+      console.log(updateAvailable);
+      footerContent = updateAvailable;
+    }
+
     return (
       <footer className="footer">
         <div className={extendedFooter}>
@@ -105,9 +119,7 @@ class Footer extends React.Component {
           </div>
         </div>
         <div className={baseFooter}>
-          <span>
-            &copy; {new Date().getFullYear()} Copyright. Zenips Studios
-          </span>
+          {footerContent}
           <i className={expandIcon} onClick={() => this.toggleExpFooter()} />
         </div>
       </footer>
