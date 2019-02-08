@@ -20,7 +20,7 @@ const TopArticle = ({ topArticle, large_screen }) => {
   topArticle.length > 0
     ? (content = (
         <div className="top-article-container text-center">
-          <h1>Article of the week!</h1>
+          <h1>Article of the week</h1>
           <h1 className="latest-post-title text-center">{article.title}</h1>
           <div className="article-info-div text-center">
             <div className="article-info-itm">

@@ -15,11 +15,11 @@ const patchNotes = require("./routes/patch_notes");
 const articles = require("./routes/articles");
 const tags = require("./routes/tags");
 const messages = require("./routes/messages");
-const oneYear = 60 * 1000 * 60 * 24 * 365;
+const time = 60 * 1000 * 60 * 8; // 3 hours
 const helmet = require("helmet");
 
 // Middleware
-app.use(helmet());
+app.use(helmet.noCache());
 app.use(compression());
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
@@ -42,9 +42,9 @@ app.use("/api/messages", messages);
 // Serve static assets if in production
 if (NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("client/build", { maxAge: oneYear }));
+  // app.use(express.static("client/build", { maxAge: oneYear }));
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
 }
 
