@@ -46,9 +46,8 @@ class Home extends PureComponent {
         return { large_screen: !prevState.large_screen };
       });
 
-    const { per, page } = this.props.articles;
-    this.props.getTopArticle(per, page);
-    this.props.getInitArticles(per, page, this.state.search);
+    this.props.getTopArticle(1, 1);
+    this.props.getInitArticles(3, 1, this.state.search);
   }
 
   handleScroll = (e, scrolling, totalPages, page, per) => {
@@ -107,7 +106,6 @@ class Home extends PureComponent {
       scrolling,
       totalPages,
       page,
-      per,
       articles,
       loading,
       init_loading,
@@ -137,7 +135,7 @@ class Home extends PureComponent {
               <div
                 id="container"
                 onScroll={e =>
-                  this.handleScroll(e, scrolling, totalPages, page, per)
+                  this.handleScroll(e, scrolling, totalPages, page, 3)
                 }
                 className={contentClass}
               >

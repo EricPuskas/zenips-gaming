@@ -10,14 +10,9 @@ const store = createStore(
   initialState,
   compose(
     applyMiddleware(...middleware),
-    process.env.NODE_ENV === "production" // To do: Test this out later.
-      ? (window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__({
-            trace: true,
-            traceLimit: 25
-          })) ||
-          compose
-      : compose
+    process.env.NODE_ENV === "development" &&
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true, traceLimit: 25 })
   )
 );
 
