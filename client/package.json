@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
+    "cra-append-sw": "^2.6.1",
     "html-react-parser": "^0.6.1",
     "jwt-decode": "^2.2.0",
     "mdbreact": "^4.8.6",
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && cra-append-sw ./custom-sw.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

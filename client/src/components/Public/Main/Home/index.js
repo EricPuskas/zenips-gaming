@@ -129,7 +129,7 @@ class Home extends PureComponent {
       left: "30%",
       header: "Notification"
     };
-    let endLoad, loader_icon, content, update_available;
+    let endLoad, loader_icon, content;
     let contentClass = classNames({
       "content-container": true,
       expand: this.state.expandContent
@@ -173,16 +173,6 @@ class Home extends PureComponent {
                   <div className="row">
                     <div className="col-12 col-lg-2 col-xl-2" />
                     <div className="col-12 col-lg-8 col-xl-8">
-                      {update_available}
-                      <button
-                        onClick={() =>
-                          this.props.loadModal("UPDATE_MODAL", MODAL_PROPS)
-                        }
-                        className="btn btn-primary btn-lg"
-                        type="button"
-                      >
-                        Test
-                      </button>
                       <ArticlesFeed articles={articles} />
                       {loader_icon}
                     </div>
