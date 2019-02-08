@@ -10,8 +10,14 @@ const store = createStore(
   initialState,
   compose(
     applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__({ trace: true, traceLimit: 25 })
+    process.env.NODE_ENV === "production" // To do: Test this out later.
+      ? (window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__({
+            trace: true,
+            traceLimit: 25
+          })) ||
+          compose
+      : compose
   )
 );
 
