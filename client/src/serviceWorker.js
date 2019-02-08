@@ -73,17 +73,9 @@ function registerValidSW(swUrl, config) {
                 "New content is available and will be used when all " +
                   "tabs for this page are closed. See http://bit.ly/CRA-PWA."
               );
-              self.addEventListener("install", function(event) {
-                // The promise that skipWaiting() returns can be safely ignored.
-                self.skipWaiting();
-                const event = new Event("newContentAvailable");
-                window.dispatchEvent(event);
-                // Perform any other actions required for your
-                // service worker to install, potentially inside
-                // of event.waitUntil();
-              });
               // Append dispatch event
-
+              const event = new Event("newContentAvailable");
+              window.dispatchEvent(event);
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -135,12 +127,6 @@ function checkValidServiceWorker(swUrl, config) {
       );
     });
 }
-
-self.addEventListener("message", event => {
-  if (event.data === "skipWaiting") {
-    self.skipWaiting();
-  }
-});
 
 export function unregister() {
   if ("serviceWorker" in navigator) {
