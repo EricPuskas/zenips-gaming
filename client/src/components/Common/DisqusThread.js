@@ -31,11 +31,11 @@ class DisqusThread extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => renderDisqus(), 500);
+    setTimeout(() => renderDisqus(), 1000);
   }
 
   componentDidUpdate() {
-    setTimeout(() => renderDisqus(), 500);
+    setTimeout(() => renderDisqus(), 1000);
   }
 
   render() {
@@ -48,9 +48,7 @@ class DisqusThread extends React.Component {
       window.disqus_url = WEBSITE_URL + path;
     }
 
-    return (
-      <div {...other} id="disqus_thread" style={{ marginBottom: "5rem" }} />
-    );
+    return <div {...other} id="disqus_thread" style={{ margin: "10vh 0" }} />;
   }
 }
 

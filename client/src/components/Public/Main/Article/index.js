@@ -28,6 +28,7 @@ class Article extends PureComponent {
     this.state = {
       hideScrollTopButton: true,
       expandContent: false,
+      disqus: false,
       hideFooter: false,
       hideTopNav: false
     };
@@ -52,6 +53,16 @@ class Article extends PureComponent {
   handleScroll = e => {
     e.stopPropagation();
     const container = document.getElementById("container");
+    const offset = document.getElementById("offset");
+    const target = document.getElementById("target");
+    const targetOffset = target.offsetTop;
+    const containerOffset = container.offsetTop + container.clientHeight;
+    const pageOffset = container.scrollTop + offset.offsetTop;
+
+    let result = pageOffset + containerOffset;
+    if (result > targetOffset + (container.offsetTop - container.scrollTop)) {
+      this.setState({ disqus: true });
+    }
     let st = window.pageYOffset || container.scrollTop;
 
     if (st > lastScrollTop) {
@@ -114,7 +125,7 @@ class Article extends PureComponent {
             status_icon={status_icon}
           />
         ));
-    if (article._id !== undefined) {
+    if (article._id !== undefined && this.state.disqus) {
       disqus_thread = (
         <DisqusThread
           id={article._id}
