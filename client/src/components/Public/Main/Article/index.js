@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Disqus from "disqus-react";
+import DisqusThread from "../../../Common/DisqusThread";
 // Utils
 import ytOptimizer from "../../../../utils/ytOptimizer";
 //Components
@@ -137,9 +137,10 @@ class Article extends PureComponent {
                 <div className="col-12 col-lg-2 col-xl-2" />
                 <div className="col-12 col-lg-8 col-xl-8">
                   {main}
-                  <Disqus.DiscussionEmbed
-                    shortname={disqusShortname}
-                    config={disqusConfig}
+                  <DisqusThread
+                    id={article._id}
+                    title={article.title}
+                    path={this.props.history.location.pathname}
                   />
                 </div>
                 <div className="col-12 col-lg-2 col-xl-2" />
