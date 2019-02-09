@@ -29,6 +29,7 @@
   background: #1f272b;
   width: 100%;
   transition: bottom 0.3s ease-out;
+  z-index: 9999;
 }
 .base-footer.hide {
   transition: bottom 0.3s ease-out;
@@ -74,6 +75,7 @@
   background: #1f272b;
   width: 100%;
   transition: opacity 0s, bottom 1s ease-out;
+  z-index: 9999;
 }
 
 .extended-footer.show {
@@ -214,5 +216,9 @@
     bottom: 2.5rem;
     opacity: 1;
     transition: opacity 1s, bottom 0.2s ease-out;
+  }
+  .footer span {
+    color: #fff;
+    padding-right: 0;
   }
 }

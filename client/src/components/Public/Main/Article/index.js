@@ -10,9 +10,7 @@ import ytOptimizer from "../../../../utils/ytOptimizer";
 //Components
 import LoaderRolling from "../../../Common/Loader/LoaderRolling";
 import ArticleDedicated from "./js/ArticleDedicated";
-import Ad from "../../../Common/Ads/Ad300x600";
-import TopArticle from "../Home/js/TopArticle";
-import LatestVideo from "../Home/js/LatestVideo";
+import ArticleShare from "./js/ArticleShare";
 import ScrollToTop from "../../../Common/ScrollToTop/ScrollToTop";
 import Navigation from "../../../Layout/Public/Navigation/Navigation";
 import Footer from "../../../Layout/Public/Footer/Footer";
@@ -28,6 +26,7 @@ class Article extends PureComponent {
     this.state = {
       hideScrollTopButton: true,
       expandContent: false,
+      mobile: false,
       disqus: false,
       hideFooter: false,
       hideTopNav: false
@@ -36,6 +35,11 @@ class Article extends PureComponent {
 
   componentDidMount() {
     document.title = "Zenips Gaming";
+    if (window.innerWidth <= 768) {
+      this.setState(prevState => {
+        return { mobile: !prevState.mobile };
+      });
+    }
     this.props.getArticle(this.props.match.params.id);
     if (isEmpty(this.props.articles.topArticle)) {
       this.props.getTopArticle(1, 1);
@@ -102,7 +106,7 @@ class Article extends PureComponent {
 
   render() {
     const container = document.getElementById("container");
-    const { init_loading, article, topArticle } = this.props.articles;
+    const { init_loading, article } = this.props.articles;
     let main, status_icon, disqus_thread;
 
     article.status === "Private"
@@ -145,7 +149,14 @@ class Article extends PureComponent {
           >
             <div id="offset">
               <div className="row article-m-container">
-                <div className="col-12 col-lg-2 col-xl-2" />
+                <div className="col-12 col-lg-2 col-xl-2">
+                  <ArticleShare
+                    mobile={this.state.mobile}
+                    id={article._id}
+                    thumbnail={article.thumbnail}
+                  />
+                </div>
+
                 <div className="col-12 col-lg-8 col-xl-8">
                   {main}
                   {disqus_thread}

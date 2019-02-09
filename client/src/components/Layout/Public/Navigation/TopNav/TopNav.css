@@ -36,13 +36,12 @@
   font-family: "Aldrich", sans-serif;
   text-decoration: none;
   font-weight: 700;
-  color: #ff8941;
+  color: inherit;
 }
 
 .toolbar-nav-items a:hover,
 .toolbar-nav-items a:focus .toolbar-nav-items a:focus {
   outline: none;
-  color: #1f272b;
 }
 .toolbar-nav-items .toolbar-search:hover,
 .toolbar-nav-items .toolbar-search:active,
