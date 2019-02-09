@@ -90,17 +90,9 @@ class Article extends PureComponent {
   };
 
   render() {
-    const disqusShortname = "zenips-gaming";
-    const disqusConfig = {
-      url: `https://zenipsgaming.herokuapp.com/articles/${
-        this.props.match.params.id
-      }`,
-      identifier: this.props.match.params.id,
-      title: this.props.articles.article.title
-    };
     const container = document.getElementById("container");
     const { init_loading, article, topArticle } = this.props.articles;
-    let main, status_icon;
+    let main, status_icon, disqus_thread;
 
     article.status === "Private"
       ? (status_icon = "far fa-eye-slash")
@@ -122,7 +114,15 @@ class Article extends PureComponent {
             status_icon={status_icon}
           />
         ));
-
+    if (article._id !== undefined) {
+      disqus_thread = (
+        <DisqusThread
+          id={article._id}
+          title={article.title}
+          path={this.props.history.location.pathname}
+        />
+      );
+    }
     return (
       <div>
         <Navigation hideTopNav={this.state.hideTopNav} />
@@ -137,11 +137,7 @@ class Article extends PureComponent {
                 <div className="col-12 col-lg-2 col-xl-2" />
                 <div className="col-12 col-lg-8 col-xl-8">
                   {main}
-                  <DisqusThread
-                    id={article._id}
-                    title={article.title}
-                    path={this.props.history.location.pathname}
-                  />
+                  {disqus_thread}
                 </div>
                 <div className="col-12 col-lg-2 col-xl-2" />
               </div>

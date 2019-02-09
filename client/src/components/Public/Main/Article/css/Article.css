@@ -25,3 +25,8 @@ blockquote {
   line-height: 1.7rem;
   font-style: italic;
 }
+
+.comment__header .author.publisher-anchor-color a {
+  font-weight: 700;
+  color: red !important;
+}
