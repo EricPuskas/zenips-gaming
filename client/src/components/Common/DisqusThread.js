@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SHORTNAME = "example";
-const WEBSITE_URL = "http://www.example.com";
+const SHORTNAME = "zenips-gaming";
+const WEBSITE_URL = "https://zenipsgaming.herokuapp.com";
 
 function renderDisqus() {
   if (window.DISQUS === undefined) {
