@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import ReactDisqusComments from "react-disqus-comments";
+import Disqus from "disqus-react";
 // Utils
 import ytOptimizer from "../../../../utils/ytOptimizer";
 //Components
@@ -90,6 +90,14 @@ class Article extends PureComponent {
   };
 
   render() {
+    const disqusShortname = "zenips-gaming";
+    const disqusConfig = {
+      url: `https://zenipsgaming.herokuapp.com/articles/${
+        this.props.match.params.id
+      }`,
+      identifier: this.props.match.params.id,
+      title: this.props.articles.article.title
+    };
     const container = document.getElementById("container");
     const { init_loading, article, topArticle } = this.props.articles;
     let main, status_icon;
@@ -129,14 +137,9 @@ class Article extends PureComponent {
                 <div className="col-12 col-lg-2 col-xl-2" />
                 <div className="col-12 col-lg-8 col-xl-8">
                   {main}
-                  <ReactDisqusComments
-                    shortname="zenips-gaming"
-                    identifier={this.props.match.params.id}
-                    title={article.title}
-                    url={`https://zenipsgaming.herokuapp.com/articles/${
-                      this.props.match.params.id
-                    }`}
-                    category_id={this.props.match.params.id}
+                  <Disqus.DiscussionEmbed
+                    shortname={disqusShortname}
+                    config={disqusConfig}
                   />
                 </div>
                 <div className="col-12 col-lg-2 col-xl-2" />
