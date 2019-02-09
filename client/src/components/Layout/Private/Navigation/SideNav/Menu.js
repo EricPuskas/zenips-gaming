@@ -138,13 +138,13 @@ class Menu extends Component {
             </Link>
           </li>
           <li>
-            <Link
-              to="#!"
-              className="disabled-menu"
-              onClick={toggleSidenavMobile}
+            <a
+              href="https://zenipsgaming.herokuapp.com/"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <i className="fas fa-globe" /> <span>Production App</span>
-            </Link>
+            </a>
           </li>
           <li>
             <Link

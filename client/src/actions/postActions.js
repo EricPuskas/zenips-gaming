@@ -14,11 +14,10 @@ import {
   UPDATE_PAGE,
   DELETE_POST,
   DELETE_POST_LOADING,
-  GET_TOTAL_PAGES,
   HIDE_MODAL
 } from "./types";
 
-import { deleteUserPost } from "./memberActions";
+import { getUserInitPosts } from "./memberActions";
 const load_time = 1000;
 
 // Create Post
@@ -74,14 +73,13 @@ export const updatePost = (id, postData, history) => dispatch => {
 // Get Initial Posts
 export const getInitPosts = (per, page) => dispatch => {
   dispatch(InitPostLoading());
-  dispatch(getTotalPages(per, page));
   dispatch(pageUpdate(1));
   axios
     .get(`/api/posts?per=${per}&page=1`)
     .then(res =>
       dispatch({
         type: GET_INIT_POSTS,
-        payload: res.data.posts
+        payload: res.data
       })
     )
     .catch(err =>
@@ -132,7 +130,7 @@ export const getMorePosts = (per, page) => dispatch => {
 };
 
 // Delete Post
-export const deletePost = (id, posts_length, page) => dispatch => {
+export const deletePost = (id, username, page) => dispatch => {
   axios
     .delete(`/api/posts/${id}`)
     .then(() => dispatch(DeletePostLoading()))
@@ -153,22 +151,12 @@ export const deletePost = (id, posts_length, page) => dispatch => {
     )
     .then(() =>
       setTimeout(() => {
-        dispatch(deleteUserPost(id));
+        dispatch(getUserInitPosts(username, 3, 1));
       }, load_time)
     )
     .then(() =>
       setTimeout(() => {
-        dispatch(getInitPosts(posts_length, 1));
-      }, load_time)
-    )
-    .then(() =>
-      setTimeout(() => {
-        dispatch(pageUpdate(page));
-      }, load_time)
-    )
-    .then(() =>
-      setTimeout(() => {
-        dispatch(getTotalPages(3, page));
+        dispatch(getInitPosts(3, 1));
       }, load_time)
     )
     .catch(err => {
@@ -182,24 +170,6 @@ export const deletePost = (id, posts_length, page) => dispatch => {
           payload: err.response.data
         });
       }, load_time)
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPages = (per, page) => dispatch => {
-  axios
-    .get(`/api/posts?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES,
-        payload: res.data.pages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
     );
 };
 

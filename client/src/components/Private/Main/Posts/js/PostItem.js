@@ -23,12 +23,14 @@ class Post extends Component {
     let post_id = post._id;
     let post_title = post.title;
     let post_user = post.name;
+    let post_username = post.username;
 
     let MODAL_PROPS;
     MODAL_PROPS = {
       id: post_id,
       title: post_title,
       user: post_user,
+      username: post_username,
       width: "30%",
       left: "36%",
       top: "10%",

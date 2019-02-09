@@ -9,8 +9,7 @@ import {
   DELETE_POST,
   DELETE_POST_LOADING,
   UPDATE_PAGE,
-  GET_POST,
-  GET_TOTAL_PAGES
+  GET_POST
 } from "../actions/types";
 
 const initialState = {
@@ -31,7 +30,8 @@ export default function(state = initialState, action) {
     case GET_INIT_POSTS:
       return {
         ...state,
-        posts: action.payload,
+        posts: action.payload.posts,
+        totalPages: action.payload.pages,
         init_loading: false,
         update_loading: false,
         loading: false,
@@ -99,11 +99,6 @@ export default function(state = initialState, action) {
         ...state,
         page: action.payload,
         scrolling: true
-      };
-    case GET_TOTAL_PAGES:
-      return {
-        ...state,
-        totalPages: action.payload
       };
     default:
       return state;

@@ -1,55 +1,33 @@
 import axios from "axios";
 import {
   GET_INIT_MESSAGES,
-  COUNT_INBOX,
   GET_PREVIEW_MSG,
   GET_ERRORS,
-  COUNT_ARCHIVE,
   CLEAR_ERRORS,
   INIT_MESSAGES_LOADING,
   GET_MORE_MESSAGES,
   MESSAGES_LOADING,
-  GET_TOTAL_PAGES_MSG,
   UPDATE_PAGE_MSG,
   MOVE_MESSAGE,
   HIDE_MODAL,
   MOVE_MESSAGE_SUCCESS,
   DELETE_MESSAGE,
   DELETE_MESSAGE_LOADING,
-  GET_MESSAGE,
   IS_READ_CHANGE
 } from "./types";
 
 // Get Initial Posts
 export const getInitMessages = (per, page, search) => dispatch => {
   dispatch(InitMessagesLoading());
-  dispatch(getTotalPagesMsg(per, 1, search));
+  // dispatch(getTotalPagesMsg(per, 1, search));
   dispatch(pageUpdateMsg(1));
-  dispatch(countInbox());
-  dispatch(countArchive());
+  // dispatch(countInbox());
+  // dispatch(countArchive());
   axios
     .get(`/api/messages?per=${per}&page=1&search=${search}`)
     .then(res =>
       dispatch({
         type: GET_INIT_MESSAGES,
-        payload: res.data.messages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// Get Initial Posts
-export const getMessage = id => dispatch => {
-  axios
-    .get(`/api/messages/${id}`)
-    .then(res =>
-      dispatch({
-        type: GET_MESSAGE,
         payload: res.data
       })
     )
@@ -151,61 +129,7 @@ export const getPreviewMessages = () => dispatch => {
     .then(res =>
       dispatch({
         type: GET_PREVIEW_MSG,
-        payload: res.data.messages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-//  Count Inbox
-export const countInbox = () => dispatch => {
-  axios
-    .get("/api/messages?search=inbox")
-    .then(res =>
-      dispatch({
-        type: COUNT_INBOX,
-        payload: res.data.inbox
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-//  Count Inbox
-export const countArchive = () => dispatch => {
-  axios
-    .get("/api/messages?search=archive")
-    .then(res =>
-      dispatch({
-        type: COUNT_ARCHIVE,
-        payload: res.data.archive
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPagesMsg = (per, page, search) => dispatch => {
-  axios
-    .get(`/api/messages?per=${per}&page=${page}&search=${search}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES_MSG,
-        payload: res.data.pages
+        payload: res.data
       })
     )
     .catch(err =>

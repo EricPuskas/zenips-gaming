@@ -14,10 +14,9 @@ import {
   UPDATE_PAGE_PATCH_NOTES,
   DELETE_PATCH_NOTE,
   DELETE_PATCH_NOTE_LOADING,
-  GET_TOTAL_PAGES_PATCH_NOTES,
   HIDE_MODAL
 } from "./types";
-import { deleteUserPatchNote } from "./memberActions";
+import { getUserInitPatchNotes } from "./memberActions";
 // LOADING TIME - FOR SMOOTH but SHORT ANIMATIONS
 const load_time = 1000;
 
@@ -74,14 +73,13 @@ export const updatePatchNote = (id, data, history) => dispatch => {
 // Get Initial Patch Notes
 export const getInitPatchNotes = (per, page) => dispatch => {
   dispatch(InitPatchNotesLoading());
-  dispatch(getTotalPages(per, page));
   dispatch(pageUpdate(1));
   axios
     .get(`/api/patchnotes?per=${per}&page=1`)
     .then(res =>
       dispatch({
         type: GET_INIT_PATCH_NOTES,
-        payload: res.data.patchNotes
+        payload: res.data
       })
     )
     .catch(err =>
@@ -132,7 +130,7 @@ export const getMorePatchNotes = (per, page) => dispatch => {
 };
 
 // Delete a patch note
-export const deletePatchNote = (id, posts_length, page) => dispatch => {
+export const deletePatchNote = (id, username) => dispatch => {
   axios
     .delete(`/api/patchnotes/${id}`)
     .then(() => dispatch(DeletePatchNoteLoading()))
@@ -153,22 +151,12 @@ export const deletePatchNote = (id, posts_length, page) => dispatch => {
     )
     .then(() =>
       setTimeout(() => {
-        dispatch(deleteUserPatchNote(id));
+        dispatch(getUserInitPatchNotes(username, 3, 1));
       }, load_time)
     )
     .then(() =>
       setTimeout(() => {
-        dispatch(getInitPatchNotes(posts_length, 1));
-      }, load_time)
-    )
-    .then(() =>
-      setTimeout(() => {
-        dispatch(pageUpdate(page));
-      }, load_time)
-    )
-    .then(() =>
-      setTimeout(() => {
-        dispatch(getTotalPages(3, page));
+        dispatch(getInitPatchNotes(3, 1));
       }, load_time)
     )
     .catch(err => {
@@ -182,24 +170,6 @@ export const deletePatchNote = (id, posts_length, page) => dispatch => {
           payload: err.response.data
         });
       }, load_time)
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPages = (per, page) => dispatch => {
-  axios
-    .get(`/api/patchnotes?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES_PATCH_NOTES,
-        payload: res.data.pages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
     );
 };
 

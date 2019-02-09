@@ -199,6 +199,11 @@
   max-height: 40vh;
 }
 
+.scrollable-msg-modal::-webkit-scrollbar-thumb {
+  background: rgba(69, 124, 156, 0.7);
+  border-radius: 0px;
+}
+
 .toolbox-container {
   padding: 0rem;
 }
@@ -206,6 +211,10 @@
 .scrollable-toolbox {
   overflow-y: scroll;
   height: 52vh;
+}
+.scrollable-toolbox::-webkit-scrollbar-thumb {
+  background: rgba(69, 124, 156, 0.7);
+  border-radius: 0px;
 }
 .toolbox-item {
   display: block;

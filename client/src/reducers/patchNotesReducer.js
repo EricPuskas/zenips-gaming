@@ -9,8 +9,7 @@ import {
   DELETE_PATCH_NOTE,
   DELETE_PATCH_NOTE_LOADING,
   UPDATE_PAGE_PATCH_NOTES,
-  GET_PATCH_NOTE,
-  GET_TOTAL_PAGES_PATCH_NOTES
+  GET_PATCH_NOTE
 } from "../actions/types";
 
 const initialState = {
@@ -31,7 +30,8 @@ export default function(state = initialState, action) {
     case GET_INIT_PATCH_NOTES:
       return {
         ...state,
-        patch_notes: action.payload,
+        patch_notes: action.payload.patchNotes,
+        totalPages: action.payload.pages,
         init_loading: false,
         update_loading: false,
         loading: false,
@@ -99,11 +99,6 @@ export default function(state = initialState, action) {
         ...state,
         page: action.payload,
         scrolling: true
-      };
-    case GET_TOTAL_PAGES_PATCH_NOTES:
-      return {
-        ...state,
-        totalPages: action.payload
       };
     default:
       return state;

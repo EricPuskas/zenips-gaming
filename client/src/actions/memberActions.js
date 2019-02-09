@@ -22,11 +22,6 @@ import {
   GET_USER_INIT_PATCH_NOTES,
   UPDATE_PAGE_UP,
   UPDATE_PAGE_UPA,
-  GET_TOTAL_PAGES_UP,
-  GET_TOTAL_PAGES_UPA,
-  USER_POSTS_INIT_LOADING,
-  USER_PATCH_NOTES_INIT_LOADING,
-  CLEAR_USER_HISTORY,
   USER_POSTS_LOADING,
   USER_PATCH_NOTES_LOADING,
   GET_MORE_USER_POSTS,
@@ -36,26 +31,19 @@ import {
   GET_MORE_USER_ARTICLES,
   USER_ARTICLES_LOADING,
   UPDATE_PAGE_UART,
-  GET_TOTAL_PAGES_UART,
-  USER_ARTICLES_INIT_LOADING,
-  GET_USER_INIT_ARTICLES,
-  COUNT_USER_ARTICLES,
-  COUNT_USER_POSTS,
-  COUNT_USER_PATCH_NOTES
+  GET_USER_INIT_ARTICLES
 } from "./types";
 const load_time = 500;
 
 // Get Initial Posts
 export const getUserInitPosts = (username, per, page) => dispatch => {
-  dispatch(userPostsInitLoading());
   dispatch(pageUpdateUPosts(page));
-  dispatch(getTotalPagesUPosts(username, per, page));
   axios
     .get(`/api/posts/user/${username}?per=${per}&page=${page}`)
     .then(res =>
       dispatch({
         type: GET_USER_INIT_POSTS,
-        payload: res.data.posts
+        payload: res.data
       })
     )
     .catch(err =>
@@ -68,15 +56,13 @@ export const getUserInitPosts = (username, per, page) => dispatch => {
 
 // Get Initial Posts
 export const getUserInitPatchNotes = (username, per, page) => dispatch => {
-  dispatch(userPatchNotesInitLoading());
   dispatch(pageUpdateUPatchNotes(page));
-  dispatch(getTotalPagesUPatches(username, per, page));
   axios
     .get(`/api/patchnotes/user/${username}?per=${per}&page=${page}`)
     .then(res =>
       dispatch({
         type: GET_USER_INIT_PATCH_NOTES,
-        payload: res.data.patch_notes
+        payload: res.data
       })
     )
     .catch(err =>
@@ -89,15 +75,13 @@ export const getUserInitPatchNotes = (username, per, page) => dispatch => {
 
 // Get Initial Posts
 export const getUserInitArticles = (username, per, page) => dispatch => {
-  dispatch(userArticlesInitLoading());
   dispatch(pageUpdateUArticles(page));
-  dispatch(getTotalPagesUArticles(username, per, page));
   axios
     .get(`/api/articles/user/${username}?per=${per}&page=${page}`)
     .then(res =>
       dispatch({
         type: GET_USER_INIT_ARTICLES,
-        payload: res.data.articles
+        payload: res.data
       })
     )
     .catch(err =>
@@ -167,114 +151,6 @@ export const getMoreUserArticles = (username, per, page) => dispatch => {
     );
 };
 
-// Count all the articles a user has.
-export const countUserArticles = (username, per, page) => dispatch => {
-  axios
-    .get(`/api/articles/user/${username}?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: COUNT_USER_ARTICLES,
-        payload: res.data.count
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// Count all the posts a user has.
-export const countUserPosts = (username, per, page) => dispatch => {
-  axios
-    .get(`/api/posts/user/${username}?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: COUNT_USER_POSTS,
-        payload: res.data.count
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// Count all the patch notes a user has.
-export const countUserPatchNotes = (username, per, page) => dispatch => {
-  axios
-    .get(`/api/patchnotes/user/${username}?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: COUNT_USER_PATCH_NOTES,
-        payload: res.data.count
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPagesUPosts = (username, per, page) => dispatch => {
-  axios
-    .get(`/api/posts/user/${username}?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES_UP,
-        payload: res.data.pages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPagesUPatches = (username, per, page) => dispatch => {
-  axios
-    .get(`/api/patchnotes/user/${username}?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES_UPA,
-        payload: res.data.pages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
-// GET TOTAL PAGES STATE
-export const getTotalPagesUArticles = (username, per, page) => dispatch => {
-  axios
-    .get(`/api/articles/user/${username}?per=${per}&page=${page}`)
-    .then(res =>
-      dispatch({
-        type: GET_TOTAL_PAGES_UART,
-        payload: res.data.pages
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
-
 // Get Team Member
 export const getTeamMember = username => dispatch => {
   dispatch(teamLoading());
@@ -295,9 +171,6 @@ export const getTeamMember = username => dispatch => {
         payload: err.response.data
       })
     );
-  dispatch(countUserPosts(username, 3, 1));
-  dispatch(countUserPatchNotes(username, 3, 1));
-  dispatch(countUserArticles(username, 2, 1));
 };
 
 // Delete Post
@@ -462,9 +335,7 @@ export const deleteUser = (id, history) => dispatch => {
 // Send reset pw email
 export const sendResetPwEmail = data => dispatch => {
   dispatch(clearErrors());
-  dispatch({
-    type: SEND_EMAIL_LOADING
-  });
+  dispatch(sendEmailLoading());
   axios
     .post(`/api/users/reset`, data)
     .then(() =>
@@ -500,9 +371,7 @@ export const sendResetPwEmail = data => dispatch => {
 // Send forgot pw email
 export const sendForgotPwEmail = (data, history) => dispatch => {
   dispatch(clearErrors());
-  dispatch({
-    type: SEND_EMAIL_LOADING
-  });
+  dispatch(sendEmailLoading());
   axios
     .post(`/api/users/forgot`, data)
     .then(() =>
@@ -604,6 +473,11 @@ export const updatePasswordPublic = (id, data, history) => dispatch => {
     );
 };
 
+export const sendEmailLoading = () => {
+  return {
+    type: SEND_EMAIL_LOADING
+  };
+};
 // Set Init loading state
 export const stopEmailLoading = () => {
   return {
@@ -640,25 +514,6 @@ export const UserArticlesLoading = () => {
 export const updateTeamMemberLoading = () => {
   return {
     type: UPDATE_TEAM_MEMBER_LOADING
-  };
-};
-
-// Update Team member loading
-export const userPostsInitLoading = () => {
-  return {
-    type: USER_POSTS_INIT_LOADING
-  };
-};
-
-export const userPatchNotesInitLoading = () => {
-  return {
-    type: USER_PATCH_NOTES_INIT_LOADING
-  };
-};
-
-export const userArticlesInitLoading = () => {
-  return {
-    type: USER_ARTICLES_INIT_LOADING
   };
 };
 
@@ -704,11 +559,5 @@ export const clearErrors = () => {
 export const errorLoading = () => {
   return {
     type: ERROR_LOADING
-  };
-};
-
-export const clearUserHistory = () => {
-  return {
-    type: CLEAR_USER_HISTORY
   };
 };

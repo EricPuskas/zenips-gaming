@@ -25,10 +25,12 @@ exports.createArticle = async (req, res) => {
     let thumbnail;
     if (req.body.thumbnail_file) {
       let result = await cloudinary.v2.uploader.upload(req.body.thumbnail, {
+        secure: true,
         width: 832,
         height: 468,
         crop: "limit",
-        quality: "auto"
+        quality: "auto",
+        fetch_format: "auto"
       });
       thumbnail = result.secure_url;
     } else {
@@ -72,10 +74,12 @@ exports.updateArticle = async (req, res) => {
     let thumbnail;
     if (req.body.thumbnail_file) {
       let result = await cloudinary.v2.uploader.upload(req.body.thumbnail, {
+        secure: true,
         width: 832,
         height: 468,
         crop: "limit",
-        quality: "auto"
+        quality: "auto",
+        fetch_format: "auto"
       });
       thumbnail = result.secure_url;
     } else {

@@ -37,7 +37,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         articles: [],
-        loading: true,
+        loading: false,
         page: 1
       };
     case UPDATE_ARTICLE:

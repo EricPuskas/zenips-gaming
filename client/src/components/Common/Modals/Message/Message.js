@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 import Moment from "react-moment";
 //  ACTIONS
 import { hideModal } from "../../../../actions/modalActions";
@@ -95,6 +96,11 @@ class Message extends React.Component {
     this.exitModal(1200);
   };
 
+  redirectModal = () => {
+    this.props.history.push("/dashboard/inbox");
+    this.props.hideModal();
+  };
+
   render() {
     let overlayDiv = classNames({
       "modal-overlay-div": true,
@@ -108,7 +114,36 @@ class Message extends React.Component {
 
     const { width, left, top, message } = this.props.modal.props;
     const { delete_loading } = this.props.messages;
-    let content;
+    let content, footerContent;
+    this.props.modal.props.moveMessage !== undefined
+      ? (footerContent = (
+          <Footer
+            id={message._id}
+            isRead={this.state.isRead}
+            location={message.location}
+            toggleRead={this.toggleRead}
+            moveMessage={this.moveMessage}
+            deleteMessage={this.deleteMessage}
+            onCloseModal={this.onCloseModal}
+          />
+        ))
+      : (footerContent = (
+          <div className="modal-footer-bio text-center">
+            <button
+              className="btn btn-green-c"
+              onClick={() => this.redirectModal()}
+            >
+              Go to Inbox
+            </button>
+            <button
+              className="btn btn-red-c"
+              onClick={() => this.onCloseModal()}
+            >
+              Close
+            </button>
+          </div>
+        ));
+
     if (message.sender !== undefined) {
       content = (
         <div>
@@ -153,15 +188,7 @@ class Message extends React.Component {
               </div>
             </div>
           </Body>
-          <Footer
-            id={message._id}
-            isRead={this.state.isRead}
-            location={message.location}
-            toggleRead={this.toggleRead}
-            moveMessage={this.moveMessage}
-            deleteMessage={this.deleteMessage}
-            onCloseModal={this.onCloseModal}
-          />
+          {footerContent}
         </div>
       );
     }
@@ -199,4 +226,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { hideModal }
-)(Message);
+)(withRouter(Message));

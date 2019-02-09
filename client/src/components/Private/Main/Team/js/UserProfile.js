@@ -8,8 +8,7 @@ import {
   getTeamMember,
   getUserInitPosts,
   clearErrors,
-  updateUserProfile,
-  clearUserHistory
+  updateUserProfile
 } from "../../../../../actions/memberActions";
 import { loadModal } from "../../../../../actions/modalActions";
 import { getUserInfo } from "../../../../../actions/authActions";
@@ -48,7 +47,6 @@ class UserProfile extends Component {
 
   componentWillUnmount() {
     this.props.clearErrors();
-    this.props.clearUserHistory();
   }
 
   componentDidUpdate(prevProps) {
@@ -230,7 +228,6 @@ export default connect(
     updateUserProfile,
     getUserInfo,
     getUserInitPosts,
-    clearUserHistory,
     clearErrors,
     loadModal
   }

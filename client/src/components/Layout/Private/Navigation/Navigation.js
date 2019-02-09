@@ -2,18 +2,12 @@ import React, { Component } from "react";
 import TopNav from "./TopNav/TopNav";
 import SideNav from "./SideNav/SideNav";
 import { connect } from "react-redux";
-import {
-  countInbox,
-  countArchive,
-  getPreviewMessages
-} from "../../../../actions/messagesActions";
+import { getPreviewMessages } from "../../../../actions/messagesActions";
 import { loadModal } from "../../../../actions/modalActions";
 import PropTypes from "prop-types";
 
 class Navigation extends Component {
   componentDidMount() {
-    this.props.countInbox();
-    this.props.countArchive();
     this.props.getPreviewMessages();
   }
   render() {
@@ -60,8 +54,6 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  countInbox: PropTypes.func.isRequired,
-  countArchive: PropTypes.func.isRequired,
   loadModal: PropTypes.func.isRequired,
   getPreviewMessages: PropTypes.func.isRequired,
   messages: PropTypes.object.isRequired
@@ -73,5 +65,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPreviewMessages, countInbox, countArchive, loadModal }
+  { getPreviewMessages, loadModal }
 )(Navigation);

@@ -23,11 +23,12 @@ class PostItem extends Component {
     let id = post._id;
     let title = post.title;
     let post_user = post.name;
-
+    let post_username = post.username;
     let MODAL_PROPS = {
       id,
       title,
       user: post_user,
+      username: post_username,
       width: "30%",
       left: "36%",
       top: "10%",

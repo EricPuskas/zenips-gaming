@@ -85,6 +85,7 @@ class PostModal extends React.Component {
       id,
       title,
       user,
+      username,
       width,
       left,
       top,
@@ -94,7 +95,7 @@ class PostModal extends React.Component {
       success
     } = this.props.modal.props;
     let content;
-    const { delete_loading, posts, page } = this.props.posts;
+    const { delete_loading, page } = this.props.posts;
     const { error, error_loading } = this.state.errors;
     let errorPost = error.postnotfound;
     if (delete_loading) {
@@ -120,7 +121,7 @@ class PostModal extends React.Component {
             <Footer>
               <button
                 className="btn btn-green-c"
-                onClick={() => submitForm(id, posts.length, page)}
+                onClick={() => submitForm(id, username, page)}
               >
                 <i className="fas fa-check-circle" /> Yes
               </button>
@@ -166,7 +167,7 @@ class PostModal extends React.Component {
               </button>
               <button
                 className="btn btn-yellow-c"
-                onClick={() => submitForm(id, posts.length, page)}
+                onClick={() => submitForm(id, username, page)}
               >
                 <i className="fas fa-redo" /> Try Again
               </button>

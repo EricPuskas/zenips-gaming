@@ -22,10 +22,10 @@ import {
 
 // Create an Article
 export const createArticle = (data, history) => dispatch => {
-  dispatch(clearErrors());
+  dispatch(ArticlesLoading());
   axios
     .post("/api/articles/new", data)
-    .then(() =>
+    .then(() => () =>
       dispatch({
         type: CREATE_ARTICLE
       })

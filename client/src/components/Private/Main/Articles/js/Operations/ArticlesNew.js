@@ -99,7 +99,7 @@ class ArticlesNew extends Component {
 
   render() {
     const { expandContent } = this.props;
-    const { tags } = this.props.articles;
+    const { tags, loading } = this.props.articles;
     const { error } = this.props.errors;
     const {
       title,
@@ -126,6 +126,7 @@ class ArticlesNew extends Component {
 
     let form = (
       <ArticlesForm
+        loading={loading}
         error={error}
         changeContent={this.changeContent}
         changeInput={this.changeInput}
