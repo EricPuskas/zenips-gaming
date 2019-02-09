@@ -43,6 +43,10 @@ app.use("/api/messages", messages);
 if (NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build", { maxAge: time }));
+  app.get("/robots.txt", function(req, res) {
+    res.type("text/plain");
+    res.send("User-agent: *\nDisallow: ");
+  });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });

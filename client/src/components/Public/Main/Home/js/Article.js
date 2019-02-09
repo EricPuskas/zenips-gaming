@@ -1,6 +1,7 @@
 // Dependencies
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 class Article extends PureComponent {
@@ -11,15 +12,19 @@ class Article extends PureComponent {
     return (
       <div className="article-box-item row">
         <div className="col-12 col-xl-5 reset-padding article-thumbnail-main">
-          <img
-            src={article.thumbnail}
-            alt="Thumbnail"
-            className="img-responsive article-thumbnail"
-          />
+          <Link to={`/articles/${article._id}`}>
+            <img
+              src={article.thumbnail}
+              alt="Thumbnail"
+              className="img-responsive article-thumbnail"
+            />
+          </Link>
         </div>
         <div className="col-12 col-xl-7 reset-padding">
           <div className="article-info-main">
-            <h1 className="latest-post-title text-center">{article.title}</h1>
+            <Link to={`/articles/${article._id}`}>
+              <h1 className="latest-post-title text-center">{article.title}</h1>
+            </Link>
             <div className="article-info-div text-center">
               <div className="article-info-itm">
                 <img
@@ -41,7 +46,9 @@ class Article extends PureComponent {
               </div>
             </div>
             <div className="article-info-preview">
-              <p>{preview}</p>
+              <Link to={`/articles/${article._id}`}>
+                <p>{preview}</p>
+              </Link>
             </div>
           </div>
         </div>
