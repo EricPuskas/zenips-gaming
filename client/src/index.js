@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-snapshot";
+import ReactDOM from "react-dom";
 
 // SERVICE WORKER
 import * as serviceWorker from "./serviceWorker";
@@ -7,7 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 // MAIN APP COMPONENT
 import App from "./App";
 
-const rootElement = document.getElementById("root");
-render(<App />, rootElement);
+ReactDOM.render(<App />, document.getElementById("root"));
+
 //  More about service workers: http://bit.ly/CRA-PWA
 serviceWorker.register();
