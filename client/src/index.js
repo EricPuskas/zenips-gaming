@@ -1,5 +1,5 @@
 import React from "react";
-import { hydrate, render } from "react-dom";
+import { render } from "react-snapshot";
 
 // SERVICE WORKER
 import * as serviceWorker from "./serviceWorker";
@@ -8,10 +8,6 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./App";
 
 const rootElement = document.getElementById("root");
-if (rootElement.hasChildNodes()) {
-  hydrate(<App />, rootElement);
-} else {
-  render(<App />, rootElement);
-}
+render(<App />, rootElement);
 //  More about service workers: http://bit.ly/CRA-PWA
 serviceWorker.register();
