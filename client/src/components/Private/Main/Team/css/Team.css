@@ -22,6 +22,14 @@
   border-radius: 5%;
 }
 
+.member-box a {
+  color: #fff;
+}
+
+.member-box a:hover {
+  color: #fff;
+}
+
 .center-div {
   margin: 0 auto !important;
 }

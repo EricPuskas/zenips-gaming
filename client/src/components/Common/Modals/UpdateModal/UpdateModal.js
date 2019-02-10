@@ -76,15 +76,9 @@ class UpdateModal extends React.Component {
           <div className="row">
             <div className="col-12 text-center">
               <h1>
-                New update available. Please reload the page to see the updated
-                version.
+                New content is available and will be used when all tabs for this
+                page are closed.
               </h1>
-              <button
-                className="btn btn-yellow-c"
-                onClick={() => window.location.reload()}
-              >
-                Reload
-              </button>
             </div>
           </div>
         </Body>

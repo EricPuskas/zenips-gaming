@@ -55,6 +55,13 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
+  //Reload once the new service worker is activated.
+  var refreshing;
+  navigator.serviceWorker.addEventListener("controllerchange", function() {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  });
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {

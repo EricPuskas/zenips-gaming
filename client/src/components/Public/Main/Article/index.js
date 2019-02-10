@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DisqusThread from "../../../Common/DisqusThread";
+import { Helmet } from "react-helmet";
 // Utils
 import ytOptimizer from "../../../../utils/ytOptimizer";
 //Components
@@ -138,9 +139,20 @@ class Article extends PureComponent {
         />
       );
     }
+    console.log(document.URL);
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>{article.title}</title>
+          <meta property="og:image" content={article.thumbnail} />
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={document.URL} />
+          <meta property="og:title" content={article.title} />
+          <meta property="og:description" content={article.preview} />
+        </Helmet>
         <Navigation hideTopNav={this.state.hideTopNav} />
+
         <div className="wrapper_main">
           <div
             id="container"

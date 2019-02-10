@@ -64,6 +64,9 @@ a:focus {
   background: #040d13;
 }
 
+.wrapper a {
+  color: #fff;
+}
 .text-start {
   text-align: start !important;
 }

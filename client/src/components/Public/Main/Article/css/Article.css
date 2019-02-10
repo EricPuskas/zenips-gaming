@@ -13,7 +13,7 @@
   color: #222;
   font-weight: normal;
   font-size: 1.3rem;
-  padding: 1rem 2.5rem;
+  padding: 1rem 2rem;
 }
 
 blockquote {
@@ -67,65 +67,65 @@ blockquote {
   align-items: center;
 }
 
-.fab.fa-facebook-f {
+.share-social-media .fab.fa-facebook-f {
   background-color: #3b5998;
 }
 
-.fab.fa-facebook-f:hover {
+.share-social-media .fab.fa-facebook-f:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
 
-.fab.fa-twitter {
+.share-social-media .fab.fa-twitter {
   background-color: #55acee;
 }
 
-.fab.fa-twitter:hover {
+.share-social-media .fab.fa-twitter:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
 
-.fab.fa-linkedin {
+.share-social-media .fab.fa-linkedin {
   background: #007bb5;
 }
 
-.fab.fa-linkedin:hover {
+.share-social-media .fab.fa-linkedin:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
 
-.fab.fa-whatsapp {
+.share-social-media .fab.fa-whatsapp {
   background: #25d366;
 }
 
-.fab.fa-whatsapp:hover {
+.share-social-media .fab.fa-whatsapp:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
 
-.fab.fa-pinterest {
+.share-social-media .fab.fa-pinterest {
   background: #cb2027;
 }
 
-.fab.fa-pinterest:hover {
+.share-social-media .fab.fa-pinterest:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
 
-.fab.fa-reddit {
+.share-social-media .fab.fa-reddit {
   background: #ff5700;
 }
 
-.fab.fa-reddit:hover {
+.share-social-media .fab.fa-reddit:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
 
-.fab.fa-tumblr {
+.share-social-media .fab.fa-tumblr {
   background: #2c4762;
 }
 
-.fab.fa-tumblr:hover {
+.share-social-media .fab.fa-tumblr:hover {
   background-color: #1f272b;
   color: #ff8941;
 }
@@ -154,6 +154,13 @@ blockquote {
   z-index: 25;
 }
 
+.article-content-div h1 {
+  background: transparent;
+  color: #222;
+  font-family: "Ubuntu";
+  border: none;
+  text-align: center;
+}
 @media (max-width: 768px) {
   .share-social-media {
     display: none;

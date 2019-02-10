@@ -86,10 +86,16 @@
 .footer-menu li {
   padding: 0.5rem;
   margin: 0.5rem;
+  color: #ff8941;
   display: flex;
   align-items: center;
   background-color: transparent;
   transition: all 0.1s ease-out;
+  transition: color 0s;
+}
+
+.footer-menu a {
+  color: inherit;
 }
 
 .footer-menu li:hover {

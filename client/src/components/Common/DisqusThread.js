@@ -31,11 +31,11 @@ class DisqusThread extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => renderDisqus(), 300);
+    renderDisqus();
   }
 
   componentDidUpdate() {
-    setTimeout(() => renderDisqus(), 300);
+    renderDisqus();
   }
 
   render() {
