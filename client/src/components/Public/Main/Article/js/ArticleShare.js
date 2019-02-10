@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   EmailShareButton,
@@ -16,14 +15,27 @@ const ArticleShare = ({ id, thumbnail, mobile }) => {
     "share-social-media": !mobile,
     "social-media-share-box": mobile
   });
-
+  let url = `https://zenipsgaming.herokuapp.com/articles/${id}`;
   return (
     <div className={shareClass}>
-      <FacebookShareButton
+      {/* <FacebookShareButton
         url={`https://zenipsgaming.herokuapp.com/articles/${id}`}
       >
         <i className="fab fa-facebook-f" />
-      </FacebookShareButton>
+      </FacebookShareButton> */}
+      <button
+        className="btn btn-primary btn-lg"
+        onClick={() =>
+          window.open(
+            "https://www.facebook.com/sharer/sharer.php?u=" +
+              encodeURIComponent(url),
+            "facebook-share-dialog",
+            "width=756,height=336"
+          )
+        }
+      >
+        Facebook
+      </button>
       <TwitterShareButton
         url={`https://zenipsgaming.herokuapp.com/articles/${id}`}
       >
