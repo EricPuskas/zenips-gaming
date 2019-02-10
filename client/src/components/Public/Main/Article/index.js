@@ -139,14 +139,13 @@ class Article extends PureComponent {
         />
       );
     }
-    console.log(document.URL);
     return (
       <div>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{article.title}</title>
           <meta property="og:image" content={article.thumbnail} />
-          <meta property="og:type" content="website" />
+          <meta property="og:type" content="article" />
           <meta property="og:url" content={document.URL} />
           <meta property="og:title" content={article.title} />
           <meta property="og:description" content={article.preview} />
