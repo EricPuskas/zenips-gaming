@@ -2,7 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import Parser from "html-react-parser";
 
-const ArticleDedicated = ({ goBack, article, status_icon }) => {
+const ArticleDedicated = ({ article }) => {
   let content;
   if (typeof article.content === "string") content = Parser(article.content);
   return (

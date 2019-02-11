@@ -92,7 +92,7 @@ class TopNav extends React.Component {
                 </button>
               </li>
               <li className="toolbar-search" onClick={() => toggleSearch()}>
-                <button className={searchBtnClass}>
+                <button aria-label="Search Button" className={searchBtnClass}>
                   <i className="fas fa-search" />
                 </button>
               </li>
@@ -102,7 +102,7 @@ class TopNav extends React.Component {
                   ref={input => input && showSearch && input.focus()}
                   className={searchClass}
                   placeholder="Search"
-                  aria-label="Search"
+                  aria-label="Type here for search"
                 />
               </li>
             </ul>

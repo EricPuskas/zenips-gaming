@@ -9,6 +9,16 @@
   border-left: 1px solid #cecece;
 }
 
+.article-container h1 {
+  color: #1f272b;
+  font-size: 1.9rem;
+  font-family: "Ubuntu", sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+  background: transparent;
+  margin-bottom: none;
+  margin-top: 1.2rem;
+  margin-bottom: 0;
+}
 .article-content-div p {
   color: #222;
   font-weight: normal;

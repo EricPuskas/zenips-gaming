@@ -11,9 +11,14 @@ const SearchBox = () => {
             type="search"
             defaultValue="search"
             id="example-search-input"
+            aria-label="search input"
           />
           <span className="input-group-append">
-            <button className="btn btn-search search-button" type="button">
+            <button
+              className="btn btn-search search-button"
+              aria-label="search button"
+              type="button"
+            >
               <i className="fas fa-search" />
             </button>
           </span>

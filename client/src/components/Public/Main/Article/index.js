@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import DisqusThread from "../../../Common/DisqusThread";
 import Helmet from "react-helmet";
 // Utils
 import ytOptimizer from "../../../../utils/ytOptimizer";
@@ -15,12 +14,12 @@ import ArticleShare from "./js/ArticleShare";
 import ScrollToTop from "../../../Common/ScrollToTop/ScrollToTop";
 import Navigation from "../../../Layout/Public/Navigation/Navigation";
 import Footer from "../../../Layout/Public/Footer/Footer";
+import DisqusThread from "../../../Common/DisqusThread";
 // Actions
 import { getArticle, getTopArticle } from "../../../../actions/articleActions";
 import isEmpty from "../../../../utils/isEmpty";
 import "./css/Article.css";
 let lastScrollTop = 0;
-
 class Article extends PureComponent {
   constructor() {
     super();
@@ -35,7 +34,6 @@ class Article extends PureComponent {
   }
 
   componentDidMount() {
-    document.title = "Zenips Gaming";
     if (window.innerWidth <= 768) {
       this.setState(prevState => {
         return { mobile: !prevState.mobile };
@@ -108,12 +106,7 @@ class Article extends PureComponent {
   render() {
     const container = document.getElementById("container");
     const { init_loading, article } = this.props.articles;
-    let main, status_icon, disqus_thread;
-
-    article.status === "Private"
-      ? (status_icon = "far fa-eye-slash")
-      : (status_icon = "far fa-eye");
-
+    let main, disqus_thread;
     let contentClass = classNames({
       "content-container": true,
       expand: this.state.expandContent
@@ -121,15 +114,14 @@ class Article extends PureComponent {
 
     article === null || init_loading || Object.keys(article).length === 0
       ? (main = (
-          <LoaderRolling msg={"Loading... Please wait."} margin="50px auto" />
-        ))
-      : (main = (
-          <ArticleDedicated
-            goBack={this.goBack}
-            article={article}
-            status_icon={status_icon}
+          <LoaderRolling
+            msg={"Loading... Please wait."}
+            margin="50px auto"
+            textColor="#1f272b"
           />
-        ));
+        ))
+      : (main = <ArticleDedicated goBack={this.goBack} article={article} />);
+
     if (article._id !== undefined && this.state.disqus) {
       disqus_thread = (
         <DisqusThread
