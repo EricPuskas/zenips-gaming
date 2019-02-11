@@ -26,7 +26,7 @@ class Menu extends Component {
   }
 
   listenKeyboard = event => {
-    if (event.keyCode === 70 && event.shiftKey) {
+    if (event.keyCode === 84 && event.shiftKey) {
       this.props.loadModal("TOOLBOX", MODAL_PROPS);
     }
   };

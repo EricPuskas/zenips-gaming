@@ -224,10 +224,14 @@
   background-color: #040d13;
   padding: 0.5rem;
   margin-bottom: 2rem;
+  color: #fff;
 }
 
+.toolbox-item:active,
+.toolbox-item:focus,
 .toolbox-item:hover {
   background-color: #002944;
+  color: #fff;
 }
 
 .close:not(:disabled):not(.disabled):focus,

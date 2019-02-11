@@ -11,8 +11,8 @@ const SideNav = ({ isOpen }) => {
     <nav className={sideDrawerClass}>
       <div className="side-d-scrollable">
         <div className="side-d-search-box">
-          <input type="text" placeholder="Search" />
-          <button>
+          <input aria-label="search input" type="text" placeholder="Search" />
+          <button aria-label="search button">
             <i className="fas fa-search" />
           </button>
         </div>

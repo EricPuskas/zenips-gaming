@@ -31,12 +31,14 @@ class SearchEngine extends React.Component {
               type="search"
               onChange={e => onSearchChange(e)}
               placeholder="search"
+              aria-label="Search Input"
               defaultValue={value}
             />
             <span className="input-group-append">
               <button
                 className="btn btn-search search-button"
                 type="button"
+                aria-label="Search Button"
                 onClick={() => onSearchSubmit()}
               >
                 <i className="fas fa-search" />
