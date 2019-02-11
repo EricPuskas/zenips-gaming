@@ -7,7 +7,8 @@ const {
   getArticle,
   updateArticle,
   getUserArticles,
-  deleteArticle
+  deleteArticle,
+  getAriclesByCategory
 } = require("../controllers/articles");
 
 // @route   POST api/articles/new
@@ -51,5 +52,10 @@ router.delete(
 // @desc    GET ALL articles for a specific user
 // @access  Public
 router.get("/user/:username", getUserArticles);
+
+// @route   GET api/articles/category/:category
+// @desc    GET ALL articles for a specific user
+// @access  Public
+router.get("/category/:category", getAriclesByCategory);
 
 module.exports = router;

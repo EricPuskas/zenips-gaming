@@ -186,6 +186,28 @@ exports.getUserArticles = async (req, res) => {
   }
 };
 
+exports.getAriclesByCategory = async (req, res) => {
+  try {
+    let tag = req.params.category;
+    let perPage = parseInt(req.query.per, 10);
+    let pageQuery = parseInt(req.query.page, 10);
+    let pageNumber = pageQuery ? pageQuery : 1;
+    let count = await db.Article.countDocuments({ tag }).exec();
+    let articles = await db.Article.find({ tag })
+      .sort({ createdAt: -1 })
+      .skip(perPage * pageNumber - perPage)
+      .limit(perPage)
+      .exec();
+    let pages = Math.ceil(count / perPage);
+    if (perPage === 0 || perPage === undefined || perPage === null) {
+      articles = [];
+    }
+    res.json({ perPage, pageNumber, pageQuery, pages, articles, count });
+  } catch (err) {
+    res.status(404).json({ noArticles: "No Articles were found." });
+  }
+};
+
 exports.getArticle = async (req, res) => {
   try {
     let article = await db.Article.findById(req.params.id);

@@ -1,13 +1,14 @@
 require("dotenv").config();
+const { PORT, NODE_ENV } = require("./config/keys");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const compression = require("compression");
 const path = require("path");
 const express = require("express");
-const app = express();
-const { PORT, NODE_ENV } = require("./config/keys");
+const helmet = require("helmet");
 const passport = require("passport");
 const formData = require("express-form-data");
+
 const auth = require("./routes/auth");
 const users = require("./routes/user");
 const posts = require("./routes/posts");
@@ -15,8 +16,9 @@ const patchNotes = require("./routes/patch_notes");
 const articles = require("./routes/articles");
 const tags = require("./routes/tags");
 const messages = require("./routes/messages");
+
 const time = 60 * 1000 * 60 * 24 * 30; // 30 days
-const helmet = require("helmet");
+const app = express();
 
 // Middleware
 app.use(helmet());
@@ -26,6 +28,7 @@ app.use(require("prerender-node"));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(formData.parse());
+
 // Passport middleware
 app.use(passport.initialize());
 
