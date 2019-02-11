@@ -1,4 +1,4 @@
-import React, { PureComponent, lazy, Suspense } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import classNames from "classnames";
 import PropTypes from "prop-types";
@@ -9,9 +9,9 @@ import {
   getTopArticle
 } from "../../../../actions/articleActions";
 import { loadModal } from "../../../../actions/modalActions";
-import LazyLoad from "react-lazyload";
+
 // Components
-// import ArticlesFeed from "./js/ArticlesFeed";
+import ArticlesFeed from "./js/ArticlesFeed";
 import LoaderRolling from "../../../Common/Loader/LoaderRolling";
 import LoaderSmall from "../../../Common/Loader/LoaderSmall";
 import ScrollToTop from "../../../Common/ScrollToTop/ScrollToTop";
@@ -115,7 +115,6 @@ class Home extends PureComponent {
   };
 
   render() {
-    let ArticlesFeed = lazy(() => import("./js/ArticlesFeed"));
     const container = document.getElementById("container");
     const {
       scrolling,
@@ -145,62 +144,59 @@ class Home extends PureComponent {
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
 
-    content = (
-      <div>
-        <Navigation hideTopNav={this.state.hideTopNav} />
-        <div className="wrapper_main">
-          <div
-            id="container"
-            onScroll={e => this.handleScroll(e, scrolling, totalPages, page, 3)}
-            className={contentClass}
-          >
-            <div id="offset">
-              <div className="row bottom-bar">
-                <div className="col-12 col-lg-7 col-xl-7">
-                  <LatestVideo id="3eJguVaiOBc" />
-                </div>
-                <div className="col-12 col-lg-5 col-xl-5 side-bar">
-                  <TopArticle
-                    topArticle={topArticle}
-                    large_screen={this.state.large_screen}
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-12 col-lg-2 col-xl-2" />
-                <div className="col-12 col-lg-8 col-xl-8">
-                  {/* <LazyLoad height={"100%"}> */}
-                  <Suspense
-                    fallback={
-                      <LoaderRolling
-                        msg={"Loading... Please wait."}
-                        margin="50px auto"
+    init_loading
+      ? (content = (
+          <LoaderRolling msg={"Loading... Please wait."} margin="50px auto" />
+        ))
+      : (content = (
+          <div>
+            <Navigation hideTopNav={this.state.hideTopNav} />
+            <div className="wrapper_main">
+              <div
+                id="container"
+                onScroll={e =>
+                  this.handleScroll(e, scrolling, totalPages, page, 3)
+                }
+                className={contentClass}
+              >
+                <div id="offset">
+                  <div className="row bottom-bar">
+                    <div className="col-12 col-lg-7 col-xl-7">
+                      <LatestVideo id="3eJguVaiOBc" />
+                    </div>
+                    <div className="col-12 col-lg-5 col-xl-5 side-bar">
+                      <TopArticle
+                        topArticle={topArticle}
+                        large_screen={this.state.large_screen}
                       />
-                    }
-                  >
-                    <ArticlesFeed articles={articles} />
-                  </Suspense>
+                    </div>
+                  </div>
 
-                  {loader_icon}
+                  <div className="row">
+                    <div className="col-12 col-lg-2 col-xl-2" />
+                    <div className="col-12 col-lg-8 col-xl-8">
+                      <ArticlesFeed articles={articles} />
+                      {loader_icon}
+                    </div>
+                    <div className="col-12 col-lg-2 col-xl-2" />
+                  </div>
+
+                  {endLoad}
+                  <div id="target">
+                    <ScrollToTop
+                      customScroll={true}
+                      hideScrollTopButton={this.state.hideScrollTopButton}
+                      container={container}
+                      scrollStepInPx="20"
+                      delayInMs="1"
+                    />
+                  </div>
                 </div>
-                <div className="col-12 col-lg-2 col-xl-2" />
-              </div>
-              {endLoad}
-              <div id="target">
-                <ScrollToTop
-                  customScroll={true}
-                  hideScrollTopButton={this.state.hideScrollTopButton}
-                  container={container}
-                  scrollStepInPx="20"
-                  delayInMs="1"
-                />
               </div>
             </div>
+            <Footer hideFooter={this.state.hideFooter} />
           </div>
-        </div>
-        <Footer hideFooter={this.state.hideFooter} />
-      </div>
-    );
+        ));
     return content;
   }
 }
