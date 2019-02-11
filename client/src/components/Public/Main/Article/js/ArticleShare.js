@@ -25,7 +25,7 @@ const ArticleShare = ({ id, thumbnail, mobile }) => {
         <i className="fab fa-facebook-f" />
       </FacebookShareButton>
       <TwitterShareButton
-        url={`https://zenipsgaming.herokuapp.com/articles/${id}`}
+        url={`http://zenipsgaming.herokuapp.com/articles/${id}`}
       >
         <i className="fab fa-twitter" />
       </TwitterShareButton>
