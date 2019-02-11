@@ -150,6 +150,9 @@ class Article extends PureComponent {
           <meta property="og:url" content={document.URL} />
           <meta property="og:title" content={article.title} />
           <meta property="og:description" content={article.preview} />
+          <meta property="fb:app_id" content="353263045214735" />
+          <meta name="twitter:card" content={article.preview} />
+          <meta name="twitter:site" content="@zenipsgaming" />
         </Helmet>
         <Navigation hideTopNav={this.state.hideTopNav} />
         <div className="wrapper_main">
