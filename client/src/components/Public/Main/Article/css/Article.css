@@ -36,7 +36,7 @@ blockquote {
   max-width: 100%;
   padding: 0;
   position: fixed;
-  left: 0;
+  left: 0%;
   top: 20%;
   display: flex;
   flex-direction: column;
@@ -67,6 +67,7 @@ blockquote {
   align-items: center;
 }
 
+.social-media-share-box .fab.fa-facebook-f,
 .share-social-media .fab.fa-facebook-f {
   background-color: #3b5998;
 }
@@ -76,6 +77,7 @@ blockquote {
   color: #ff8941;
 }
 
+.social-media-share-box .fab.fa-twitter,
 .share-social-media .fab.fa-twitter {
   background-color: #55acee;
 }
@@ -85,6 +87,7 @@ blockquote {
   color: #ff8941;
 }
 
+.social-media-share-box .fab.fa-linkedin,
 .share-social-media .fab.fa-linkedin {
   background: #007bb5;
 }
@@ -94,6 +97,7 @@ blockquote {
   color: #ff8941;
 }
 
+.social-media-share-box .fab.fa-whatsapp,
 .share-social-media .fab.fa-whatsapp {
   background: #25d366;
 }
@@ -103,6 +107,7 @@ blockquote {
   color: #ff8941;
 }
 
+.social-media-share-box .fab.fa-pinterest,
 .share-social-media .fab.fa-pinterest {
   background: #cb2027;
 }
@@ -112,6 +117,7 @@ blockquote {
   color: #ff8941;
 }
 
+.social-media-share-box .fab.fa-reddit,
 .share-social-media .fab.fa-reddit {
   background: #ff5700;
 }
@@ -121,6 +127,7 @@ blockquote {
   color: #ff8941;
 }
 
+.social-media-share-box .fab.fa-tumblr,
 .share-social-media .fab.fa-tumblr {
   background: #2c4762;
 }
@@ -161,8 +168,27 @@ blockquote {
   border: none;
   text-align: center;
 }
+
+.btn.btn-back {
+  padding: 0.5rem 1rem;
+  background: #1f272b;
+  color: #ff8941;
+  position: fixed;
+}
+
+.btn.btn-back i {
+  font-size: 1.5rem;
+}
+
+.btn.btn-back:hover {
+  background: #ff8941;
+  color: #1f272b;
+}
 @media (max-width: 768px) {
   .share-social-media {
+    display: none;
+  }
+  .btn.btn-back {
     display: none;
   }
 }

@@ -22,6 +22,7 @@ const helmet = require("helmet");
 app.use(helmet());
 app.use(compression());
 app.use(cors());
+app.use(require("prerender-node"));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(formData.parse());
@@ -43,10 +44,6 @@ app.use("/api/messages", messages);
 if (NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("client/build", { maxAge: time }));
-  app.get("/robots.txt", function(req, res) {
-    res.type("text/plain");
-    res.send("User-agent: *\nDisallow: ");
-  });
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });

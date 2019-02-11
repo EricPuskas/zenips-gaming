@@ -5,7 +5,7 @@ import classNames from "classnames";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import DisqusThread from "../../../Common/DisqusThread";
-import { Helmet } from "react-helmet";
+import Helmet from "react-helmet";
 // Utils
 import ytOptimizer from "../../../../utils/ytOptimizer";
 //Components
@@ -139,19 +139,19 @@ class Article extends PureComponent {
         />
       );
     }
+
     return (
       <div>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{article.title}</title>
           <meta property="og:image" content={article.thumbnail} />
-          <meta property="og:type" content="article" />
+          <meta property="og:type" content="website" />
           <meta property="og:url" content={document.URL} />
           <meta property="og:title" content={article.title} />
           <meta property="og:description" content={article.preview} />
         </Helmet>
         <Navigation hideTopNav={this.state.hideTopNav} />
-
         <div className="wrapper_main">
           <div
             id="container"
@@ -161,6 +161,12 @@ class Article extends PureComponent {
             <div id="offset">
               <div className="row article-m-container">
                 <div className="col-12 col-lg-2 col-xl-2">
+                  <button
+                    className="btn btn-back"
+                    onClick={() => this.props.history.goBack()}
+                  >
+                    <i className="fa fa-arrow-left" />
+                  </button>
                   <ArticleShare
                     mobile={this.state.mobile}
                     id={article._id}

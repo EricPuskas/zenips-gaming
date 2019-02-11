@@ -1,11 +1,11 @@
 import React from "react";
 
-const Ad300x600 = ({ img1, src1, img2, src2 }) => {
+const Ad300x600 = ({ img1, src1, img2, src2, padding }) => {
   let first_ad, second_ad;
 
   img1 && src1
     ? (first_ad = (
-        <div className="advertisement">
+        <div className="advertisement" style={{ padding }}>
           <span>Advertisement</span>
           <a href={src1} alt="advertisement link">
             <img className="img-responsive" src={img1} alt="Advertisement" />
@@ -16,7 +16,7 @@ const Ad300x600 = ({ img1, src1, img2, src2 }) => {
 
   img2 && src2
     ? (second_ad = (
-        <div className="advertisement">
+        <div className="advertisement" style={{ padding }}>
           <span>Advertisement</span>
           <a href={src2} alt="advertisement link">
             <img className="img-responsive" src={img2} alt="Advertisement" />
