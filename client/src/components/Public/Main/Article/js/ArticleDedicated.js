@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Moment from "react-moment";
 import Parser from "html-react-parser";
+import Placeholder from "../../../../Common/Placeholder";
 
 const ArticleDedicated = ({ article }) => {
   let content;
   if (typeof article.content === "string") content = Parser(article.content);
+  const ArticleContent = React.lazy(() => import("./ArticleContent"));
   return (
     <div className="row">
       <div className="article-container row">
@@ -44,7 +46,15 @@ const ArticleDedicated = ({ article }) => {
         </div>
         <div className="col-12 reset-padding">
           <div className="article-info-main">
-            <div className="article-content-div">{content}</div>
+            <Suspense
+              fallback={
+                <div className="article-content-div">
+                  <Placeholder />
+                </div>
+              }
+            >
+              <ArticleContent content={content} />
+            </Suspense>
           </div>
         </div>
       </div>
