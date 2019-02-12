@@ -57,6 +57,11 @@ class AvatarModal extends React.Component {
     const username = this.props.modal.props.username;
     const id = this.props.modal.props.id;
     this.props.updateUserAvatar(id, username, this.state.formData);
+    if (this.props.auth.user._id === id) {
+      setTimeout(() => {
+        this.props.getUserInfo(id);
+      }, 2000);
+    }
   };
 
   listenKeyboard = event => {

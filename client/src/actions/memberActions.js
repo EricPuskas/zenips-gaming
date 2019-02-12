@@ -246,7 +246,6 @@ export const updateUserAvatar = (id, username, data) => dispatch => {
         payload: res.data
       })
     )
-    .then(() => dispatch(getUserInfo(id)))
     .then(() => dispatch(getTeamMembers()))
     .then(() => dispatch(getTeamMember(username)))
     .catch(err =>

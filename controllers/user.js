@@ -120,6 +120,11 @@ exports.updateUserAvatar = async (req, res) => {
       { $set: { avatar } },
       { multi: true }
     ).exec();
+    await db.Article.updateMany(
+      { "author.id": req.params.id },
+      { $set: { "author.avatar": avatar } },
+      { multi: true }
+    ).exec();
     res.json(user);
   } catch (err) {
     res.status(400).json(err);

@@ -4,11 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import jwt_decode from "jwt-decode";
 
-// CSS
-import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
-import "./App.css";
-
 // Actions
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
