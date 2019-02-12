@@ -161,10 +161,10 @@ class Home extends PureComponent {
               >
                 <div id="offset">
                   <div className="row bottom-bar">
-                    <div className="col-12 col-lg-7 col-xl-7">
+                    <div className="col-12 col-lg-7 col-xl-7 reset-padding">
                       <LatestVideo id="3eJguVaiOBc" />
                     </div>
-                    <div className="col-12 col-lg-5 col-xl-5 side-bar">
+                    <div className="col-12 col-lg-5 col-xl-5 reset-padding side-bar">
                       <TopArticle
                         topArticle={topArticle}
                         large_screen={this.state.large_screen}
@@ -173,12 +173,12 @@ class Home extends PureComponent {
                   </div>
 
                   <div className="row">
-                    <div className="col-12 col-lg-2 col-xl-2" />
-                    <div className="col-12 col-lg-8 col-xl-8">
+                    <div className="col-12 col-lg-2 col-xl-2 reset-padding" />
+                    <div className="col-12 col-lg-8 col-xl-8 reset-padding">
                       <ArticlesFeed articles={articles} />
                       {loader_icon}
                     </div>
-                    <div className="col-12 col-lg-2 col-xl-2" />
+                    <div className="col-12 col-lg-2 col-xl-2 reset-padding" />
                   </div>
 
                   {endLoad}

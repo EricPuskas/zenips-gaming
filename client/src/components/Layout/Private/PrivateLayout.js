@@ -10,13 +10,13 @@ import {
   getUserInfo
 } from "../../../actions/authActions";
 // Components
+import asyncComponent from "../../Common/AsyncComponent";
 import PrivateRoute from "../../Common/PrivateRoute";
 import NotFound from "../../Common/NotFound";
 // Navigation
 import Navigation from "./Navigation/Navigation";
 import Footer from "./Footer/Footer";
 // Posts
-import Posts from "../../Private/Main/Posts";
 import PostNew from "../../Private/Main/Posts/js/PostNew";
 import PostEdit from "../../Private/Main/Posts/js/PostEdit";
 // Patch Notes
@@ -108,6 +108,7 @@ class PrivateLayout extends React.Component {
     const expandContent = this.state.showHideSidenav ? false : true;
     const { user, isAuthenticated } = this.props.auth;
     const status = this.state.showHideSidenav ? "" : "active";
+    const Posts = asyncComponent(() => import("../../Private/Main/Posts"));
     return (
       <div>
         <div className="wrapper">

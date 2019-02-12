@@ -116,6 +116,11 @@
   height: 100%;
 }
 
+.side-d-scrollable::-webkit-scrollbar-thumb {
+  background: rgb(250, 135, 65);
+  border-radius: 0px;
+}
+
 @media only screen and (max-width: 737px) {
   .side-drawer li {
     padding: 0.5rem;

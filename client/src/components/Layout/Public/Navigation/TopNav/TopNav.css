@@ -36,7 +36,7 @@
   font-family: "Aldrich", sans-serif;
   text-decoration: none;
   font-weight: 700;
-  color: inherit;
+  color: inherit !important;
 }
 
 .toolbar-nav-items a:hover,

@@ -20,7 +20,9 @@ class ArticlesFeed extends Component {
       : (content = AllArticles);
     return (
       <div>
-        <h1 className="text-center">Recent Articles</h1>
+        <h1 className="text-center" style={{ marginBottom: "1rem" }}>
+          Recent Articles
+        </h1>
         <div className="main-holder">
           <div className="row">{content}</div>
         </div>

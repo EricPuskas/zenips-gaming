@@ -34,6 +34,7 @@
 .base-footer.hide {
   transition: bottom 0.3s ease-out;
   bottom: -100px;
+  display: inherit;
 }
 .base-footer i {
   font-size: 1.3rem;
@@ -95,7 +96,7 @@
 }
 
 .footer-menu a {
-  color: inherit;
+  color: inherit !important;
 }
 
 .footer-menu li:hover {

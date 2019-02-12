@@ -10,7 +10,7 @@
 .content-container {
   margin: 0;
   overflow: auto;
-  margin-top: 3.7rem;
+  margin-top: 3.5rem;
   color: #fff;
   padding: 0 1rem;
   overflow: auto;
@@ -56,7 +56,7 @@
   border-bottom: 1px solid #e5e5e5;
   background: #1f272b;
   margin-bottom: none;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 
@@ -84,7 +84,7 @@
 .top-article-container p {
   color: #222;
   text-align: start;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   padding-top: 0.5rem;
@@ -138,7 +138,7 @@
 
 .article-box-item {
   border-bottom: 1px solid #e5e5e5;
-  padding: 0.5rem;
+  padding: 0;
 }
 
 .article-info-div {
@@ -176,7 +176,8 @@
 }
 
 .article-info-preview p {
-  padding: 1.5rem 1rem;
+  padding: 1rem;
+  font-size: 1.3rem;
 }
 @media (max-width: 812px) {
   .main-holder .latest-post-title,
@@ -195,6 +196,14 @@
   }
   .article-info-div {
     margin-bottom: 1rem;
+  }
+
+  .top-article-container p {
+    padding-top: 0.5rem;
+    padding: 0.5rem;
+  }
+  .main-holder {
+    padding: 0rem;
   }
 }
 
@@ -226,7 +235,7 @@
   }
   .main-holder .latest-post-title,
   .top-article-container .latest-post-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .article-info-div {
     padding: 0;

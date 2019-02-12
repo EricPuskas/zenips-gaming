@@ -6,4 +6,9 @@ body {
 .auth-container {
   height: 100%;
   background-color: #06131b;
+  font-family: "Aldrich";
+}
+
+small {
+  font-size: 100%;
 }

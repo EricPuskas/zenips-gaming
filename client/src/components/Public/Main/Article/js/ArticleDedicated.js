@@ -8,9 +8,15 @@ const ArticleDedicated = ({ article }) => {
   return (
     <div className="row">
       <div className="article-container row">
-        <div className="col-12 reset-padding article-thumbnail-main">
+        <div
+          className="col-12 reset-padding article-thumbnail-main"
+          style={{ paddingBottom: "1rem" }}
+        >
           <h1 className="text-center">{article.title}</h1>
-          <div className="article-info-div text-center">
+          <div
+            className="article-info-div text-center"
+            style={{ padding: "1rem" }}
+          >
             <div className="article-info-itm">
               <img
                 src={article.author.avatar}

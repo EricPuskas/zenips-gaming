@@ -4,7 +4,6 @@
 .article-container {
   color: #222;
   padding: 0 0.5rem;
-  margin-top: 1rem;
   border-right: 1px solid #cecece;
   border-left: 1px solid #cecece;
 }
@@ -15,9 +14,7 @@
   font-family: "Ubuntu", sans-serif;
   border-bottom: 1px solid #e5e5e5;
   background: transparent;
-  margin-bottom: none;
-  margin-top: 1.2rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 .article-content-div p {
   color: #222;
@@ -195,11 +192,27 @@ blockquote {
   color: #1f272b;
 }
 @media (max-width: 768px) {
+  .side-bar {
+    border-left: none;
+  }
   .share-social-media {
     display: none;
   }
   .btn.btn-back {
     display: none;
+  }
+  .top-article-container {
+    padding: 0rem;
+    padding-bottom: 0;
+  }
+
+  .top-article-container {
+    padding: 0rem;
+    padding-bottom: 0;
+  }
+  .latest-post-container {
+    padding: 1rem 0;
+    padding-bottom: 0;
   }
 }
 

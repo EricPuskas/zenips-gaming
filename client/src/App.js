@@ -17,12 +17,7 @@ import setAuthToken from "./utils/setAuthToken";
 
 // Store
 import store from "./store";
-
-// Import Layouts
-import PrivateLayout from "./components/Layout/Private/PrivateLayout";
-import PublicLayout from "./components/Layout/Public/PublicLayout";
-import AuthLayout from "./components/Layout/Auth/AuthLayout";
-
+import AsyncComponent from "./components/Common/AsyncComponent";
 // Check for token
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -47,6 +42,16 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
   render() {
+    const PrivateLayout = AsyncComponent(() =>
+      import("./components/Layout/Private/PrivateLayout")
+    );
+    const AuthLayout = AsyncComponent(() =>
+      import("./components/Layout/Auth/AuthLayout")
+    );
+    const PublicLayout = AsyncComponent(() =>
+      import("./components/Layout/Public/PublicLayout")
+    );
+
     return (
       <Provider store={store}>
         <Router>
