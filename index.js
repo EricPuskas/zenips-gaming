@@ -16,6 +16,7 @@ const patchNotes = require("./routes/patch_notes");
 const articles = require("./routes/articles");
 const tags = require("./routes/tags");
 const messages = require("./routes/messages");
+const videos = require("./routes/videos");
 
 const time = 60 * 1000 * 60 * 24 * 30; // 30 days
 const app = express();
@@ -42,6 +43,7 @@ app.use("/api/patchnotes", patchNotes);
 app.use("/api/articles", articles);
 app.use("/api/tags", tags);
 app.use("/api/messages", messages);
+app.use("/api/videos", videos);
 
 // Serve static assets if in production
 if (NODE_ENV === "production") {

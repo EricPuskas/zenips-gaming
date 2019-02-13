@@ -45,7 +45,6 @@ class Contact extends PureComponent {
     const observer = lozad(); // lazy loads elements with default selector as '.lozad'
     observer.observe();
     if (this.captchaDemo) {
-      console.log("started, just a second...");
       this.captchaDemo.reset();
     }
     window.innerWidth <= 813 &&

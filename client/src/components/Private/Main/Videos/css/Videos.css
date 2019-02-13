@@ -1,0 +1,29 @@
+.videos-container {
+  margin-top: 4rem;
+  background-color: #040d13;
+}
+
+.video-item {
+  padding: 10px;
+  background-color: #06131b;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.video-item h1 {
+  font-size: 1.1rem;
+  min-height: 60px;
+}
+.video-selected {
+  background-color: #004a6d;
+  cursor: pointer;
+}
+/* .row.hide {
+  display: none;
+}
+
+.row.show {
+  position: absolute;
+  width: 33%;
+  left: 40%;
+} */

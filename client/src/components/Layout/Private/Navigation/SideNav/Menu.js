@@ -26,7 +26,7 @@ class Menu extends Component {
   }
 
   listenKeyboard = event => {
-    if (event.keyCode === 84 && event.shiftKey) {
+    if (event.keyCode === 81 && event.altKey) {
       this.props.loadModal("TOOLBOX", MODAL_PROPS);
     }
   };
@@ -99,12 +99,8 @@ class Menu extends Component {
             </Link>
           </li>
           <li>
-            <Link
-              to="#!"
-              className="disabled-menu"
-              onClick={toggleSidenavMobile}
-            >
-              <i className="fab fa-youtube" /> <span>YT Channel</span>
+            <Link to="/dashboard/videos" onClick={toggleSidenavMobile}>
+              <i className="far fa-play-circle" /> <span>Video Manager</span>
             </Link>
           </li>
           <li>

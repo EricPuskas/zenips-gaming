@@ -35,6 +35,8 @@ import ArticleDedicated from "../../Private/Main/Articles/js/Operations/ArticleD
 import ArticlesSearch from "../../Private/Main/Articles/js/Search/ArticlesSearch";
 // Tags
 import Tags from "../../Private/Main/Tags";
+// Videos
+import Videos from "../../Private/Main/Videos";
 // Messages
 import Inbox from "../../Private/Main/Messages/Inbox";
 import Archive from "../../Private/Main/Messages/Archive";
@@ -213,6 +215,12 @@ class PrivateLayout extends React.Component {
               exact
               path="/dashboard/tags"
               component={Tags}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/videos"
+              component={Videos}
               expandContent={expandContent}
             />
             {/* Messages */}

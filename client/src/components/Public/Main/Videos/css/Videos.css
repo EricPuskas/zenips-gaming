@@ -1,0 +1,37 @@
+.videos-container {
+  margin: 2rem 0;
+}
+
+.video-item {
+  padding: 10px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: #222;
+  border: 1px solid #cecece;
+}
+
+.video-item h1 {
+  background: transparent;
+  color: #222;
+  font-family: "Roboto";
+  font-size: 1.1rem;
+  min-height: 60px;
+}
+
+.video-item span {
+  font-weight: 700;
+}
+.content-container .title-sample {
+  background: transparent;
+  color: #222;
+  border: none;
+}
+/* .row.hide {
+  display: none;
+}
+
+.row.show {
+  position: absolute;
+  width: 33%;
+  left: 40%;
+} */

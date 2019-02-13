@@ -7,12 +7,14 @@ import memberReducer from "./memberReducer";
 import modalReducer from "./modalReducer";
 import articleReducer from "./articleReducer";
 import messagesReducer from "./messagesReducer";
+import videoReducer from "./videoReducer";
 import errorReducer from "./errorReducer";
 
 export default combineReducers({
   auth: authReducer,
   messages: messagesReducer,
   articles: articleReducer,
+  videos: videoReducer,
   posts: postReducer,
   patch_notes: patchNotesReducer,
   team: teamReducer,

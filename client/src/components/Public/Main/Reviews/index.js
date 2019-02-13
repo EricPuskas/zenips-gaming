@@ -75,7 +75,6 @@ class Reviews extends PureComponent {
           hideFooter: true,
           hideTopNav: true
         });
-        console.log("State changed to true");
       }
     } else {
       // upscroll code
@@ -85,7 +84,6 @@ class Reviews extends PureComponent {
           hideFooter: false,
           hideTopNav: false
         });
-        console.log("State changed to false");
       }
     }
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling

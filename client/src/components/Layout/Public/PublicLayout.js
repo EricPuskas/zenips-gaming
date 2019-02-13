@@ -5,6 +5,7 @@ import Article from "../../Public/Main/Article";
 import News from "../../Public/Main/News";
 import Reviews from "../../Public/Main/Reviews";
 import Guides from "../../Public/Main/Guides";
+import Videos from "../../Public/Main/Videos";
 import Contact from "../../Public/Main/Contact";
 import { loadReCaptcha } from "react-recaptcha-google";
 import ArticlesSearch from "../../Public/Main/Articles/Search/ArticlesSearch";
@@ -48,6 +49,7 @@ class PublicLayout extends React.Component {
           <Route exact path="/news" component={News} />
           <Route exact path="/reviews" component={Reviews} />
           <Route exact path="/guides" component={Guides} />
+          <Route exact path="/videos" component={Videos} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/articles/results" component={ArticlesSearch} />
           <Route exact path="/articles/:id" component={Article} />

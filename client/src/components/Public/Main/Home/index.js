@@ -9,7 +9,7 @@ import {
   getTopArticle
 } from "../../../../actions/articleActions";
 import { loadModal } from "../../../../actions/modalActions";
-
+import { getLatestVideo } from "../../../../actions/videoActions";
 // Components
 import ArticlesFeed from "./js/ArticlesFeed";
 import LoaderRolling from "../../../Common/Loader/LoaderRolling";
@@ -54,7 +54,7 @@ class Home extends PureComponent {
       this.setState(prevState => {
         return { large_screen: !prevState.large_screen };
       });
-
+    this.props.getLatestVideo();
     this.props.getTopArticle(1, 1);
     this.props.getInitArticles(3, 1, this.state.search);
   }
@@ -125,6 +125,15 @@ class Home extends PureComponent {
       init_loading,
       topArticle
     } = this.props.articles;
+    const { videos } = this.props.videos;
+    const latestVideo = videos.map(video => (
+      <LatestVideo
+        large_screen={this.state.large_screen}
+        key={video._id}
+        id={video.url}
+        title={video.title}
+      />
+    ));
     const MODAL_PROPS = {
       width: "50%",
       left: "30%",
@@ -132,7 +141,7 @@ class Home extends PureComponent {
     };
     let endLoad, loader_icon, content;
     let contentClass = classNames({
-      "content-container": true,
+      "content-container home": true,
       expand: this.state.expandContent
     });
 
@@ -162,7 +171,7 @@ class Home extends PureComponent {
                 <div id="offset">
                   <div className="row bottom-bar">
                     <div className="col-12 col-lg-7 col-xl-7 reset-padding">
-                      <LatestVideo id="3eJguVaiOBc" />
+                      {latestVideo}
                     </div>
                     <div className="col-12 col-lg-5 col-xl-5 reset-padding side-bar">
                       <TopArticle
@@ -206,14 +215,16 @@ Home.propTypes = {
   getInitArticles: PropTypes.func.isRequired,
   loadModal: PropTypes.func.isRequired,
   getMoreArticles: PropTypes.func.isRequired,
-  getTopArticle: PropTypes.func.isRequired
+  getTopArticle: PropTypes.func.isRequired,
+  getLatestVideo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  articles: state.articles
+  articles: state.articles,
+  videos: state.videos
 });
 
 export default connect(
   mapStateToProps,
-  { getInitArticles, getMoreArticles, getTopArticle, loadModal }
+  { getInitArticles, getMoreArticles, getTopArticle, getLatestVideo, loadModal }
 )(Home);

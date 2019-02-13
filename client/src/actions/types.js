@@ -65,6 +65,10 @@ export const CREATE_MESSAGE = "CREATE_MESSAGE";
 // TAGS
 export const GET_TAGS = "GET_TAGS";
 
+// VIDEOS
+export const GET_VIDEOS = "GET_VIDEOS";
+export const INIT_LOADING_VIDEOS = "INIT_LOADING_VIDEOS";
+
 // TEAM
 export const INIT_TEAM_LOADING = "INIT_TEAM_LOADING";
 export const GET_TEAM_MEMBERS = "GET_TEAM_MEMBERS";

@@ -6,7 +6,7 @@ const Header = ({ header, onCloseModal }) => {
       <h4 className="modal-title modal-title-center">
         {header}
         <div>
-          <small>Shortcut: Shift + T</small>
+          <small>Shortcut: Alt + Q</small>
         </div>
       </h4>
       <button type="button" className="close" onClick={() => onCloseModal()}>

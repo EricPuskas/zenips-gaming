@@ -1,7 +1,9 @@
 const ytOptimizer = () => {
   let v = document.getElementsByClassName("yt-player");
+  let title_placeholder = document.getElementById("title_placeholder");
   for (let n = 0; n < v.length; n++) {
     v[n].onclick = function() {
+      if (title_placeholder) title_placeholder.outerHTML = "";
       let iframe = document.createElement("iframe");
       iframe.setAttribute(
         "src",

@@ -142,7 +142,7 @@ a[data-toggle="collapse"] {
   z-index: 3;
 }
 
-.btn-search {
+.btn.btn-search.search-button {
   border: 2px solid #102029;
   background-color: #102029;
   color: #ffffff;

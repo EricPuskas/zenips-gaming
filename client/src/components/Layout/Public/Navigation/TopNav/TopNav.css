@@ -25,6 +25,9 @@
   border-bottom: 1px solid #ffffff2b;
 }
 
+.toolbar-logo {
+  display: flex;
+}
 .toolbar-logo a {
   color: #ff8017;
   font-size: 1.5rem;
