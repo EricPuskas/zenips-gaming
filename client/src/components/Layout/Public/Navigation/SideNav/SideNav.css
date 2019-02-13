@@ -35,12 +35,19 @@
   text-align: center;
 }
 
+.side-drawer a:active,
+.side-drawer a:focus,
+.side-drawer a:hover,
 .side-drawer a {
   color: inherit;
   font-weight: 700;
   font-family: "Aldrich", sans-serif;
   text-decoration: none;
   font-size: 1.2rem;
+  width: 100%;
+  display: block;
+  height: auto;
+  padding: 0.5rem;
 }
 
 .side-drawer li:hover,
@@ -126,7 +133,7 @@
 
 @media only screen and (max-width: 737px) {
   .side-drawer li {
-    padding: 0.5rem;
+    padding: 0rem;
   }
   .side-d-scrollable {
     height: 80%;

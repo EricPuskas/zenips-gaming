@@ -51,21 +51,21 @@ class SideNav extends React.PureComponent {
             </button>
           </div>
           <ul>
-            <Link to="/news">
-              <li>News</li>
-            </Link>
-            <Link to="/reviews">
-              <li>Reviews</li>
-            </Link>
-            <Link to="/guides">
-              <li>Guides</li>
-            </Link>
+            <li>
+              <Link to="/news">News</Link>
+            </li>
+            <li>
+              <Link to="/reviews">Reviews</Link>
+            </li>
+            <li>
+              <Link to="/guides">Guides</Link>
+            </li>
             <li>
               <a href="/">Videos</a>
             </li>
-            <Link to="/contact">
-              <li>Contact us</li>
-            </Link>
+            <li>
+              <Link to="/contact">Contact us</Link>
+            </li>
             <li>
               <a href="/">Patreon</a>
             </li>
