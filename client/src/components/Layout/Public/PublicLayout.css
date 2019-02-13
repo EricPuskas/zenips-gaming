@@ -88,7 +88,8 @@ span {
   margin-left: -35px;
   margin-top: -35px;
   position: absolute;
-  background: url("https://i.imgur.com/TxzC70f.png") no-repeat;
+  background: url("https://res.cloudinary.com/zenipsstudio/image/upload/v1550083822/TxzC70f.png")
+    no-repeat;
 }
 
 @media only screen and (max-width: 600px) {

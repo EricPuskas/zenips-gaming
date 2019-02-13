@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withRouter } from "react-router-dom";
-import { ReCaptcha } from "react-recaptcha-google";
+import { loadReCaptcha, ReCaptcha } from "react-recaptcha-google";
 // Actions
 import {
   createMessage,
@@ -42,6 +42,7 @@ class Contact extends PureComponent {
   }
   componentDidMount() {
     document.title = "Zenips Gaming | News";
+    loadReCaptcha();
     const observer = lozad(); // lazy loads elements with default selector as '.lozad'
     observer.observe();
     if (this.captchaDemo) {

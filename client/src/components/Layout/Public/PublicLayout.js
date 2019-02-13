@@ -5,20 +5,15 @@ import Article from "../../Public/Main/Article";
 import News from "../../Public/Main/News";
 import Reviews from "../../Public/Main/Reviews";
 import Guides from "../../Public/Main/Guides";
-// import Videos from "../../Public/Main/Videos";
+import Videos from "../../Public/Main/Videos";
 import Contact from "../../Public/Main/Contact";
-import { loadReCaptcha } from "react-recaptcha-google";
+
 import ArticlesSearch from "../../Public/Main/Articles/Search/ArticlesSearch";
-import AsyncComponent from "../../Common/AsyncComponent";
 // Modals
 import ModalContainer from "../../Common/Modals/ModalContainer";
 import "./PublicLayout.css";
 
 class PublicLayout extends React.Component {
-  componentDidMount() {
-    loadReCaptcha();
-  }
-
   constructor() {
     super();
     this.state = {
@@ -43,7 +38,6 @@ class PublicLayout extends React.Component {
   };
 
   render() {
-    const Videos = AsyncComponent(() => import("../../Public/Main/Videos"));
     return (
       <div>
         <Switch>
