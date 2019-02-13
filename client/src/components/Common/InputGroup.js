@@ -77,6 +77,7 @@ class InputGroup extends React.Component {
           value={value}
           type={inputType}
           onClick={onClick}
+          aria-label={name}
         />
         {showPw}
         {error && <div className="invalid-feedback">{error}</div>}

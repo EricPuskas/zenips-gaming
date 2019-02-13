@@ -29,6 +29,7 @@ const TextArea = ({
         maxLength={maxLength}
         placeholder={placeholder}
         rows={rows}
+        aria-label={name}
       />
       {error && <div className="invalid-feedback">{error}</div>}
     </div>
