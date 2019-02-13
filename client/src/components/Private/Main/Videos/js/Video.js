@@ -49,8 +49,8 @@ class Video extends Component {
               data-fullscreen="1"
             >
               <img
-                data-src={`//i.ytimg.com/vi/${video.url}/maxresdefault.jpg`}
-                src="https://www.ywcaprinceton.org/wp-content/uploads/cropped-placeholder.jpg"
+                data-src={`//i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
+                src="https://res.cloudinary.com/zenipsstudio/image/upload/v1550076096/cropped-placeholder.jpg"
                 alt={video.title}
                 className="lozad img-responsive"
               />

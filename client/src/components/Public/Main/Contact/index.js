@@ -162,7 +162,7 @@ class Contact extends PureComponent {
                       <div className="col-12 col-lg-5 col-xl-5 center-div reset-padding">
                         <Tilt className="Tilt" options={{ max: 50 }}>
                           <img
-                            src="https://www.ywcaprinceton.org/wp-content/uploads/cropped-placeholder.jpg"
+                            src="https://res.cloudinary.com/zenipsstudio/image/upload/v1550076096/cropped-placeholder.jpg"
                             data-src="https://www.shareicon.net/download/2015/09/27/108297_email_512x512.png"
                             alt="Send message logo"
                             className="lozad img-responsive message-logo"

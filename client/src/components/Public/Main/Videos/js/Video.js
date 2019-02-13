@@ -12,7 +12,7 @@ class Video extends Component {
     const { video } = this.props;
     return (
       <div className="col-12 col-lg-4 col-xl-4">
-        <div className="video-item">
+        <div className="video-item-p">
           <h1>{video.title}</h1>
           <div className="embed-responsive embed-responsive-16by9">
             <div
@@ -24,8 +24,8 @@ class Video extends Component {
               data-fullscreen="1"
             >
               <img
-                data-src={`//i.ytimg.com/vi/${video.url}/maxresdefault.jpg`}
-                src="https://www.ywcaprinceton.org/wp-content/uploads/cropped-placeholder.jpg"
+                data-src={`//i.ytimg.com/vi/${video.url}/sddefault.jpg`}
+                src="https://res.cloudinary.com/zenipsstudio/image/upload/v1550076096/cropped-placeholder.jpg"
                 alt="youtube video"
                 className="lozad img-responsive"
               />

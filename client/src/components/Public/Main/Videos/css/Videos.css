@@ -1,8 +1,8 @@
-.videos-container {
+.videos-container-p {
   margin: 2rem 0;
 }
 
-.video-item {
+.video-item-p {
   padding: 10px;
   margin-bottom: 1rem;
   cursor: pointer;
@@ -10,7 +10,7 @@
   border: 1px solid #cecece;
 }
 
-.video-item h1 {
+.video-item-p h1 {
   background: transparent;
   color: #222;
   font-family: "Roboto";
@@ -18,7 +18,7 @@
   min-height: 60px;
 }
 
-.video-item span {
+.video-item-p span {
   font-weight: 700;
 }
 .content-container .title-sample {
@@ -26,12 +26,3 @@
   color: #222;
   border: none;
 }
-/* .row.hide {
-  display: none;
-}
-
-.row.show {
-  position: absolute;
-  width: 33%;
-  left: 40%;
-} */

@@ -70,14 +70,14 @@ class Videos extends Component {
       : (main = (
           <div>
             <div className="row">
-              <div className="col-12 col-lg-6 col-xl-6 center-div text-center newTag-input">
+              <div className="col-12 col-lg-6 col-xl-6 center-div text-center">
                 <h1 className="title-sample">
                   <i className="far fa-play-circle" /> Videos
                 </h1>
               </div>
             </div>
             <div className="row">
-              <div className="col-12 text-center videos-container">
+              <div className="col-12 text-center videos-container-p">
                 <div className="row">{AllVideos}</div>
               </div>
             </div>
