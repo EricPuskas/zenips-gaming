@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import ytOptimizer from "../../../../../utils/ytOptimizer";
-
+import lozad from "lozad";
 class LatestVideo extends Component {
   componentDidMount() {
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
     ytOptimizer();
   }
   render() {
@@ -29,8 +31,10 @@ class LatestVideo extends Component {
             data-fullscreen="1"
           >
             <img
-              src={`//i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+              src="https://res.cloudinary.com/zenipsstudio/image/upload/fl_lossy,q_auto:low/v1550092423/mobius-placeholder-4.jpg"
+              data-src={`//i.ytimg.com/vi/${id}/maxresdefault.jpg`}
               alt="youtube video"
+              className="lozad img-responsive"
             />
             <div className="yt-player-control">&nbsp;</div>
           </div>
