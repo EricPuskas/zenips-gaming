@@ -160,7 +160,7 @@ class Contact extends PureComponent {
                       <div className="col-12 col-lg-5 col-xl-5 center-div reset-padding">
                         <Tilt className="Tilt" options={{ max: 50 }}>
                           <img
-                            src="http://res.cloudinary.com/zenipsstudio/image/upload/c_scale,f_webp,fl_awebp,fl_force_strip,q_auto:good,w_465/v1550092119/108297_email_512x512.png"
+                            src="https://res.cloudinary.com/zenipsstudio/image/upload/c_scale,f_webp,fl_awebp,fl_force_strip,q_auto:good,w_465/v1550092119/108297_email_512x512.png"
                             alt="Send message logo"
                             className="img-responsive message-logo"
                           />

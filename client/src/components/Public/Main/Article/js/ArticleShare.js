@@ -26,7 +26,7 @@ const ArticleShare = ({ id, thumbnail, mobile }) => {
       </FacebookShareButton>
       <TwitterShareButton
         additionalProps={{ "aria-label": "Twitter Share" }}
-        url={`http://zenipsgaming.herokuapp.com/articles/${id}`}
+        url={`https://zenipsgaming.herokuapp.com/articles/${id}`}
       >
         <i className="fab fa-twitter" />
       </TwitterShareButton>

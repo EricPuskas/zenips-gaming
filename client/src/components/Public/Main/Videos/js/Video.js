@@ -25,7 +25,7 @@ class Video extends Component {
             >
               <img
                 data-src={`//i.ytimg.com/vi/${video.url}/sddefault.jpg`}
-                src="http://res.cloudinary.com/zenipsstudio/image/upload/fl_lossy,q_auto:low/v1550092423/mobius-placeholder-4.jpg"
+                src="https://res.cloudinary.com/zenipsstudio/image/upload/fl_lossy,q_auto:low/v1550092423/mobius-placeholder-4.jpg"
                 alt="youtube video"
                 className="lozad img-responsive"
               />

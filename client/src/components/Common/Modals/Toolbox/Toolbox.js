@@ -168,7 +168,7 @@ class Toolbox extends React.Component {
                 </div>
                 <div className="col-12 col-lg-4 col-xl-4">
                   <a
-                    href="http://quirktools.com/screenfly/"
+                    href="https://quirktools.com/screenfly/"
                     className="toolbox-item"
                     target="_blank"
                     rel="noopener noreferrer"
