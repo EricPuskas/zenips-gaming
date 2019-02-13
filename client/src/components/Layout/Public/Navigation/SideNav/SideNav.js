@@ -61,7 +61,7 @@ class SideNav extends React.PureComponent {
               <Link to="/guides">Guides</Link>
             </li>
             <li>
-              <a href="/">Videos</a>
+              <Link to="/videos">Videos</Link>
             </li>
             <li>
               <Link to="/contact">Contact us</Link>

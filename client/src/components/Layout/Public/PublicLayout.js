@@ -7,7 +7,8 @@ import Reviews from "../../Public/Main/Reviews";
 import Guides from "../../Public/Main/Guides";
 import Videos from "../../Public/Main/Videos";
 import Contact from "../../Public/Main/Contact";
-
+import Helmet from "react-helmet";
+import Brand from "../../../assets/img/favicon-32x32.png";
 import ArticlesSearch from "../../Public/Main/Articles/Search/ArticlesSearch";
 // Modals
 import ModalContainer from "../../Common/Modals/ModalContainer";
@@ -40,6 +41,9 @@ class PublicLayout extends React.Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <link rel="shortcut icon" href={Brand} />
+        </Helmet>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/news" component={News} />

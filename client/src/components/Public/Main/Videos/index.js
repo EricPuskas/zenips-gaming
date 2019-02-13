@@ -69,16 +69,16 @@ class Videos extends Component {
         ))
       : (main = (
           <div>
-            <div className="row">
-              <div className="col-12 col-lg-6 col-xl-6 center-div text-center">
+            <div className="row reset-padding">
+              <div className="col-12 col-lg-6 col-xl-6 center-div text-center reset-padding">
                 <h1 className="title-sample">
                   <i className="far fa-play-circle" /> Videos
                 </h1>
               </div>
             </div>
-            <div className="row">
-              <div className="col-12 text-center videos-container-p">
-                <div className="row">{AllVideos}</div>
+            <div className="row reset-padding">
+              <div className="col-12 col-lg-10 col-xl-10 text-center videos-container-p reset-padding">
+                <div className="row reset-padding">{AllVideos}</div>
               </div>
             </div>
           </div>

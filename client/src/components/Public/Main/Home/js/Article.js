@@ -19,7 +19,7 @@ class Article extends PureComponent {
         <div className="col-12 col-xl-5 reset-padding article-thumbnail-main">
           <Link to={`/articles/${article._id}`}>
             <img
-              src="https://www.vms.ro/wp-content/uploads/2015/04/mobius-placeholder-4.png"
+              src="http://res.cloudinary.com/zenipsstudio/image/upload/fl_lossy,q_auto:low/v1550092423/mobius-placeholder-4.jpg"
               data-src={article.thumbnail}
               alt="Thumbnail"
               className="lozad img-responsive article-thumbnail"

@@ -15,7 +15,6 @@ import Footer from "../../../Layout/Public/Footer/Footer";
 import InputGroup from "../../../Common/InputGroup";
 import TextArea from "../../../Common/TextArea";
 import Tilt from "react-tilt";
-import lozad from "lozad";
 
 //CSS
 import "./Contact.css";
@@ -43,8 +42,6 @@ class Contact extends PureComponent {
   componentDidMount() {
     document.title = "Zenips Gaming | News";
     loadReCaptcha();
-    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-    observer.observe();
     if (this.captchaDemo) {
       this.captchaDemo.reset();
     }
@@ -163,10 +160,9 @@ class Contact extends PureComponent {
                       <div className="col-12 col-lg-5 col-xl-5 center-div reset-padding">
                         <Tilt className="Tilt" options={{ max: 50 }}>
                           <img
-                            src="https://res.cloudinary.com/zenipsstudio/image/upload/v1550076096/cropped-placeholder.jpg"
-                            data-src="https://www.shareicon.net/download/2015/09/27/108297_email_512x512.png"
+                            src="http://res.cloudinary.com/zenipsstudio/image/upload/c_scale,f_webp,fl_awebp,fl_force_strip,q_auto:good,w_465/v1550092119/108297_email_512x512.png"
                             alt="Send message logo"
-                            className="lozad img-responsive message-logo"
+                            className="img-responsive message-logo"
                           />
                         </Tilt>
                       </div>

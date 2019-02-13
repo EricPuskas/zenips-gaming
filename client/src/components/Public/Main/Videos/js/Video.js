@@ -11,7 +11,7 @@ class Video extends Component {
   render() {
     const { video } = this.props;
     return (
-      <div className="col-12 col-lg-4 col-xl-4">
+      <div className="col-12 col-lg-6 col-xl-6 noPaddingMobile">
         <div className="video-item-p">
           <h1>{video.title}</h1>
           <div className="embed-responsive embed-responsive-16by9">
@@ -25,7 +25,7 @@ class Video extends Component {
             >
               <img
                 data-src={`//i.ytimg.com/vi/${video.url}/sddefault.jpg`}
-                src="https://res.cloudinary.com/zenipsstudio/image/upload/v1550076096/cropped-placeholder.jpg"
+                src="http://res.cloudinary.com/zenipsstudio/image/upload/fl_lossy,q_auto:low/v1550092423/mobius-placeholder-4.jpg"
                 alt="youtube video"
                 className="lozad img-responsive"
               />

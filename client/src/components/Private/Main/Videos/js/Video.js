@@ -49,8 +49,8 @@ class Video extends Component {
               data-fullscreen="1"
             >
               <img
-                data-src={`//i.ytimg.com/vi/${video.url}/mqdefault.jpg`}
-                src="https://res.cloudinary.com/zenipsstudio/image/upload/v1550076096/cropped-placeholder.jpg"
+                data-src={`//i.ytimg.com/vi/${video.url}/sddefault.jpg`}
+                src="http://res.cloudinary.com/zenipsstudio/image/upload/fl_lossy,q_auto:low/v1550092423/mobius-placeholder-4.jpg"
                 alt={video.title}
                 className="lozad img-responsive"
               />

@@ -42,6 +42,8 @@ import Inbox from "../../Private/Main/Messages/Inbox";
 import Archive from "../../Private/Main/Messages/Archive";
 // Modals
 import ModalContainer from "../../Common/Modals/ModalContainer";
+import Helmet from "react-helmet";
+import Brand from "../../../assets/img/brand_admin.ico";
 // CSS
 import "mdbreact/dist/css/mdb.css";
 import "./PrivateLayout.css";
@@ -113,6 +115,9 @@ class PrivateLayout extends React.Component {
     const status = this.state.showHideSidenav ? "" : "active";
     return (
       <div>
+        <Helmet>
+          <link rel="shortcut icon" href={Brand} />
+        </Helmet>
         <div className="wrapper">
           <Navigation
             user={user}
