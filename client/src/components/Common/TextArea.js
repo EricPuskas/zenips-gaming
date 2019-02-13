@@ -11,7 +11,8 @@ const TextArea = ({
   onChange,
   rows,
   maxLength,
-  large
+  large,
+  placeholder
 }) => {
   return (
     <div className="form-group">
@@ -26,6 +27,7 @@ const TextArea = ({
         onChange={onChange}
         value={value}
         maxLength={maxLength}
+        placeholder={placeholder}
         rows={rows}
       />
       {error && <div className="invalid-feedback">{error}</div>}

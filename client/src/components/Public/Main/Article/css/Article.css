@@ -191,6 +191,105 @@ blockquote {
   background: #ff8941;
   color: #1f272b;
 }
+
+.fadeInEnd {
+  color: #222;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  display: block;
+  text-align: center;
+}
+.fadeInEnd-quick {
+  opacity: 0;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slideIn;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-fill-mode: forwards;
+  background: #1f272b;
+  padding: 0.5rem;
+  color: #ff8941;
+}
+
+.fadeInEnd-quick-simple {
+  opacity: 0;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slideIn;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.fadeOutEnd-quick-simple {
+  opacity: 1;
+  -webkit-animation-name: slideOut;
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: slideOut;
+  animation-duration: 0.1s;
+  animation-delay: 0.1s;
+  animation-fill-mode: forwards;
+}
+
+.fadeInEnd-quick span {
+  font-weight: 700;
+  color: #57c1ff;
+}
+
+.center-div {
+  margin: 0 auto;
+}
+/* ************ */
+/* ANIMATIONS */
+@-webkit-keyframes slideIn {
+  0% {
+    margin-left: -120px;
+  }
+  100% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  0% {
+    margin-left: -120px;
+  }
+  100% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideOut {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -120px;
+    opacity: 0;
+  }
+}
+@keyframes slideOut {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: -120px;
+    opacity: 0;
+  }
+}
+
+.search-results-box {
+  margin: 2rem 0;
+}
 @media (max-width: 768px) {
   .side-bar {
     border-left: none;

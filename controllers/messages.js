@@ -1,6 +1,8 @@
 // Load Database
 const db = require("../models");
+const rp = require("request-promise");
 const validateMessagesInput = require("../middleware/validation/messages");
+const isEmpty = require("../middleware/validation/isEmpty");
 const ObjectId = require("mongoose").Types.ObjectId;
 //REGEX FOR SEARCH FUNCTION
 function escapeRegex(text) {
@@ -10,24 +12,47 @@ function escapeRegex(text) {
 exports.sendMessage = async (req, res) => {
   try {
     const { errors, isValid } = validateMessagesInput(req.body);
+    let token = req.body.token;
+    let remoteip = req.connection.remoteAddress;
+    const secretKey = process.env.GOOGLE_RECAPTCHA_SECRET_KEY;
+    const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}&remoteip=${remoteip}`;
+    console.log(verificationURL);
 
-    // Check Validation
-    if (!isValid) {
-      // Return any errors with 400 status
-      return res.status(400).json(errors);
-    }
+    var options = {
+      method: "POST",
+      uri: verificationURL,
+      json: true // Automatically stringifies the body to JSON
+    };
 
-    const data = new db.Message({
-      subject: req.body.subject,
-      content: req.body.content,
-      sender: {
-        name: req.body.name,
-        email: req.body.email
-      }
-    });
+    rp(options)
+      .then(function(body) {
+        if (body.success !== undefined && !body.success) {
+          console.log("Supposed to send json back...");
+          errors.error_message = "Failed captcha verification";
+          return res.status(400).json(errors);
+        }
+        // Check Validation
+        if (!isValid || !isEmpty(errors)) {
+          // Return any errors with 400 status
+          return res.status(400).json(errors);
+        }
 
-    let message = await data.save();
-    res.json(message);
+        const data = new db.Message({
+          subject: req.body.subject,
+          content: req.body.content,
+          sender: {
+            name: req.body.name,
+            email: req.body.email
+          }
+        });
+
+        let message = data.save();
+        res.json(message);
+      })
+      .catch(function(err) {
+        console.log(err);
+        return res.status(400).json(err);
+      });
   } catch (err) {
     console.log(err);
     return res.status(404).json(err);

@@ -1,0 +1,95 @@
+.contact-us-container h1 {
+  background: transparent;
+  border-bottom: none;
+  text-align: center;
+  color: #222;
+}
+
+.contact-us-container label {
+  text-align: start;
+  display: block;
+}
+.contact-us-box {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #cecece;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.message-form-box {
+  padding: 2rem 0.5rem;
+}
+
+.img-responsive.message-logo {
+  max-width: 90%;
+}
+
+.contact-form-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 4rem 0;
+}
+.btn.btn-orange-c {
+  padding: 0.5rem 2rem;
+  text-align: center;
+  background: none;
+  background-color: #ff8941;
+  color: #1f272b;
+  font-weight: 700;
+  font-family: "Aldrich";
+  font-size: 1.1rem;
+  text-shadow: none;
+  border: 1px solid #1f272b;
+  transition: all 0.2s;
+}
+
+.btn.btn-orange-c:active,
+.btn.btn-orange-c:focus,
+.btn.btn-orange-c:hover {
+  background-color: #1f272b;
+  color: #ff8941;
+  border: 1px solid #ff8941;
+}
+label {
+  color: #222;
+  font-weight: 700;
+}
+
+.errorMsg {
+  color: red;
+  font-weight: 700;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 1.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (max-width: 769px) {
+  .img-responsive.message-logo {
+    max-width: 66%;
+  }
+
+  .contact-form-bottom {
+    flex-direction: column;
+  }
+  .contact-us-box {
+    border: none;
+  }
+  .btn.btn-orange-c {
+    margin: 1rem 0 6rem;
+  }
+}

@@ -40,7 +40,6 @@ export const createArticle = (data, history) => dispatch => {
 };
 
 export const getInitArticles = (per, page, search) => dispatch => {
-  dispatch(clearErrors());
   let url;
   dispatch(InitArticlesLoading());
   if (search !== "") {
@@ -64,6 +63,133 @@ export const getInitArticles = (per, page, search) => dispatch => {
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
+      })
+    );
+};
+
+export const getInitNews = (per, page) => dispatch => {
+  dispatch(InitArticlesLoading());
+  dispatch(pageUpdateArticles(1));
+  let url = `/api/articles/category/News?per=${per}&page=1`;
+  axios
+    .get(url)
+    .then(res =>
+      setTimeout(() => {
+        dispatch({
+          type: GET_INIT_ARTICLES,
+          payload: res.data
+        });
+      }, 250)
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const getInitReviews = (per, page) => dispatch => {
+  dispatch(InitArticlesLoading());
+  dispatch(pageUpdateArticles(1));
+  let url = `/api/articles/category/Review?per=${per}&page=1`;
+  axios
+    .get(url)
+    .then(res =>
+      setTimeout(() => {
+        dispatch({
+          type: GET_INIT_ARTICLES,
+          payload: res.data
+        });
+      }, 250)
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+export const getInitGuides = (per, page) => dispatch => {
+  dispatch(InitArticlesLoading());
+  dispatch(pageUpdateArticles(1));
+  let url = `/api/articles/category/Guide?per=${per}&page=1`;
+  axios
+    .get(url)
+    .then(res =>
+      setTimeout(() => {
+        dispatch({
+          type: GET_INIT_ARTICLES,
+          payload: res.data
+        });
+      }, 250)
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Get More Posts
+export const getMoreNews = (per, page) => dispatch => {
+  let url = `/api/articles/category/News?per=${per}&page=${page}`;
+  dispatch(ArticlesLoading());
+  dispatch(pageUpdateArticles(page));
+  axios
+    .get(url)
+    .then(res =>
+      dispatch({
+        type: GET_MORE_ARTICLES,
+        payload: res.data.articles
+      })
+    )
+    .catch(() =>
+      dispatch({
+        type: GET_MORE_ARTICLES,
+        payload: null
+      })
+    );
+};
+
+export const getMoreReviews = (per, page) => dispatch => {
+  let url = `/api/articles/category/Review?per=${per}&page=${page}`;
+  dispatch(ArticlesLoading());
+  dispatch(pageUpdateArticles(page));
+  axios
+    .get(url)
+    .then(res =>
+      dispatch({
+        type: GET_MORE_ARTICLES,
+        payload: res.data.articles
+      })
+    )
+    .catch(() =>
+      dispatch({
+        type: GET_MORE_ARTICLES,
+        payload: null
+      })
+    );
+};
+
+export const getMoreGuides = (per, page) => dispatch => {
+  let url = `/api/articles/category/Guide?per=${per}&page=${page}`;
+  dispatch(ArticlesLoading());
+  dispatch(pageUpdateArticles(page));
+  axios
+    .get(url)
+    .then(res =>
+      dispatch({
+        type: GET_MORE_ARTICLES,
+        payload: res.data.articles
+      })
+    )
+    .catch(() =>
+      dispatch({
+        type: GET_MORE_ARTICLES,
+        payload: null
       })
     );
 };

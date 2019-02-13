@@ -99,6 +99,7 @@
 .subscribe-newsletter-btn span {
   padding-left: 0.5rem;
   font-weight: 700;
+  color: inherit;
 }
 
 .toolbar-nav-items ul {

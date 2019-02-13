@@ -60,6 +60,7 @@ export const DELETE_MESSAGE = "DELETE_MESSAGE";
 export const DELETE_MESSAGE_LOADING = "DELETE_MESSAGE_LOADING";
 export const GET_MESSAGE = "GET_MESSAGE";
 export const IS_READ_CHANGE = "IS_READ_CHANGE";
+export const CREATE_MESSAGE = "CREATE_MESSAGE";
 
 // TAGS
 export const GET_TAGS = "GET_TAGS";

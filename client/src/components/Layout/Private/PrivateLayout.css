@@ -436,6 +436,7 @@ blockquote {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 .spinner-loader-infinite img {
   width: 30px;

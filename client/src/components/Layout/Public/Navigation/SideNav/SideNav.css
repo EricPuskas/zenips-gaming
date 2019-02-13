@@ -111,6 +111,9 @@
   font-family: "Aldrich";
 }
 
+.side-drawer span {
+  color: #f7770d;
+}
 .side-d-scrollable {
   overflow-y: scroll;
   height: 100%;

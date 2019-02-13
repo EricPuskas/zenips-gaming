@@ -52,6 +52,9 @@ button:focus {
   outline: none;
 }
 
+span {
+  color: #222;
+}
 .yt-player {
   width: 100%;
   display: block;
@@ -196,4 +199,31 @@ button:focus {
 
 ::-webkit-scrollbar-track-piece {
   background: transparent;
+}
+
+.spinner-loader-infinite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.spinner-loader-infinite img {
+  width: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  hr {
+    margin-top: 0px;
+  }
+  .spinner-loader-infinite {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: -7%;
+  }
+  .spinner-loader-infinite img {
+    width: 30px;
+  }
 }

@@ -13,21 +13,38 @@ import {
   MOVE_MESSAGE_SUCCESS,
   DELETE_MESSAGE,
   DELETE_MESSAGE_LOADING,
-  IS_READ_CHANGE
+  IS_READ_CHANGE,
+  CREATE_MESSAGE
 } from "./types";
 
 // Get Initial Posts
 export const getInitMessages = (per, page, search) => dispatch => {
   dispatch(InitMessagesLoading());
-  // dispatch(getTotalPagesMsg(per, 1, search));
   dispatch(pageUpdateMsg(1));
-  // dispatch(countInbox());
-  // dispatch(countArchive());
   axios
     .get(`/api/messages?per=${per}&page=1&search=${search}`)
     .then(res =>
       dispatch({
         type: GET_INIT_MESSAGES,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Get Initial Posts
+export const createMessage = data => dispatch => {
+  dispatch(MessagesLoading());
+  axios
+    .post("/api/messages/new", data)
+    .then(res =>
+      dispatch({
+        type: CREATE_MESSAGE,
         payload: res.data
       })
     )
