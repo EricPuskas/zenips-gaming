@@ -1,0 +1,12 @@
+.content-box {
+  border: 2px solid #193a4e;
+  padding: 1rem;
+}
+
+.content-control-buttons {
+  padding-bottom: 1rem;
+}
+
+.content-box-holder {
+  text-align: start;
+}

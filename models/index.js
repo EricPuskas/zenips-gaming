@@ -19,3 +19,7 @@ module.exports.Article = require("./article");
 module.exports.Tag = require("./tag");
 module.exports.Message = require("./message");
 module.exports.Video = require("./video");
+module.exports.About = require("./about");
+module.exports.Privacy = require("./privacy");
+module.exports.Term = require("./term");
+module.exports.Cookie = require("./cookie");

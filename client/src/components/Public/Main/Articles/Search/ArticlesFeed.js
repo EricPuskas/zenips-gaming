@@ -9,7 +9,7 @@ class ArticlesFeed extends Component {
   render() {
     const { articles } = this.props;
     const filteredArticles = articles.filter(
-      article => article.tag !== "Most Popular"
+      article => article.status !== "private"
     );
     const AllArticles = filteredArticles.map(article => (
       <Article key={article._id} article={article} />

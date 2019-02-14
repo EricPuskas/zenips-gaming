@@ -17,6 +17,10 @@ const articles = require("./routes/articles");
 const tags = require("./routes/tags");
 const messages = require("./routes/messages");
 const videos = require("./routes/videos");
+const about = require("./routes/about");
+const privacy = require("./routes/privacy");
+const terms = require("./routes/terms");
+const cookies = require("./routes/cookies");
 
 const time = 60 * 1000 * 60 * 24 * 30; // 30 days
 const app = express();
@@ -44,6 +48,10 @@ app.use("/api/articles", articles);
 app.use("/api/tags", tags);
 app.use("/api/messages", messages);
 app.use("/api/videos", videos);
+app.use("/api/about", about);
+app.use("/api/privacy", privacy);
+app.use("/api/terms", terms);
+app.use("/api/cookies", cookies);
 
 // Serve static assets if in production
 if (NODE_ENV === "production") {

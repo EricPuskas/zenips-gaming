@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from "react";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 class Footer extends React.Component {
@@ -70,20 +71,19 @@ class Footer extends React.Component {
           <div className="footer-menu" aria-hidden={true}>
             <ul>
               <li>
-                <a href="/asinda">Privacy Policy</a>
+                <Link to="/privacy">Privacy Policy</Link>
               </li>
               <li>
-                <a href="/asinda" />
-                Terms of Use
+                <Link to="/terms">Terms of Use</Link>
               </li>
               <li>
-                <a href="/asinda">Cookies</a>
+                <Link to="/cookies">Cookies</Link>
               </li>
               <li>
-                <a href="/asinda">About us</a>
+                <Link to="/about">About us</Link>
               </li>
               <li>
-                <a href="/asinda">Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>

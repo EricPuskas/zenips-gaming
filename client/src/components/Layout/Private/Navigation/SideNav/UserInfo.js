@@ -38,9 +38,13 @@ const UserInfo = ({ user, onLogoutClick, toggleSidenavMobile }) => {
                 >
                   <i className="fas fa-user-circle" /> Profile
                 </Link>
-                <DropdownItem href="#!">
+                <Link
+                  className="dropdown-item"
+                  to="/dashboard/settings/about"
+                  onClick={() => toggleSidenavMobile()}
+                >
                   <i className="fas fa-cogs" /> Settings
-                </DropdownItem>
+                </Link>
                 <DropdownItem onClick={onLogoutClick} href="#!">
                   <i className="fas fa-sign-out-alt" /> Log out
                 </DropdownItem>

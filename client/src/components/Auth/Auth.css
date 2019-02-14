@@ -1,7 +1,7 @@
 body {
   background-color: #06131b;
   color: #fff;
-  font-family: "Roboto Condensed";
+  font-family: "Roboto";
 }
 h1 {
   color: #fff;
@@ -25,7 +25,7 @@ h1 {
   z-index: 10000;
 }
 .login-form .form-control {
-  font-family: "Roboto Condensed";
+  font-family: "Roboto";
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
   color: #495057;

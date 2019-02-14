@@ -4,8 +4,7 @@ body {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  font-family: "Roboto Condensed", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto", "Oxygen";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -210,6 +209,29 @@ span {
 }
 .spinner-loader-infinite img {
   width: 30px;
+}
+
+.content-box h1 {
+  background-color: transparent;
+  color: #222;
+  font-family: "Roboto";
+  margin: 2rem 0;
+}
+.content-box .content-box-holder p {
+  color: #222;
+  font-size: 1.2rem;
+  font-family: "Roboto";
+  text-align: start;
+}
+
+.content-box .content-box-holder blockquote {
+  border-left: none;
+}
+
+.content-box .content-box-holder ul li {
+  color: #222;
+  text-align: start;
+  font-size: 1.1rem;
 }
 
 @media only screen and (max-width: 600px) {

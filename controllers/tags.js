@@ -32,6 +32,7 @@ exports.getTags = async (req, res) => {
   try {
     let tags = await db.Tag.find({}).sort({ name: 1 });
     if (!tags) {
+      let errors = {};
       errors.error_message = "No tags were found.";
       return res.status(404).json(errors);
     }

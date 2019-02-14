@@ -8,6 +8,7 @@ import modalReducer from "./modalReducer";
 import articleReducer from "./articleReducer";
 import messagesReducer from "./messagesReducer";
 import videoReducer from "./videoReducer";
+import settingsReducer from "./settingsReducer";
 import errorReducer from "./errorReducer";
 
 export default combineReducers({
@@ -15,6 +16,7 @@ export default combineReducers({
   messages: messagesReducer,
   articles: articleReducer,
   videos: videoReducer,
+  settings: settingsReducer,
   posts: postReducer,
   patch_notes: patchNotesReducer,
   team: teamReducer,

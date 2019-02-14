@@ -37,6 +37,15 @@ import ArticlesSearch from "../../Private/Main/Articles/js/Search/ArticlesSearch
 import Tags from "../../Private/Main/Tags";
 // Videos
 import Videos from "../../Private/Main/Videos";
+// Settings
+import About from "../../Private/Main/Settings/js/About/About";
+import AboutEdit from "../../Private/Main/Settings/js/About/AboutEdit";
+import Privacy from "../../Private/Main/Settings/js/Privacy/Privacy";
+import PrivacyEdit from "../../Private/Main/Settings/js/Privacy/PrivacyEdit";
+import Cookies from "../../Private/Main/Settings/js/Cookies/Cookies";
+import CookiesEdit from "../../Private/Main/Settings/js/Cookies/CookiesEdit";
+import Terms from "../../Private/Main/Settings/js/Terms/Terms";
+import TermsEdit from "../../Private/Main/Settings/js/Terms/TermsEdit";
 // Messages
 import Inbox from "../../Private/Main/Messages/Inbox";
 import Archive from "../../Private/Main/Messages/Archive";
@@ -239,6 +248,54 @@ class PrivateLayout extends React.Component {
               exact
               path="/dashboard/archive"
               component={Archive}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/about"
+              component={About}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/about/edit"
+              component={AboutEdit}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/privacy"
+              component={Privacy}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/privacy/edit"
+              component={PrivacyEdit}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/cookies"
+              component={Cookies}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/cookies/edit"
+              component={CookiesEdit}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/terms"
+              component={Terms}
+              expandContent={expandContent}
+            />
+            <PrivateRoute
+              exact
+              path="/dashboard/settings/terms/edit"
+              component={TermsEdit}
               expandContent={expandContent}
             />
             <PrivateRoute component={NotFound} expandContent={expandContent} />

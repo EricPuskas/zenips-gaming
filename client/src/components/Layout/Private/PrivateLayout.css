@@ -2,8 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Roboto", sans-serif, "Ubuntu";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -153,7 +152,7 @@ button:focus {
 }
 
 .mce-content-body {
-  font-family: "Roboto Condensed";
+  font-family: "Roboto";
   font-size: 16px;
 }
 .row {

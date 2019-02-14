@@ -1,21 +1,17 @@
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
-const { createTag, getTags, deleteTags } = require("../controllers/tags");
+const { getAbout, deleteAbout, newAbout } = require("../controllers/about");
 
-// @route   POST api/tags/new
-// @desc    CREATE A NEW TAG
+// @route   POST api/about
+// @desc    CREATE A NEW ABOUT PAGE
 // @access  Private
-router.post(
-  "/new",
-  passport.authenticate("jwt", { session: false }),
-  createTag
-);
+router.post("/", passport.authenticate("jwt", { session: false }), newAbout);
 
-// @route   GET api/articles
-// @desc    GET ALL ARTICLES
+// @route   GET api/about
+// @desc    GET ABOUT INFO
 // @access  Public
-router.get("/", getTags);
+router.get("/", getAbout);
 
 // @route   DELETE api/tags
 // @desc    Delete selected tags
@@ -23,7 +19,7 @@ router.get("/", getTags);
 router.delete(
   "/",
   passport.authenticate("jwt", { session: false }),
-  deleteTags
+  deleteAbout
 );
 
 module.exports = router;
