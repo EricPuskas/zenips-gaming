@@ -18,6 +18,7 @@ function checkToken(token, remoteip) {
         reject(err);
       } else {
         if (body.success !== undefined && !body.success) {
+          console.log("FROM NEWSLETTER: ", body);
           resolve("Failed captcha verification");
         } else {
           resolve("OK");

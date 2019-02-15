@@ -26,7 +26,7 @@ exports.sendMessage = async (req, res) => {
     rp(options)
       .then(function(body) {
         if (body.success !== undefined && !body.success) {
-          console.log("Supposed to send json back...");
+          console.log("Supposed to send json back...", body);
           errors.error_message = "Failed captcha verification";
           return res.status(400).json(errors);
         }
