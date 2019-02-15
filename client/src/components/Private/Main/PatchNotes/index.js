@@ -16,24 +16,17 @@ import PatchNotesFeed from "./js/PatchNotesFeed";
 import ScrollToTop from "../../../Common/ScrollToTop/ScrollToTop";
 import LoaderLarge from "../../../Common/Loader/LoaderLarge";
 import LoaderSmall from "../../../Common/Loader/LoaderSmall";
-import Note from "../../Side/Note/Note";
 
 class PatchNotes extends Component {
   constructor() {
     super();
     this.state = {
-      hideScrollTopButton: true,
-      mobile: false
+      hideScrollTopButton: true
     };
   }
 
   componentDidMount() {
     document.title = "Zenips Gaming | Patch Notes";
-    if (window.innerWidth <= 414) {
-      this.setState(prevState => {
-        return { mobile: !prevState.mobile };
-      });
-    }
     const { per, page, patch_notes } = this.props.patch_notes;
     if (isEmpty(patch_notes)) {
       this.props.getInitPatchNotes(per, page);
@@ -78,10 +71,8 @@ class PatchNotes extends Component {
       init_loading
     } = this.props.patch_notes;
     let main,
-      side,
       endLoad,
       loader_icon = "";
-    this.state.mobile ? (side = "") : (side = <Note />);
 
     let mainContainer = classNames({
       "main-container": true,
@@ -96,7 +87,6 @@ class PatchNotes extends Component {
     });
 
     if (totalPages === page && page > 1 && !loading) {
-      side = <Note />;
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
 
@@ -125,7 +115,6 @@ class PatchNotes extends Component {
               {main}
               {loader_icon}
             </div>
-            <div className="col-12 col-lg-4 col-xl-4">{side}</div>
           </div>
           {endLoad}
           <div id="target">

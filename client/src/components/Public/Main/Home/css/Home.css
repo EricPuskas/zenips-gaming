@@ -186,7 +186,7 @@
 
 .overlay-title {
   position: absolute;
-  z-index: 9999;
+  z-index: 9998;
   top: 3%;
   left: 0;
   text-align: center;

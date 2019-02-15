@@ -13,7 +13,6 @@ import PostFeed from "./js/PostFeed";
 import LoaderLarge from "../../../Common/Loader/LoaderLarge";
 import LoaderSmall from "../../../Common/Loader/LoaderSmall";
 import ScrollToTop from "../../../Common/ScrollToTop/ScrollToTop";
-import Note from "../../Side/Note/Note";
 // CSS
 import "./css/Posts.css";
 
@@ -21,18 +20,12 @@ class Posts extends PureComponent {
   constructor() {
     super();
     this.state = {
-      hideScrollTopButton: true,
-      mobile: false
+      hideScrollTopButton: true
     };
   }
 
   componentDidMount() {
     document.title = "Zenips Gaming | Dashboard";
-    if (window.innerWidth <= 414) {
-      this.setState(prevState => {
-        return { mobile: !prevState.mobile };
-      });
-    }
     const { per, page, posts } = this.props.posts;
     if (isEmpty(posts)) {
       this.props.getInitPosts(per, page);
@@ -79,10 +72,8 @@ class Posts extends PureComponent {
       init_loading
     } = this.props.posts;
     let main,
-      side,
       endLoad,
       loader_icon = "";
-    this.state.mobile ? (side = "") : (side = <Note />);
     let mainContainer = classNames({
       "main-container": true,
       minContent: expandContent,
@@ -96,7 +87,6 @@ class Posts extends PureComponent {
     });
 
     if (totalPages === page && page > 1 && !loading) {
-      side = <Note />;
       endLoad = <div className="fadeInEnd">You've reached the end.</div>;
     }
 
@@ -125,7 +115,6 @@ class Posts extends PureComponent {
               {main}
               {loader_icon}
             </div>
-            <div className="col-12 col-lg-4 col-xl-4">{side}</div>
           </div>
           {endLoad}
           <div id="target">

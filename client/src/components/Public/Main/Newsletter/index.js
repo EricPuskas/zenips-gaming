@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { loadReCaptcha, ReCaptcha } from "react-recaptcha-google";
 // Actions
@@ -196,10 +197,11 @@ class Newsletter extends PureComponent {
                       <div className="col-12" style={{}}>
                         <div className="text-center">
                           <span>
-                            <strong className="agreement">
+                            <strong>
                               By proceeding, you agree to our{" "}
-                              <a href="!#">Terms</a> and that you have read our{" "}
-                              <a href="!#">Privacy Policy</a>.
+                              <Link to="/terms">Terms</Link> and that you have
+                              read our <Link to="/privacy">Privacy Policy</Link>
+                              .
                             </strong>
                           </span>
                         </div>

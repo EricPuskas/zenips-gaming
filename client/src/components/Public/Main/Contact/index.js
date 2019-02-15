@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { loadReCaptcha, ReCaptcha } from "react-recaptcha-google";
 // Actions
 import {
@@ -238,8 +238,9 @@ class Contact extends PureComponent {
                           <span>
                             <strong>
                               By proceeding, you agree to our{" "}
-                              <a href="!#">Terms</a> and that you have read our{" "}
-                              <a href="!#">Privacy Policy</a>.
+                              <Link to="/terms">Terms</Link> and that you have
+                              read our <Link to="/privacy">Privacy Policy</Link>
+                              .
                             </strong>
                           </span>
                         </div>

@@ -250,6 +250,7 @@ class ArticlesSearch extends Component {
                   container={container}
                   scrollStepInPx="50"
                   delayInMs="5"
+                  customScroll={true}
                 />
               </div>
             </div>
