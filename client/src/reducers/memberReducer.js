@@ -23,7 +23,9 @@ import {
   GET_USER_INIT_ARTICLES,
   UPDATE_PAGE_UART,
   GET_MORE_USER_ARTICLES,
-  USER_ARTICLES_LOADING
+  USER_ARTICLES_LOADING,
+  SUBSCRIBE,
+  CLEAR_SUBSCRIBE_MSG
 } from "../actions/types";
 
 const initialState = {
@@ -63,11 +65,22 @@ const initialState = {
   loading: false,
   init_loading: false,
   delete_loading: false,
-  update_loading: false
+  update_loading: false,
+  subscribe_msg: ""
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case SUBSCRIBE:
+      return {
+        ...state,
+        subscribe_msg: action.payload
+      };
+    case CLEAR_SUBSCRIBE_MSG:
+      return {
+        ...state,
+        subscribe_msg: ""
+      };
     case GET_USER_INIT_POSTS:
       return {
         ...state,

@@ -31,9 +31,28 @@ import {
   GET_MORE_USER_ARTICLES,
   USER_ARTICLES_LOADING,
   UPDATE_PAGE_UART,
-  GET_USER_INIT_ARTICLES
+  GET_USER_INIT_ARTICLES,
+  SUBSCRIBE,
+  CLEAR_SUBSCRIBE_MSG
 } from "./types";
 const load_time = 500;
+
+export const addSubscriber = data => dispatch => {
+  axios
+    .post("/api/newsletter", data)
+    .then(res =>
+      dispatch({
+        type: SUBSCRIBE,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
 
 // Get Initial Posts
 export const getUserInitPosts = (username, per, page) => dispatch => {
@@ -537,6 +556,12 @@ export const pageUpdateUArticles = page => {
   return {
     type: UPDATE_PAGE_UART,
     payload: page
+  };
+};
+
+export const clearSubscribeMsg = () => {
+  return {
+    type: CLEAR_SUBSCRIBE_MSG
   };
 };
 

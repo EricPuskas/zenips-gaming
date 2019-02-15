@@ -9,7 +9,9 @@ import {
   MOVE_MESSAGE_SUCCESS,
   DELETE_MESSAGE,
   DELETE_MESSAGE_LOADING,
-  IS_READ_CHANGE
+  IS_READ_CHANGE,
+  CREATE_MESSAGE,
+  MESSAGE_SENT
 } from "../actions/types";
 const initialState = {
   messages: [],
@@ -23,11 +25,22 @@ const initialState = {
   loading: false,
   init_loading: false,
   delete_loading: false,
-  update_loading: false
+  update_loading: false,
+  message_sent: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case MESSAGE_SENT:
+      return {
+        ...state,
+        message_sent: true
+      };
+    case CREATE_MESSAGE:
+      return {
+        ...state,
+        message_sent: false
+      };
     case GET_INIT_MESSAGES:
       return {
         ...state,

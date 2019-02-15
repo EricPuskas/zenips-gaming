@@ -10,8 +10,8 @@ module.exports = function validateMessageInput(data) {
   data.subject = !isEmpty(data.subject) ? data.subject : "";
   data.content = !isEmpty(data.content) ? data.content : "";
 
-  if (!Validator.isLength(data.name, { min: 5, max: 25 })) {
-    errors.name = "Name must be between 5 and 25 characters";
+  if (!Validator.isLength(data.name, { min: 2, max: 50 })) {
+    errors.name = "Name must be between 2 and 50 characters";
   }
 
   if (Validator.isEmpty(data.name)) {

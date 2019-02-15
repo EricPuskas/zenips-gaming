@@ -70,9 +70,9 @@ class SideNav extends React.PureComponent {
               <a href="/">Patreon</a>
             </li>
             <li>
-              <button className="side-d-newsletter">
+              <Link to="/subscribe" className="side-d-newsletter">
                 <i className="fas fa-envelope" /> <span>Subscribe</span>
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

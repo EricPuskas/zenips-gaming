@@ -130,10 +130,19 @@ class Contact extends PureComponent {
       token: this.state.token
     };
     this.props.createMessage(data);
+    this.setState({
+      name: "",
+      email: "",
+      content: "",
+      subject: "",
+      token: ""
+    });
+    this.captchaDemo.reset();
   };
 
   render() {
     const { error } = this.state.errors;
+    const { message_sent } = this.props.messages;
     let contentClass = classNames({
       "content-container": true,
       expand: this.state.expandContent
@@ -155,6 +164,12 @@ class Contact extends PureComponent {
                   <span style={{ fontSize: "1.1rem", fontWeight: "700" }}>
                     zenips.official@gmail.com
                   </span>
+                  {message_sent && (
+                    <div className="successMsg fadeInEnd">
+                      We've got your message! We'll get back to you as soon as
+                      possible.
+                    </div>
+                  )}
                   <div className="contact-us-box">
                     <div className="row">
                       <div className="col-12 col-lg-5 col-xl-5 center-div reset-padding">
@@ -242,8 +257,9 @@ class Contact extends PureComponent {
                           />
                           <button
                             className="btn btn-orange-c"
-                            // disabled={this.state.token.length === 0}
+                            disabled={this.state.token.length === 0}
                             type="submit"
+                            onClick={e => this.submitForm(e)}
                           >
                             Send
                           </button>

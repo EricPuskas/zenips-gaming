@@ -14,6 +14,7 @@ import About from "../../Public/Main/About/About";
 import Privacy from "../../Public/Main/Privacy/Privacy";
 import Cookies from "../../Public/Main/Cookies/Cookies";
 import Terms from "../../Public/Main/Terms/Terms";
+import Newsletter from "../../Public/Main/Newsletter";
 
 // Modals
 import ModalContainer from "../../Common/Modals/ModalContainer";
@@ -61,6 +62,7 @@ class PublicLayout extends React.Component {
           <Route exact path="/privacy" component={Privacy} />
           <Route exact path="/cookies" component={Cookies} />
           <Route exact path="/terms" component={Terms} />
+          <Route exact path="/subscribe" component={Newsletter} />
           <Route exact path="/articles/results" component={ArticlesSearch} />
           <Route exact path="/articles/:id" component={Article} />
           <Route component={NotFound} />

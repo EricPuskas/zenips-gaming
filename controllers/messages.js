@@ -16,7 +16,6 @@ exports.sendMessage = async (req, res) => {
     let remoteip = req.connection.remoteAddress;
     const secretKey = process.env.GOOGLE_RECAPTCHA_SECRET_KEY;
     const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${token}&remoteip=${remoteip}`;
-    console.log(verificationURL);
 
     var options = {
       method: "POST",
@@ -46,8 +45,10 @@ exports.sendMessage = async (req, res) => {
           }
         });
 
-        let message = data.save();
-        res.json(message);
+        data.save();
+        return res.json(
+          "We've got your message! We'll get back to you as soon as possible."
+        );
       })
       .catch(function(err) {
         console.log(err);

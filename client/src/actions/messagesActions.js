@@ -14,7 +14,8 @@ import {
   DELETE_MESSAGE,
   DELETE_MESSAGE_LOADING,
   IS_READ_CHANGE,
-  CREATE_MESSAGE
+  CREATE_MESSAGE,
+  MESSAGE_SENT
 } from "./types";
 
 // Get Initial Posts
@@ -39,14 +40,15 @@ export const getInitMessages = (per, page, search) => dispatch => {
 
 // Get Initial Posts
 export const createMessage = data => dispatch => {
-  dispatch(MessagesLoading());
   axios
     .post("/api/messages/new", data)
-    .then(res =>
-      dispatch({
-        type: CREATE_MESSAGE,
-        payload: res.data
-      })
+    .then(() => dispatch(messageSent()))
+    .then(() =>
+      setTimeout(() => {
+        dispatch({
+          type: CREATE_MESSAGE
+        });
+      }, 4000)
     )
     .catch(err =>
       dispatch({
@@ -186,6 +188,12 @@ export const pageUpdateMsg = page => {
 export const InitMessagesLoading = () => {
   return {
     type: INIT_MESSAGES_LOADING
+  };
+};
+
+export const messageSent = () => {
+  return {
+    type: MESSAGE_SENT
   };
 };
 

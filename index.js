@@ -21,6 +21,7 @@ const about = require("./routes/about");
 const privacy = require("./routes/privacy");
 const terms = require("./routes/terms");
 const cookies = require("./routes/cookies");
+const newsletter = require("./routes/newsletter");
 
 const time = 60 * 1000 * 60 * 24 * 30; // 30 days
 const app = express();
@@ -52,6 +53,7 @@ app.use("/api/about", about);
 app.use("/api/privacy", privacy);
 app.use("/api/terms", terms);
 app.use("/api/cookies", cookies);
+app.use("/api/newsletter", newsletter);
 
 // Serve static assets if in production
 if (NODE_ENV === "production") {

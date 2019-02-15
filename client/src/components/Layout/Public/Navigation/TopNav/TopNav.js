@@ -30,7 +30,6 @@ class TopNav extends React.Component {
   }
   render() {
     const { toggleNav, showSearch, toggleSearch } = this.props;
-
     let toolbarClass = classNames({
       toolbar: true,
       "toolbar-hide": this.state.hideTopNav
@@ -88,9 +87,9 @@ class TopNav extends React.Component {
           <div className="toolbar-nav-items">
             <ul>
               <li className="subscribe-newsletter">
-                <button className="subscribe-newsletter-btn">
+                <Link to="/subscribe" className="subscribe-newsletter-btn">
                   <i className="fas fa-envelope" /> <span>Subscribe</span>
-                </button>
+                </Link>
               </li>
               <li className="toolbar-search" onClick={() => toggleSearch()}>
                 <button aria-label="Search Button" className={searchBtnClass}>
@@ -114,4 +113,5 @@ class TopNav extends React.Component {
     );
   }
 }
+
 export default TopNav;

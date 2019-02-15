@@ -1,15 +1,11 @@
-.contact-us-container h1 {
+.newsletter-container h1 {
   background: transparent;
   border-bottom: none;
   text-align: center;
   color: #222;
 }
 
-.contact-us-container label {
-  text-align: start;
-  display: block;
-}
-.contact-us-box {
+.newsletter-box {
   max-width: 100%;
   height: auto;
   border: 1px solid #cecece;
@@ -17,22 +13,33 @@
   margin-top: 1rem;
 }
 
-.message-form-box {
-  padding: 2rem 1rem;
+.newsletter-form-box {
+  padding: 0;
 }
 
-.img-responsive.message-logo {
-  max-width: 90%;
+.newsletter-form-box p {
+  color: #222;
+  font-size: 1.3rem;
+  text-align: center;
 }
-
-.contact-form-bottom {
+.newsletter-form-bottom {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0 1rem 0;
+  margin: 1em 0 1rem 0;
 }
+
+.agreement {
+  display: block;
+  margin-top: 1rem;
+}
+.recaptcha-center {
+  display: flex;
+  justify-content: center;
+}
+
 .btn.btn-orange-c {
-  padding: 0.5rem 2rem;
+  padding: 0.6rem 2rem;
   text-align: center;
   background: none;
   background-color: #ff8941;
@@ -43,6 +50,8 @@
   text-shadow: none;
   border: 1px solid #1f272b;
   transition: all 0.2s;
+  margin-top: -15px;
+  border-radius: 3%;
 }
 
 .btn.btn-orange-c:active,
@@ -52,20 +61,11 @@
   color: #ff8941;
   border: 1px solid #ff8941;
 }
-label {
-  color: #222;
-  font-weight: 700;
-}
-
-.errorMsg {
-  color: red;
-  font-weight: 700;
-}
 
 .form-control {
   display: block;
   width: 100%;
-  height: calc(1.5em + 1.75rem + 2px);
+  height: calc(3rem);
   padding: 0.375rem 0.75rem;
   font-size: 1.1rem;
   font-weight: 400;
@@ -74,35 +74,34 @@ label {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: 3%;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.message-sent {
-  background-color: green;
-  color: #fff;
-  padding: 1rem;
-  margin: 0.5rem;
-}
 @media (max-width: 769px) {
-  .img-responsive.message-logo {
-    max-width: 66%;
-  }
-
-  .contact-form-bottom {
+  .newsletter-form-bottom {
     flex-direction: column;
     margin: 2rem 0 2rem 0;
   }
-  .contact-us-box {
+  .newsletter-box {
     border: none;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin-top: 0rem;
   }
   .btn.btn-orange-c {
     margin: 1rem 0 6rem;
   }
+  .newsletter-form-box p {
+    color: #222;
+    font-size: 1.1rem;
+    text-align: start;
+  }
 }
 
 @media (max-width: 1280px) {
-  .contact-form-bottom {
+  .newsletter-form-bottom {
     flex-direction: column;
     margin: 2rem 0 2rem 0;
   }
