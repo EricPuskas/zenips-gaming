@@ -18,7 +18,6 @@ function checkToken(token, remoteip) {
         reject(err);
       } else {
         if (body.success !== undefined && !body.success) {
-          console.log("FROM NEWSLETTER: ", body);
           resolve("Failed captcha verification");
         } else {
           resolve("OK");
@@ -34,9 +33,9 @@ exports.addSubscriber = async (req, res) => {
     let remoteip = req.connection.remoteAddress;
     var options_mailchimp = {
       method: "POST",
-      url: "https://us20.api.mailchimp.com/3.0/lists/4799e3f2d1/members",
+      url: process.env.MAILCHIMP_URL,
       headers: {
-        Authorization: "apikey " + "072fb6a2692d5e1853bf16b6eab48b69-us20",
+        Authorization: "apikey " + process.env.MAILCHIMP_API_KEY,
         "Cache-Control": "no-cache",
         "Content-Type": "application/json"
       },
@@ -46,7 +45,8 @@ exports.addSubscriber = async (req, res) => {
       },
       json: {
         email_address: req.body.email,
-        user: "ericpuskas:072fb6a2692d5e1853bf16b6eab48b69-us20",
+        user:
+          process.env.MAILCHIMP_USERNAME + ":" + process.env.MAILCHIMP_API_KEY,
         status: "subscribed"
       }
     };
