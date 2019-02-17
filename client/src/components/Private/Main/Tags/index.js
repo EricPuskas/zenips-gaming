@@ -26,7 +26,7 @@ class Tags extends Component {
   componentDidMount() {
     this.props.clearErrors();
     window.addEventListener("keydown", this.listenKeyboard, false);
-    document.title = "Tags - Dashboard";
+    document.title = "Tags | Dashboard";
     this.props.getTags();
   }
 
