@@ -12,8 +12,8 @@ router.post(
   createTag
 );
 
-// @route   GET api/articles
-// @desc    GET ALL ARTICLES
+// @route   GET api/tags
+// @desc    GET TAGS
 // @access  Public
 router.get("/", getTags);
 

@@ -4,7 +4,6 @@ const isEmpty = require("./isEmpty");
 module.exports = function validateProfileInput(data) {
   let errors = {};
 
-  // Use Custom isEmpty function
   data.firstName = !isEmpty(data.firstName) ? data.firstName : "";
   data.lastName = !isEmpty(data.lastName) ? data.lastName : "";
   data.email = !isEmpty(data.email) ? data.email : "";

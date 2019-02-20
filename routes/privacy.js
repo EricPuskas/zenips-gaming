@@ -13,12 +13,12 @@ const {
 router.post("/", passport.authenticate("jwt", { session: false }), newPrivacy);
 
 // @route   GET api/privacy
-// @desc    GET ABOUT INFO
+// @desc    GET PRIVACY POLICY
 // @access  Public
 router.get("/", getPrivacyPolicy);
 
 // @route   DELETE api/privacy
-// @desc    Delete selected tags
+// @desc    Delete PRIVACY
 // @access  Private
 router.delete(
   "/",

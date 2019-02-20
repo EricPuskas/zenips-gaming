@@ -4,7 +4,6 @@ const isEmpty = require("./isEmpty");
 module.exports = function validateVideosInput(data) {
   let errors = {};
 
-  // Use Custom isEmpty function
   data.title = !isEmpty(data.title) ? data.title : "";
   data.url = !isEmpty(data.url) ? data.url : "";
 

@@ -4,17 +4,17 @@ const router = express.Router();
 const { getTerms, deleteTerms, newTerms } = require("../controllers/terms");
 
 // @route   POST api/terms
-// @desc    CREATE A NEW ABOUT PAGE
+// @desc    CREATE OR UPDATE TERMS
 // @access  Private
 router.post("/", passport.authenticate("jwt", { session: false }), newTerms);
 
 // @route   GET api/terms
-// @desc    GET ABOUT INFO
+// @desc    GET TERMS
 // @access  Public
 router.get("/", getTerms);
 
 // @route   DELETE api/terms
-// @desc    Delete selected tags
+// @desc    Delete TERMS
 // @access  Private
 router.delete(
   "/",

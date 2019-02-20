@@ -15,6 +15,7 @@ import Privacy from "../../Public/Main/Privacy/Privacy";
 import Cookies from "../../Public/Main/Cookies/Cookies";
 import Terms from "../../Public/Main/Terms/Terms";
 import Newsletter from "../../Public/Main/Newsletter";
+import { loadReCaptcha } from "react-recaptcha-google";
 
 // Modals
 import ModalContainer from "../../Common/Modals/ModalContainer";
@@ -29,6 +30,11 @@ class PublicLayout extends React.Component {
       showSearch: false
     };
   }
+
+  componentDidMount() {
+    loadReCaptcha();
+  }
+
   toggleNav = () => {
     this.setState(prevState => {
       return {

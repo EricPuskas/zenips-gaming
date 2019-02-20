@@ -45,6 +45,7 @@ exports.getTags = async (req, res) => {
 exports.deleteTags = async (req, res) => {
   try {
     let tags = req.body.tags;
+    console.log(tags);
     tags
       .forEach(async function(id) {
         await db.Tag.deleteOne({ _id: ObjectId(id) });

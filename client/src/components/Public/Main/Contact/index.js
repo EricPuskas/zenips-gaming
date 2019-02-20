@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withRouter, Link } from "react-router-dom";
-import { loadReCaptcha, ReCaptcha } from "react-recaptcha-google";
+import { ReCaptcha } from "react-recaptcha-google";
 // Actions
 import {
   createMessage,
@@ -40,8 +40,7 @@ class Contact extends PureComponent {
     };
   }
   componentDidMount() {
-    document.title = "Zenips Gaming | News";
-    loadReCaptcha();
+    document.title = "Zenips Gaming | Contact Us";
     if (this.captchaDemo) {
       this.captchaDemo.reset();
     }

@@ -160,7 +160,7 @@ class Article extends PureComponent {
           >
             <div id="offset">
               <div className="row article-m-container">
-                <div className="col-12 col-lg-2 col-xl-2">
+                <div className="col-12 col-lg-2 col-xl-2 hideOnMobile">
                   <button
                     className="btn btn-back"
                     onClick={() => this.props.history.goBack()}
@@ -174,11 +174,11 @@ class Article extends PureComponent {
                   />
                 </div>
 
-                <div className="col-12 col-lg-8 col-xl-8">
+                <div className="col-12 col-lg-8 col-xl-8 reset-padding">
                   {main}
                   {disqus_thread}
                 </div>
-                <div className="col-12 col-lg-2 col-xl-2" />
+                <div className="col-12 col-lg-2 col-xl-2 hideOnMobile" />
               </div>
               <div id="target">
                 <ScrollToTop

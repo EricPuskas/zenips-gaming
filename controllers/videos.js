@@ -12,20 +12,24 @@ exports.addVideo = async (req, res) => {
       // Return any errors with 400 status
       return res.status(400).json(errors);
     }
+
     let videoExists = await db.Video.find({
       title: req.body.title,
       url: req.body.url
     });
+
     if (videoExists.length > 0) {
       errors.title = "Video already exists.";
       return res.status(400).json(errors);
     }
+
     const data = new db.Video({
       title: req.body.title,
       url: req.body.url
     });
+
     let video = await data.save();
-    res.json(video);
+    return res.status(200).json(video);
   } catch (err) {
     console.log(err);
     return res.status(404).json(err);
@@ -39,9 +43,10 @@ exports.getVideos = async (req, res) => {
       errors.error_message = "No videos were found.";
       return res.status(404).json(errors);
     }
-    res.json(videos);
+    return res.status(200).json(videos);
   } catch (err) {
-    res.json(err);
+    console.log(err);
+    return res.status(404).json(err);
   }
 };
 
@@ -50,13 +55,14 @@ exports.getLatestVideo = async (req, res) => {
     let video = await db.Video.find({})
       .sort({ createdAt: -1 })
       .limit(1);
-    if (!video) {
+    if (video.length < 1) {
       errors.error_message = "No video found.";
       return res.status(404).json(errors);
     }
-    res.json(video);
+    return res.status(200).json(video);
   } catch (err) {
-    res.json(err);
+    console.log(err);
+    return res.status(400).json(err);
   }
 };
 

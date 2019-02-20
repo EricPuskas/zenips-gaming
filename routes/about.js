@@ -4,17 +4,17 @@ const router = express.Router();
 const { getAbout, deleteAbout, newAbout } = require("../controllers/about");
 
 // @route   POST api/about
-// @desc    CREATE A NEW ABOUT PAGE
+// @desc    CREATE OR UPDATE ABOUT PAGE
 // @access  Private
 router.post("/", passport.authenticate("jwt", { session: false }), newAbout);
 
 // @route   GET api/about
-// @desc    GET ABOUT INFO
+// @desc    GET ABOUT
 // @access  Public
 router.get("/", getAbout);
 
-// @route   DELETE api/tags
-// @desc    Delete selected tags
+// @route   DELETE api/about
+// @desc    Delete ABOUT
 // @access  Private
 router.delete(
   "/",

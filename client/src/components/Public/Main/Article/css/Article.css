@@ -315,9 +315,15 @@ blockquote {
   }
 }
 
+@media (max-width: 414px) {
+  .hideOnMobile {
+    display: none;
+  }
+}
 @media (max-width: 812px) {
   .article-content-div p {
     padding: 1rem 0.5rem;
+    font-size: 1.2rem;
   }
   .social-media-share-box {
     width: 100%;

@@ -4,7 +4,6 @@ const isEmpty = require("./isEmpty");
 module.exports = function validatePostInput(data) {
   let errors = {};
 
-  // Use Custom isEmpty function
   data.title = !isEmpty(data.title) ? data.title : "";
   data.content = !isEmpty(data.content) ? data.content : "";
 

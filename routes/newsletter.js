@@ -3,7 +3,7 @@ const router = express.Router();
 const { addSubscriber } = require("../controllers/newsletter");
 
 // @route   POST api/newsletter
-// @desc    CREATE A NEW TAG
+// @desc    SEND EMAIL TO MAILCHIMP.
 // @access  Private
 router.post("/", addSubscriber);
 

@@ -4,7 +4,6 @@ const isEmpty = require("./isEmpty");
 module.exports = function validateTagsInput(data) {
   let errors = {};
 
-  // Use Custom isEmpty function
   data.name = !isEmpty(data.name) ? data.name : "";
 
   if (!Validator.isLength(data.name, { min: 2, max: 30 })) {

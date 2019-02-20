@@ -32,6 +32,9 @@ class Videos extends Component {
     this.props.getVideos();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.listenKeyboard, false);
+  }
   listenKeyboard = event => {
     event.stopPropagation();
     if (event.which === 13 || event.keyCode === 13) {
@@ -75,7 +78,7 @@ class Videos extends Component {
       videos: this.state.selected
     };
     this.props.clearErrors();
-    setTimeout(() => this.setState({ selected: [] }), 600);
+    this.setState({ selected: [] });
     this.props.deleteVideos(data);
   };
 

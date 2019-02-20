@@ -4,7 +4,6 @@ const isEmpty = require("./isEmpty");
 module.exports = function validateMessageInput(data) {
   let errors = {};
 
-  // Use Custom isEmpty function
   data.name = !isEmpty(data.name) ? data.name : "";
   data.email = !isEmpty(data.email) ? data.email : "";
   data.subject = !isEmpty(data.subject) ? data.subject : "";

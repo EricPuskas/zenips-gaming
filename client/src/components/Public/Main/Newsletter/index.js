@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import { loadReCaptcha, ReCaptcha } from "react-recaptcha-google";
+import { ReCaptcha } from "react-recaptcha-google";
 // Actions
 import {
   clearErrors,
@@ -38,7 +38,6 @@ class Newsletter extends PureComponent {
   }
   componentDidMount() {
     document.title = "Zenips Gaming | Subscribe";
-    loadReCaptcha();
     if (this.captchaDemo) {
       this.captchaDemo.reset();
     }

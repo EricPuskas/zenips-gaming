@@ -59,20 +59,6 @@ exports.sendMessage = async (req, res) => {
   }
 };
 
-exports.getMessage = async (req, res) => {
-  try {
-    const errors = {};
-    let message = await db.Message.findById(req.params.id);
-    if (!message) {
-      errors.message = "No message was found.";
-      return res.status(404).json(errors);
-    }
-    res.json(message);
-  } catch (err) {
-    res.json(err);
-  }
-};
-
 exports.getMessages = async (req, res) => {
   try {
     let perPage = parseInt(req.query.per, 10);

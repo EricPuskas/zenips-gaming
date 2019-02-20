@@ -8,17 +8,17 @@ const {
 } = require("../controllers/cookies");
 
 // @route   POST api/cookies
-// @desc    CREATE A NEW ABOUT PAGE
+// @desc    CREATE OR UPDATE COOKIES
 // @access  Private
 router.post("/", passport.authenticate("jwt", { session: false }), newCookies);
 
 // @route   GET api/cookies
-// @desc    GET ABOUT INFO
+// @desc    GET COOKIES
 // @access  Public
 router.get("/", getCookies);
 
 // @route   DELETE api/cookies
-// @desc    Delete selected tags
+// @desc    Delete COOKIES
 // @access  Private
 router.delete(
   "/",

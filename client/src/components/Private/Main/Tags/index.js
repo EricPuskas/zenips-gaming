@@ -30,6 +30,10 @@ class Tags extends Component {
     this.props.getTags();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.listenKeyboard, false);
+  }
+
   listenKeyboard = event => {
     event.stopPropagation();
     if (event.which === 13 || event.keyCode === 13) {
@@ -73,7 +77,7 @@ class Tags extends Component {
       tags: this.state.selected
     };
     this.props.clearErrors();
-    setTimeout(() => this.setState({ selected: [] }), 600);
+    this.setState({ selected: [] });
     this.props.deleteTags(data);
   };
 

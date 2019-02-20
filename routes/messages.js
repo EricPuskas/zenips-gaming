@@ -3,7 +3,6 @@ const passport = require("passport");
 const router = express.Router();
 const {
   sendMessage,
-  getMessage,
   getMessages,
   deleteMessage,
   deleteMessages,
@@ -20,15 +19,6 @@ router.post("/new", sendMessage);
 // @desc    GET ALL MESSAGES
 // @access  Private
 router.get("/", passport.authenticate("jwt", { session: false }), getMessages);
-
-// @route   GET api/messages
-// @desc    GET ONE MESSAGE, by ID.
-// @access  Private
-router.get(
-  "/:id",
-  passport.authenticate("jwt", { session: false }),
-  getMessage
-);
 
 // @route   DELETE api/messages/:id
 // @desc    Delete message with ID
