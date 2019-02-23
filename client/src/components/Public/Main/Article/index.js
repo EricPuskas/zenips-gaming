@@ -160,7 +160,7 @@ class Article extends PureComponent {
           >
             <div id="offset">
               <div className="row article-m-container">
-                <div className="col-12 col-lg-2 col-xl-2 hideOnMobile">
+                <div className="col-12 col-lg-2 col-xl-2">
                   <button
                     className="btn btn-back"
                     onClick={() => this.props.history.goBack()}
