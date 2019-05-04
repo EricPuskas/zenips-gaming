@@ -180,13 +180,17 @@ exports.sendResetPassword = function(req, res) {
         });
       },
       function(token, user, done) {
-        var smtpTransport = nodemailer.createTransport({
+        let smtpTransport = nodemailer.createTransport({
+          host: "smtp.gmail.com",
           service: "gmail",
+          port: 465,
+          secure: true, // true for 465, false for other ports
           auth: {
             user: process.env.GMAIL_USER,
             pass: process.env.GMAIL_PW
           }
         });
+
         var mailOptions = {
           to: user.email,
           from: process.env.GMAIL_USER,
