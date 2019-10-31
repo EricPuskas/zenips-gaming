@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "braces": "^2.3.2",
     "classnames": "^2.2.6",
     "html-react-parser": "^0.6.1",
@@ -21,7 +21,7 @@
     "react-recaptcha-google": "^1.1.1",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.5",
+    "react-scripts": "^3.2.0",
     "react-share": "^2.4.0",
     "react-slidedown": "^2.0.7",
     "react-tilt": "^0.1.4",
