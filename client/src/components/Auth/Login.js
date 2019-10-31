@@ -91,11 +91,11 @@ class Login extends Component {
                 error={error.password || error.error_message}
               />
 
-              <div className="auth-forgot">
+              {/* <div className="auth-forgot">
                 <Link to="/auth/forgot-pass">
                   <small>Forgot your password?</small>
                 </Link>
-              </div>
+              </div> */}
 
               <div className="login-btn-group" style={{ paddingTop: "25px" }}>
                 <button type="submit" className="btn btn-primary">
