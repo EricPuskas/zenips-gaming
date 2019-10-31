@@ -206,9 +206,7 @@ exports.sendResetPassword = function(req, res) {
         smtpTransport.sendMail(mailOptions, function(err) {
           done(err, "done");
           return res.json(
-            `An e-mail has been sent to ${
-              user.email
-            } with further instructions.`
+            `An e-mail has been sent to ${user.email} with further instructions.`
           );
         });
       }
@@ -252,63 +250,64 @@ exports.sendForgotPassword = function(req, res) {
   if (!isValid) {
     // Return any errors with 400 status
     return res.status(400).json(errors);
-  }
-  async.waterfall(
-    [
-      function(done) {
-        crypto.randomBytes(20, function(err, buf) {
-          var token = buf.toString("hex");
-          done(err, token);
-        });
-      },
-      function(token, done) {
-        db.User.findOne({ email: req.body.email }, function(err, user) {
-          if (!user) {
-            errors.email = "No account with that email address exists.";
-            return res.status(404).json(errors);
-          }
-
-          user.resetPasswordToken = token;
-          user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
-          user.save(function(err) {
-            done(err, token, user);
+  } else {
+    async.waterfall(
+      [
+        function(done) {
+          crypto.randomBytes(20, function(err, buf) {
+            var token = buf.toString("hex");
+            done(err, token);
           });
-        });
-      },
-      function(token, user, done) {
-        var smtpTransport = nodemailer.createTransport({
-          service: "gmail",
-          auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PW
-          }
-        });
-        var mailOptions = {
-          to: user.email,
-          from: process.env.GMAIL_USER,
-          subject: "Password Reset",
-          text:
-            "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
-            "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
-            "https://zenipsgaming.herokuapp.com/auth/reset/" +
-            token +
-            "\n\n" +
-            "If you did not request this, please ignore this email and your password will remain unchanged.\n"
-        };
-        smtpTransport.sendMail(mailOptions, function(err) {
-          done(err, "done");
-          return res.json(
-            `An e-mail has been sent to ${
-              user.email
-            } with further instructions.`
-          );
-        });
+        },
+        function(token, done) {
+          db.User.findOne({ email: req.body.email }, function(err, user) {
+            if (!user) {
+              errors.email = "No account with that email address exists.";
+              return res.status(404).json(errors);
+            }
+
+            user.resetPasswordToken = token;
+            user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+            user.save(function(err) {
+              done(err, token, user);
+            });
+          });
+        },
+        function(token, user, done) {
+          var smtpTransport = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+              user: process.env.GMAIL_USER,
+              pass: process.env.GMAIL_PW
+            }
+          });
+          var mailOptions = {
+            to: user.email,
+            from: process.env.GMAIL_USER,
+            subject: "Password Reset",
+            text:
+              "You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n" +
+              "Please click on the following link, or paste this into your browser to complete the process:\n\n" +
+              "https://zenipsgaming.herokuapp.com/auth/reset/" +
+              token +
+              "\n\n" +
+              "If you did not request this, please ignore this email and your password will remain unchanged.\n"
+          };
+          smtpTransport.sendMail(mailOptions, function(err) {
+            done(err, "done");
+            if (!err) {
+              return res.json(
+                `An e-mail has been sent to ${user.email} with further instructions.`
+              );
+            }
+          });
+        }
+      ],
+      function(err) {
+        if (err) return res.status(400).json({ err });
       }
-    ],
-    function(err) {
-      if (err) return res.status(400).json({ err });
-    }
-  );
+    );
+  }
 };
 
 exports.updateUserPassword = async (req, res) => {
